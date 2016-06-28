@@ -19,13 +19,15 @@
 # # sudo enter-chroot
 # $ sudo apt-get install -y curl
 # $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install -y libssl-dev build-essential git software-properties-common
-sudo add-apt-repository -y ppa:fkrull/deadsnakes 
-sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable 
-sudo add-apt-repository -y ppa:deluge-team/ppa
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install -y postgresql postgresql-contrib deluge deluge-webui python2.7 golang
+sudo apt-get update && 
+sudo apt-get upgrade -y &&
+sudo apt-get install -y libssl-dev build-essential git software-properties-common &&
+sudo add-apt-repository -y ppa:fkrull/deadsnakes  &&
+sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable && 
+sudo add-apt-repository -y ppa:deluge-team/ppa &&
+sudo apt-get update && 
+sudo apt-get upgrade -y &&
+sudo apt-get install -y postgresql postgresql-contrib deluge deluge-webui python2.7 golang  &&
 mkdir -p ~/gopath && echo “export GOPATH=~/gopath” >> ~/.bash_profile
 
 # Install Deluge (torrent)
