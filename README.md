@@ -13,9 +13,15 @@
 ## Setting up my crouton 
 1) Download crouton to ~/Downloads
 2) Open a terminal ctrl+alt+t
+
     $ 'shell
+    
     $ sudo sh ~/Downloads/crouton -r trusty -t core
+    
 3) Once it’s finished setting up
+
     $ sudo enter-chroot
+    
     $ sudo apt-get install -y curl
+    
     $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
