@@ -74,8 +74,12 @@
   # Install PGWeb
   go get github.com/sosedoff/pgweb
   # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=81
-  
-  # SSH key
+
+  # Dropbox
+  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  # start: ~/.dropbox-dist/dropboxd
+
+  # SSH key has to go last so we can access the private key more easily
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
   touch ~/.ssh/authorized_keys
