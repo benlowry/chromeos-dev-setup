@@ -75,7 +75,7 @@ Restart=on-failure
 WantedBy=multi-user.target' > /etc/systemd/system/deluge-web.service
 
 sudo service deluged start
-sudo service deluge-web start (doesn’t seem to work)
+# sudo service deluge-web start 
 # start: /usr/bin/deluge-web
 
 # Install NodeJS
