@@ -5,7 +5,6 @@
   # 2) install dropbox 
   # 3) dns server for friendly names on all the other stuff
   # 4) music player of some sort
-  # 5) ssh key generation and outputting the public key after everything
   # 7) heroku toolbelt
   
   # Setting up my chroot
