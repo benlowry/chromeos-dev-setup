@@ -9,12 +9,11 @@
 
 # Once it’s finished setting up
 sudo enter-chroot
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install libssl-dev build-essential git curl wget software-properties-common postgresql postgresql-contrib deluge deluge-webui
+sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:fkrull/deadsnakes (python)
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable (golang)
-sudo apt-get update
-sudo apt-get install python2.7 golang
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install -y libssl-dev build-essential git curl wget software-properties-common postgresql postgresql-contrib deluge deluge-webui python2.7 golang
 mkdir -p ~/gopath && echo “export GOPATH=~/gopath” >> ~/.bash_profile
 
 # Install Deluge (torrent)
@@ -23,7 +22,7 @@ sudo touch /var/log/deluged.log
 sudo touch /var/log/deluge-web.log
 sudo chown deluge:deluge /var/log/deluge*
 
-cat '[Unit]
+echo '[Unit]
 Description=Deluge Bittorrent Client Daemon
 After=network-online.target
 
@@ -43,7 +42,7 @@ TimeoutStopSec=300
 [Install]
 WantedBy=multi-user.target' > /etc/systemd/system/deluged.service
 
-cat '[Unit]
+echo '[Unit]
 Description=Deluge Bittorrent Client Web Interface
 After=network-online.target
 
@@ -76,4 +75,4 @@ cd ~/c9
 
 # Install PGWeb
 go get github.com/sosedoff/pgweb
-start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=81
+# start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=81
