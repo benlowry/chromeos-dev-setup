@@ -53,6 +53,9 @@
   ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f id_rsa -N ''
   chmod 600 ~/.ssh/id_rsa
   echo '-------------- setup complete --------------'
+  echo 'running dropbox daemon now to create url for linking this device'
+  ~/.dropbox-dist/dropboxd
+  
   echo 'next line is your new public key for github etc'
   cat ~/.ssh/id_rsa.pub
 }
