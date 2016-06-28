@@ -80,7 +80,7 @@ sudo service deluged start
 
 # Install NodeJS
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-~/.nvm/nvm.sh install v6.2.2 (eg)
+~/.nvm/nvm.sh install v6.2.2
 
 # Install C9 IDE
 git clone git://github.com/c9/core ~/c9
