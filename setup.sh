@@ -8,7 +8,7 @@
 # $ sudo sh ~/Downloads/crouton -r trusty -t core
 
 # Once it’s finished setting up
-sudo enter-chroot
+# sudo enter-chroot
 sudo apt-get install -y software-properties-common
 sudo add-apt-repository ppa:fkrull/deadsnakes (python)
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable (golang)
