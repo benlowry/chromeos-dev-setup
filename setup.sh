@@ -34,10 +34,11 @@
   cd ~/c9/scripts
   ./install-sdk.sh
   cd ~/
+  # start: node server.js -w ~/projectfolder --listen 0.0.0.0 --port=81
   
   # Install PGWeb
   go get github.com/sosedoff/pgweb
-  # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=81
+  # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
 
   # Dropbox
   cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
