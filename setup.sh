@@ -24,7 +24,8 @@
   sudo apt-get update 
   sudo apt-get upgrade -y
   sudo apt-get install -y postgresql postgresql-contrib deluge deluge-webui python2.7 golang
-  mkdir -p ~/gopath && echo "export GOPATH=~/gopath" >> ~/.bash_profile
+  mkdir -p ~/gopath
+  echo "export GOPATH=~/gopath" >> ~/.bash_profile
   source ~/.bash_profile
   
   # Install Deluge (torrent)
@@ -83,7 +84,9 @@
   
   # Install C9 IDE
   git clone git://github.com/c9/core ~/c9
-  cd ~/c9/scripts && ./install-sdk.sh && cd ~/
+  cd ~/c9/scripts
+  ./install-sdk.sh
+  cd ~/
   
   # Install PGWeb
   go get github.com/sosedoff/pgweb
@@ -92,8 +95,10 @@
   # SSH key
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
-  touch ~/.ssh/authorized_keys && chmod 644 ~/.ssh/authorized_keys
-  chown $USER:$USER ~/.ssh/authorized_keys && chown $USER:$USER ~/.ssh
+  touch ~/.ssh/authorized_keys
+  chmod 644 ~/.ssh/authorized_keys
+  chown $USER:$USER ~/.ssh/authorized_keys
+  chown $USER:$USER ~/.ssh
   ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f id_rsa -N ''
   chmod 600 ~/.ssh/id_rsa
   echo '-------------- setup complete --------------'
