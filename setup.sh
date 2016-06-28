@@ -85,8 +85,7 @@ npm install -g pm2 jsbeautify
 
 # Install C9 IDE
 git clone git://github.com/c9/core ~/c9
-cd ~/c9
-./scripts/install-sdk.sh
+cd ~/c9/scripts && ./install-sdk.sh && cd ~/
 
 # Install PGWeb
 go get github.com/sosedoff/pgweb
