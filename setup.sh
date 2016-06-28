@@ -24,7 +24,7 @@ sudo apt-get install -y software-properties-common # add-apt-repository
 sudo add-apt-repository -y ppa:fkrull/deadsnakes # python 
 sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable # golang
 sudo add-apt-repository -y ppa:deluge-team/ppa # deluge torrent server
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y libssl-dev build-essential git wget software-properties-common postgresql postgresql-contrib deluge deluge-webui python2.7 golang
 mkdir -p ~/gopath && echo “export GOPATH=~/gopath” >> ~/.bash_profile
 
