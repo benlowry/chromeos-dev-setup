@@ -7,14 +7,16 @@
 # $ 'shell
 # $ sudo sh ~/Downloads/crouton -r trusty -t core
 # Once it’s finished setting up
-# sudo enter-chroot
-# curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
+# # sudo enter-chroot
+# $ sudo apt-get install -y curl
+# $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
+
 sudo apt-get install -y software-properties-common # add-apt-repository
 sudo add-apt-repository ppa:fkrull/deadsnakes # python 
 sudo add-apt-repository ppa:ubuntu-lxc/lxd-stable # golang
 sudo add-apt-repository ppa:deluge-team/ppa # deluge torrent server
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install -y libssl-dev build-essential git curl wget software-properties-common postgresql postgresql-contrib deluge deluge-webui python2.7 golang
+sudo apt-get install -y libssl-dev build-essential git wget software-properties-common postgresql postgresql-contrib deluge deluge-webui python2.7 golang
 mkdir -p ~/gopath && echo “export GOPATH=~/gopath” >> ~/.bash_profile
 
 # Install Deluge (torrent)
