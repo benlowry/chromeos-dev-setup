@@ -1,22 +1,5 @@
 #!/bin/bash
 {
-  # TODO:
-  # 1) automate startup of postgresql, c9, pgweb, deluge 
-  # 2) install dropbox 
-  # 3) dns server for friendly names on all the other stuff
-  # 4) music player of some sort
-  # 7) heroku toolbelt
-  
-  # Setting up my chroot
-  # Open a chrome terminal (ctrl+alt+t)
-  # Download crouton to ~/Downloads
-  # Open a terminal ctrl+alt+t
-  # $ 'shell
-  # $ sudo sh ~/Downloads/crouton -r trusty -t core
-  # Once it’s finished setting up
-  # # sudo enter-chroot
-  # $ sudo apt-get install -y curl
-  # $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
   sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
   sudo add-apt-repository -y ppa:fkrull/deadsnakes
   sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable 
