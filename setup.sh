@@ -17,44 +17,8 @@
   sudo touch /var/log/deluge-web.log
   sudo chown deluge:deluge /var/log/deluge*
   
-  echo '[Unit]
-  Description=Deluge Bittorrent Client Daemon
-  After=network-online.target
-  
-  [Service]
-  Type=simple
-  User=deluge
-  Group=deluge
-  UMask=000
-  
-  ExecStart=/usr/bin/deluged -d
-  
-  Restart=on-failure
-  
-  # Configures the time to wait before service is stopped forcefully.
-  TimeoutStopSec=300
-  
-  [Install]
-  WantedBy=multi-user.target' > /etc/systemd/system/deluged.service
-  
-  echo '[Unit]
-  Description=Deluge Bittorrent Client Web Interface
-  After=network-online.target
-  
-  [Service]
-  Type=simple
-  
-  User=deluge
-  Group=deluge
-  UMask=027
-  
-  ExecStart=/usr/bin/deluge-web
-  
-  Restart=on-failure
-  
-  [Install]
-  WantedBy=multi-user.target' > /etc/systemd/system/deluge-web.service
-  
+  curl -o /etc/systemd/system/deluged.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged.service
+  curl -o /etc/systemd/system/deluged-web.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged-web.service
   sudo service deluged start
   # sudo service deluge-web start 
   # start: /usr/bin/deluge-web
