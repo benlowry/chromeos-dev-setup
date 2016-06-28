@@ -24,3 +24,11 @@
     $ sudo apt-get install -y curl
     
     $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
+    
+# What's installed
+- NodeJS with nvm: https://github.com/creationix/nvm
+- Golang
+- Python
+- Cloud9 IDE: https://github.com/c9/core
+- Postgresql + pgweb: https://github.com/sosedoff/pgweb
+- Deluge torrent server+client
