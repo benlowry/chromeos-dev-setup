@@ -11,14 +11,13 @@
 7) heroku toolbelt
 
 ## Setting up my crouton 
-1) Download crouton to ~/Downloads
-2) Open a terminal ctrl+alt+t
+1) Download crouton to ~/Downloads and open a terminal ctrl+alt+t
 
-    $ 'shell
+    $ shell
     
     $ sudo sh ~/Downloads/crouton -r trusty -t core
     
-3) Once it’s finished setting up
+2) Once it’s finished setting up
 
     $ sudo enter-chroot
     
