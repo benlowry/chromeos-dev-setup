@@ -23,7 +23,7 @@
     
     $ sudo apt-get install -y curl
     
-    $ curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
+    $ EMAIL=you@youremail.com curl -o- https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh | bash
     
 # What's installed
 - NodeJS with nvm: https://github.com/creationix/nvm
@@ -32,3 +32,4 @@
 - Cloud9 IDE: https://github.com/c9/core
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Deluge torrent server+client
+- New SSH key generated with your email
