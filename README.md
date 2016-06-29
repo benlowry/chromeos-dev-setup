@@ -1,13 +1,12 @@
 # Chrome OS for web dev
     
-## What's installed
-- NodeJS with nvm: https://github.com/creationix/nvm
-- Golang
-- Python
+## What can be installed"
+- Golang, Python, NodeJS via nvm: https://github.com/creationix/nvm
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
-- Cloud9 IDE: https://github.com/c9/core
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
+- Cloud9 IDE: https://github.com/c9/core
 - Deluge torrent server+client
+- Dropbox
 - New SSH key generated with your email
 
 ## Running the setup
@@ -41,7 +40,7 @@ will install everything.
     - dropbox
     - deluge
     - pgweb
-    - gitwebui
+    - git-webui
     - c9
     
 ## TODO:
