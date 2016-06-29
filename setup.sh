@@ -213,7 +213,7 @@
   if [ $PLEX = "true" ]; then
     echo '----------------------------------------'
     echo 'Plex can be started by:'
-    echo '$ /usr/sbin/start_pms 
+    echo '$ /usr/sbin/start_pms'
     echo 'Open in your browser at http://127.0.0.1:32400/web'
   fi
 }
