@@ -1,5 +1,8 @@
 #!/bin/bash
 {
+  echo "Please enter your email address for signing git commits"
+  read EMAIL
+
   sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
   sudo add-apt-repository -y ppa:fkrull/deadsnakes #python
   sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable  # golang
