@@ -23,7 +23,7 @@
   fi
   
   # Golang
-  if [ ! -z $golang ]; then
+  if [ ! -z $golang ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
     sudo apt-get install -y golang
     mkdir -p ~/gopath
@@ -32,7 +32,7 @@
   fi
     
   # NodeJS
-  if [ ! -z $nodejs ]; then
+  if [ ! -z $nodejs ] || [ -z $@ ]; then
     git clone https://github.com/creationix/nvm.git ~/.nvm
     cd ~/.nvm
     git checkout `git describe --abbrev=0 --tags`
@@ -44,14 +44,14 @@
   fi
     
   # PostgreSQL
-  if [ ! -z $postgres ] || [ ! -z $postgresql ]; then
+  if [ ! -z $postgres ] || [ ! -z $postgresql ] || [ -z $@ ]; then
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
     wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
     sudo apt-get install -y postgresql postgresql-contrib
   fi
   
   # Install Deluge (torrent)
-  if [ ! -z $deluge ]; then
+  if [ ! -z $deluge ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:deluge-team/ppa
     sudo apt-get install -y deluge deluge-webui
     sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
@@ -66,7 +66,7 @@
   fi
   
   # Install C9 IDE
-  if [ ! -z $c9 ]; then
+  if [ ! -z $c9 ] || [ -z $@ ]; then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
@@ -75,13 +75,13 @@
   fi
   
   # Install PGWeb
-  if [ ! -z $pgweb ]; then
+  if [ ! -z $pgweb ] || [ -z $@ ]; then
     go get github.com/sosedoff/pgweb
     # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
   fi
 
   # Dropbox
-  if [ ! -z $dropbox ]; then
+  if [ ! -z $dropbox ] || [ -z $@ ]; then
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     # start: ~/.dropbox-dist/dropboxd
   fi
