@@ -98,7 +98,7 @@
   fi
   
   # Install Deluge (torrent), disabled on c9.io
-   if [ ! $C9IO = "true" ] && [[[ $@ == *"deluge"* ]] || [ -z $@ ]]; then
+   if [ ! $C9IO = "true" ] && ([[ $@ == *"deluge"* ]] || [ -z $@ ]); then
     sudo add-apt-repository -y ppa:deluge-team/ppa
     sudo apt-get install -y deluge deluge-webui
     sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
@@ -114,7 +114,7 @@
   fi
   
   # Install C9 IDE, preinstalled on c9.io obviously 
-   if [ ! $C9IO = "true" ] && [[[ $@ == *"c9"* ]] || [ -z $@ ]]; then
+   if [ ! $C9IO = "true" ] && ([[ $@ == *"c9"* ]] || [ -z $@ ]); then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
@@ -138,7 +138,7 @@
   fi
   
   # Plex (TODO: replace this with something open source and not by assholes)
-  if [ ! $C9IO = "true" ] && [[[ $@ == *"plex"* ]] || [ -z $@ ]]; then
+  if [ ! $C9IO = "true" ] && ([[ $@ == *"plex"* ]] || [ -z $@ ]); then
     git clone https://github.com/mrworf/plexupdate
     cd plexupdate
     sudo bash plexupdate.sh -p
