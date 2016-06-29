@@ -15,12 +15,10 @@
   
   # Python
   sudo add-apt-repository -y ppa:fkrull/deadsnakes
-  sudo apt-get update
   sudo apt-get install -y python2.7
   
   # Golang
   sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
-  sodp apt-get update
   mkdir -p ~/gopath
   echo "export GOPATH=~/gopath" >> ~/.bash_profile
   source ~/.bash_profile
@@ -38,12 +36,10 @@
   # PostgreSQL
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
   wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-  sudo apt-get update 
   sudo apt-get install -y postgresql postgresql-contrib
   
   # Install Deluge (torrent)
   sudo add-apt-repository -y ppa:deluge-team/ppa
-  sudo apt-get update
   sudo apt-get install -y deluge deluge-webui
   sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
   sudo touch /var/log/deluged.log
