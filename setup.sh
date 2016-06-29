@@ -26,9 +26,14 @@
   source ~/.bash_profile
   
   # NodeJS
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-  source ~/.bashrc
-  ~/.nvm/nvm.sh install node
+  git clone https://github.com/creationix/nvm.git ~/.nvm
+  cd ~/.nvm
+  git checkout `git describe --abbrev=0 --tags`
+  . ~/.nvm/nvm.sh
+  echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
+  echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
+  source ~/.bash_profile
+  nvm install node
   
   # PostgreSQL
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
