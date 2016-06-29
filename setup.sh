@@ -7,6 +7,7 @@
   C9=false
   PGWEB=false
   DROPBOX=false
+  PLEX=false
   
   if [ -z $C9_PORT ]; then
     C9_PORT=8080
@@ -135,7 +136,20 @@
     DROPBOX=true
     # start: ~/.dropbox-dist/dropboxd
   fi
-
+  
+  # Plex (TODO: replace this with something open source and not by assholes)
+  if [ ! $C9IO = "true" ] && [[ $@ == *"plex"* ]] || [ -z $@ ]; then
+    git clone https://github.com/mrworf/plexupdate
+    cd plexupdate
+    sudo bash plexupdate.sh -p
+    dpkg-deb -x `ls -b plexmediaserver*.deb` ~/plextmp
+    sudo cp -r ~/plextmp/usr/lib/plexmediaserver /usr/lib/
+    sudo cp ~/plextmp/usr/sbin/start_pms /usr/sbin
+    rm -rf ~/plextmp
+    PLEX=true
+    # start: /usr/sbin/start_pms
+  fi
+  
   # SSH key
   if [ ! -f ~/.ssh/id_rsa ]; then
     mkdir -p ~/.ssh
@@ -194,5 +208,12 @@
     echo '----------------------------------------'
     echo 'Dropbox setup can be completed by:'
     echo '$ ~/.dropbox-dist/dropboxd'
+  fi
+  
+  if [ $PLEX = "true" ]; then
+    echo '----------------------------------------'
+    echo 'Plex can be started by:'
+    echo '$ /usr/sbin/start_pms 
+    echo 'Open in your browser at http://127.0.0.1:32400/web'
   fi
 }
