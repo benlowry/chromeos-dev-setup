@@ -138,7 +138,7 @@
   fi
   
   # Plex (TODO: replace this with something open source and not by assholes)
-  if [ ! $C9IO = "true" ] && [[ $@ == *"plex"* ]] || [ -z $@ ]; then
+  if [ ! $C9IO = "true" ] && [[[ $@ == *"plex"* ]] || [ -z $@ ]]; then
     git clone https://github.com/mrworf/plexupdate
     cd plexupdate
     sudo bash plexupdate.sh -p
