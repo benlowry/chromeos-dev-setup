@@ -20,9 +20,6 @@
     git config --global user.email "$EMAIL"
   fi
   
-  # install options
-  if [ -z ${$gitwebui+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
-  
   # Git-WebUI
   if [ ! -z ${gitwebui+x} ] || [ -z $@ ]; then
     git clone https://github.com/alberthier/git-webui.git
