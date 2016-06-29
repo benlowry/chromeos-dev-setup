@@ -75,4 +75,4 @@ Note: this does not get installed on c9.io
 
     $ /usr/sbin/start_pms 
     
-Note:  they are quitey cunty about hiding skip registration buttons, but you don't actually need them to monitor your library and usage to run software on your computer, just search for the skip link.
+Note:  Plex are the kind of company whose ethics permit them to go quite far to hide skip registration buttons but you don't actually need these untrustworthy people to monitor your library and usage.  You will have to search for the 'skip registration' button during setup if you want to run the software offline, and opt out of the analytics etc if you adblocking and privacy extensions are not already securing your browser.
