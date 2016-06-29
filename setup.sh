@@ -20,6 +20,13 @@
     git config --global user.email "$EMAIL"
   fi
   
+  # Git-WebUI
+  if [ ! -z $gitwebui ] || [ -z $@ ]; then
+    git clone https://github.com/alberthier/git-webui.git
+    git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
+  fi
+
+  
   # Python
   if [ ! -z $python ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
