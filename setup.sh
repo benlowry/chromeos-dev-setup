@@ -1,11 +1,13 @@
 #!/bin/bash
 {
   sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
-  sudo add-apt-repository -y ppa:fkrull/deadsnakes
-  sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable 
-  sudo add-apt-repository -y ppa:deluge-team/ppa
+  sudo add-apt-repository -y ppa:fkrull/deadsnakes #python
+  sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable  # golang
+  sudo add-apt-repository -y ppa:deluge-team/ppa # deluge torrent client
+  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+  wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
   sudo apt-get update 
-  sudo apt-get upgrade -y
+  sudo apt-get upgrade
   sudo apt-get install -y postgresql postgresql-contrib deluge deluge-webui python2.7 golang
   mkdir -p ~/gopath
   echo "export GOPATH=~/gopath" >> ~/.bash_profile
