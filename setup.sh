@@ -98,14 +98,17 @@
   fi
 
   # SSH key
-  mkdir -p ~/.ssh
-  chmod 700 ~/.ssh
-  touch ~/.ssh/authorized_keys
-  chmod 644 ~/.ssh/authorized_keys
-  chown $USER:$USER ~/.ssh/authorized_keys
-  chown $USER:$USER ~/.ssh
-  ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ''
-  chmod 600 ~/.ssh/id_rsa
+  if [ ! -f ~/.ssh/id_rsa ]; then
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+    touch ~/.ssh/authorized_keys
+    chmod 644 ~/.ssh/authorized_keys
+    chown $USER:$USER ~/.ssh/authorized_keys
+    chown $USER:$USER ~/.ssh
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ''
+    chmod 600 ~/.ssh/id_rsa*
+  fi
+  
   echo '-------------- setup complete --------------'
   echo 'next line is your new public key for github etc'
   cat ~/.ssh/id_rsa.pub
