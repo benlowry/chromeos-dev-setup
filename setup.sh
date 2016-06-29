@@ -47,7 +47,7 @@
   sudo chown deluge:deluge /var/log/deluge*
   
   curl -o /etc/systemd/system/deluged.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged.service
-  curl -o /etc/systemd/system/deluged-web.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged-web.service
+  curl -o /etc/systemd/system/deluge-web.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluge-web.service
   sudo service deluged start
   # sudo service deluge-web start 
   # start: /usr/bin/deluge-web
