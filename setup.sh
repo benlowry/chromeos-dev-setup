@@ -3,21 +3,44 @@
   if [ -z $EMAIL ]; then
     read -p "Enter your email for git commits: " EMAIL
   fi
-
+  
+  if [ -z $NAME ]; then
+    read -p "Enter your name for git commits: " NAME
+  fi
+  
+  sudo apt-get update && sudo apt-get upgrade
   sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
-  sudo add-apt-repository -y ppa:fkrull/deadsnakes #python
-  sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable  # golang
-  sudo add-apt-repository -y ppa:deluge-team/ppa # deluge torrent client
-  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-  wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-  sudo apt-get update 
-  sudo apt-get upgrade
-  sudo apt-get install -y postgresql postgresql-contrib deluge deluge-webui python2.7 golang
+  git config --global user.name "$NAME"
+  git config --global user.email "$EMAIL"
+  
+  # Python
+  sudo add-apt-repository -y ppa:fkrull/deadsnakes
+  sudo apt-get update
+  sudo apt-get install -y python2.7
+  
+  # Golang
+  sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
+  sodp apt-get update
   mkdir -p ~/gopath
   echo "export GOPATH=~/gopath" >> ~/.bash_profile
   source ~/.bash_profile
   
+  # NodeJS
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+  source ~/.bashrc
+  nvm install v6.2.2
+  npm install -g pm2 jsbeautify dotenv
+  
+  # PostgreSQL
+  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+  wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+  sudo apt-get update 
+  sudo apt-get install -y postgresql postgresql-contrib
+  
   # Install Deluge (torrent)
+  sudo add-apt-repository -y ppa:deluge-team/ppa
+  sudo apt-get update
+  sudo apt-get install -y deluge deluge-webui
   sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
   sudo touch /var/log/deluged.log
   sudo touch /var/log/deluge-web.log
@@ -28,12 +51,6 @@
   sudo service deluged start
   # sudo service deluge-web start 
   # start: /usr/bin/deluge-web
-  
-  # Install NodeJS
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
-  source ~/.bashrc
-  nvm install v6.2.2
-  npm install -g pm2 jsbeautify dotenv
   
   # Install C9 IDE
   git clone git://github.com/c9/core ~/c9
@@ -50,7 +67,7 @@
   cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
   # start: ~/.dropbox-dist/dropboxd
 
-  # SSH key has to go last so we can access the private key more easily
+  # SSH key
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
   touch ~/.ssh/authorized_keys
