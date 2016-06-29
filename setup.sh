@@ -51,7 +51,7 @@
   chmod 644 ~/.ssh/authorized_keys
   chown $USER:$USER ~/.ssh/authorized_keys
   chown $USER:$USER ~/.ssh
-  ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f id_rsa -N ''
+  ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ''
   chmod 600 ~/.ssh/id_rsa
   echo '-------------- setup complete --------------'
   echo 'next line is your new public key for github etc'
