@@ -29,7 +29,6 @@
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
   source ~/.bashrc
   ~/.nvm/nvm.sh install v6.2.2
-  npm install -g pm2 jsbeautify dotenv
   
   # PostgreSQL
   sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
