@@ -22,7 +22,9 @@
     
     $ sudo apt-get install -y curl
     
-    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh | bash setup.sh
+    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
+    
+    $ bash setup.sh
     
 ## TODO:
 1) automate startup of postgresql, c9, pgweb, deluge 
