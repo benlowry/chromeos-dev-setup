@@ -49,18 +49,18 @@ will install everything.
     
 ## Starting servers
 
-### Cloud9 http://127.0.0.1:81 a browser based IDE 
-    cd ~/c9
-    sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8081
+### git-webui http://127.0.0.1:8081 a browser UI for git
+    cd my_project && git webui -p 8081 
 
-### pgweb http://127.0.0.1:82 a browser based RDBMS for Postgresql on 
+### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql on 
     sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
     
-### deluge http://127.0.0.1:83 a torrent server with web interface on
-    sudo /usr/bin/deluge-web --no-ssl -p 8083
-    
-### git-webui http://127.0.0.1:84 a browser UI for git
-    cd my_project && git webui -p 8084 
+### Cloud9 http://127.0.0.1:8083 a browser based IDE 
+    cd ~/c9
+    sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8083
+
+### deluge http://127.0.0.1:8084 a torrent server with web interface on
+    sudo /usr/bin/deluge-web --no-ssl -p 8084
     
 ### Dropbox, first run it will generate a URL to link your computer
     ~/.dropbox-dist/dropboxd
