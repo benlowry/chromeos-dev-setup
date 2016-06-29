@@ -55,7 +55,7 @@ will install everything.
 ### deluge http://127.0.0.1:83 a torrent server with web interface on
     sudo /usr/bin/deluge-web -p 83 --no-ssl
     
-### git-webui http://127.0.0.1:84 a browser ui for git
+### git-webui http://127.0.0.1:84 a browser UI for git
     cd my_project && git webui 
     
 ### Dropbox, first run it will generate a URL to link your computer
