@@ -14,7 +14,7 @@
   git config --global user.email "$EMAIL"
   
   # Python
-  if [ ! -z $python ]; then
+  if [ ! -z $python ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
     sudo apt-get install -y python2.7
   fi
