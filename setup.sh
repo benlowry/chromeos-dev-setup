@@ -1,6 +1,12 @@
 #!/bin/bash
 {
-  # Git and general dependencies
+  # General dependencies
+  if [ -z `command -v add-apt-repository` ]; then 
+    sudo apt-get update && sudo apt-get upgrade
+    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client
+  fi
+  
+  # Git 
   if [ -z `command -v git` ]; then
     if [ -z $EMAIL ]; then
       read -p "Enter your email for git commits: " EMAIL
@@ -9,9 +15,7 @@
     if [ -z $NAME ]; then
       read -p "Enter your name for git commits: " NAME
     fi
-    
-    sudo apt-get update && sudo apt-get upgrade
-    sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
+    sudo apt-get install -y git
     git config --global user.name "$NAME"
     git config --global user.email "$EMAIL"
   fi
