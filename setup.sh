@@ -66,6 +66,9 @@
     echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
     source ~/.bash_profile
     nvm install node
+    if [ $C9IO = "true" ]; then
+        nvm alias default node
+    fi 
   fi
     
   # PostgreSQL, preinstalled on c9.io
