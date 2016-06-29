@@ -1,6 +1,8 @@
 #!/bin/bash
 {
-  read -p "Enter your email for git commits: " EMAIL
+  if [ -z $EMAIL ]; then
+    read -p "Enter your email for git commits: " EMAIL
+  fi
 
   sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
   sudo add-apt-repository -y ppa:fkrull/deadsnakes #python
@@ -16,7 +18,7 @@
   source ~/.bash_profile
   
   # Install Deluge (torrent)
-  sudo adduser —disabled-password —system —home /var/lib/deluge —geeks "Deluge service" —group deluge
+  sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
   sudo touch /var/log/deluged.log
   sudo touch /var/log/deluge-web.log
   sudo chown deluge:deluge /var/log/deluge*
