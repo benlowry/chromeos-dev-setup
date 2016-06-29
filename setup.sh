@@ -20,21 +20,24 @@
     git config --global user.email "$EMAIL"
   fi
   
+  # install options
+  if [ -z ${$gitwebui+x} ]; then echo "var is unset"; else echo "var is set to '$var'"; fi
+  
   # Git-WebUI
-  if [ ! -z $gitwebui ] || [ -z $@ ]; then
+  if [ ! -z ${gitwebui+x} ] || [ -z $@ ]; then
     git clone https://github.com/alberthier/git-webui.git
     git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
   fi
 
   
   # Python
-  if [ ! -z $python ] || [ -z $@ ]; then
+  if [ ! -z ${python+x} ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
     sudo apt-get install -y python2.7
   fi
   
   # Golang
-  if [ ! -z $golang ] || [ -z $@ ]; then
+  if [ ! -z ${golang+x} ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
     sudo apt-get install -y golang
     mkdir -p ~/gopath
@@ -43,7 +46,7 @@
   fi
     
   # NodeJS
-  if [ ! -z $nodejs ] || [ -z $@ ]; then
+  if [ ! -z ${nodejs+x} ] || [ -z $@ ]; then
     git clone https://github.com/creationix/nvm.git ~/.nvm
     cd ~/.nvm
     git checkout `git describe --abbrev=0 --tags`
@@ -55,14 +58,14 @@
   fi
     
   # PostgreSQL
-  if [ ! -z $postgres ] || [ ! -z $postgresql ] || [ -z $@ ]; then
+  if [ ! -z ${postgres+x} ] || [ ! -z $postgresql ] || [ -z $@ ]; then
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
     wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
     sudo apt-get install -y postgresql postgresql-contrib
   fi
   
   # Install Deluge (torrent)
-  if [ ! -z $deluge ] || [ -z $@ ]; then
+  if [ ! -z ${deluge+x} ] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:deluge-team/ppa
     sudo apt-get install -y deluge deluge-webui
     sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
@@ -77,7 +80,7 @@
   fi
   
   # Install C9 IDE
-  if [ ! -z $c9 ] || [ -z $@ ]; then
+  if [ ! -z ${c9+x} ] || [ -z $@ ]; then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
@@ -86,13 +89,13 @@
   fi
   
   # Install PGWeb
-  if [ ! -z $pgweb ] || [ -z $@ ]; then
+  if [ ! -z ${pgweb+x} ] || [ -z $@ ]; then
     go get github.com/sosedoff/pgweb
     # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
   fi
 
   # Dropbox
-  if [ ! -z $dropbox ] || [ -z $@ ]; then
+  if [ ! -z ${dropbox+x} ] || [ -z $@ ]; then
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     # start: ~/.dropbox-dist/dropboxd
   fi
