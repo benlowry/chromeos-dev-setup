@@ -31,6 +31,8 @@ Pass any combination of these to tailor the installation to your needs.  If you 
 to install anything you do not include will not be installed.  If you don't pass anything it
 will install everything.
 
+    $ bash setup.sh golang postgres pgweb
+
     - golang
     - python
     - nodejs
