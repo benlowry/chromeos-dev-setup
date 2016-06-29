@@ -45,7 +45,6 @@
   sudo touch /var/log/deluged.log
   sudo touch /var/log/deluge-web.log
   sudo chown deluge:deluge /var/log/deluge*
-  
   sudo curl -o /etc/systemd/system/deluged.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged.service
   sudo curl -o /etc/systemd/system/deluge-web.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluge-web.service
   sudo service deluged start
