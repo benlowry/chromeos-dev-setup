@@ -26,6 +26,20 @@
     
     $ bash setup.sh
     
+### Options
+Pass any combination of these to tailor the installation to your needs.  If you specify what
+to install anything you do not include will not be installed.  If you don't pass anything it
+will install everything.
+
+    - golang
+    - python
+    - nodejs
+    - postgres
+    - dropbox
+    - deluge
+    - pgweb
+    - c9
+    
 ## TODO:
 1) automate startup of postgresql, c9, pgweb, deluge 
 
