@@ -3,7 +3,7 @@
   # General dependencies
   if [ -z `command -v add-apt-repository` ]; then 
     sudo apt-get update && sudo apt-get upgrade
-    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client
+    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man
   fi
   
   # Git 
@@ -26,7 +26,6 @@
     git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
   fi
 
-  
   # Python
    if [[ $@ == *"python"* ]] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
@@ -109,7 +108,18 @@
     chmod 600 ~/.ssh/id_rsa*
   fi
   
-  echo '-------------- setup complete --------------'
-  echo 'next line is your new public key for github etc'
-  cat ~/.ssh/id_rsa.pub
+  SSHKEY=`cat ~/.ssh/id_rsa.pub`
+  
+  echo '----------------------------------------'
+  echo 'Setup complete'
+  echo '----------------------------------------'
+  echo 'SSH KEY:'
+  echo $SSHKEY
+  
+  # startup notes and setup completion notes
+  if [[ $@ == *"git-webui"* ]] || [ -z $@ ]; then
+    echo '----------------------------------------'
+    echo 'Git WebUI can be started from your project directory with `git webui`'
+  fi
+  
 }
