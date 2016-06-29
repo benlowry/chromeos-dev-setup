@@ -120,7 +120,8 @@
   # startup notes and setup completion notes
   if [[ $@ == *"git-webui"* ]] || [ -z $@ ]; then
     echo '----------------------------------------'
-    echo 'Git WebUI can be started from your project directory with `git webui --port 84`'
+    echo 'Git WebUI can be started from your project directory with:'
+    echo '$ git webui --port 84 --host 0.0.0.0 --no-browser'
   fi
   
 }
