@@ -1,6 +1,6 @@
 # Chrome OS for web dev
     
-## What can be installed"
+## What is installed
 - Golang, Python, NodeJS via nvm: https://github.com/creationix/nvm
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
