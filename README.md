@@ -48,19 +48,25 @@ will install everything.
     - c9
     
 ## Starting servers
+### Cloud9 http://127.0.0.1:8080 a browser based IDE 
+Note: this is pre-installed on c9.io and port 8080 also maps to port 80.
+
+    $ cd ~/c9
+    $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
 
 ### git-webui http://127.0.0.1:8081 a browser UI for git
-    cd my_project && git webui -p 8081 
+  
+    $ cd my_project && git webui -p 8081 
 
 ### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql on 
-    sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
     
-### Cloud9 http://127.0.0.1:8083 a browser based IDE 
-    cd ~/c9
-    sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8083
+    $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
 
-### deluge http://127.0.0.1:8084 a torrent server with web interface on
-    sudo /usr/bin/deluge-web --no-ssl -p 8084
+### deluge http://127.0.0.1:8083 a torrent server with web interface on
+Note: this does not get installed on c9.io
+
+    $ sudo /usr/bin/deluge-web --no-ssl -p 8083
     
 ### Dropbox, first run it will generate a URL to link your computer
-    ~/.dropbox-dist/dropboxd
+  
+    $ ~/.dropbox-dist/dropboxd
