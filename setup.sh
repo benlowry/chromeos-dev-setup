@@ -63,7 +63,7 @@
   fi
   
   # Install C9 IDE
-  if [ !-z $c9 ]; then
+  if [ ! -z $c9 ]; then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
