@@ -43,13 +43,6 @@ will install everything.
     - git-webui
     - c9
     
-## TODO:
-1) automate startup of postgresql, c9, pgweb, deluge 
-
-3) dns server for friendly names on all the other stuff
-
-4) music player of some sort
-
 ## Starting servers
 
 ### Cloud9 http://127.0.0.1:81 a browser based IDE 
