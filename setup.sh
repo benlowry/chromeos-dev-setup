@@ -71,18 +71,19 @@
     
   # NodeJS
    if [[ $@ == *"nodejs"* ]] || [ -z $@ ]; then
-    git clone https://github.com/creationix/nvm.git ~/.nvm
-    cd ~/.nvm
-    git checkout `git describe --abbrev=0 --tags`
-    . ~/.nvm/nvm.sh
-    echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
-    echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
-    source ~/.bash_profile
-    nvm install node
-    if [ $C9IO = "true" ]; then
-        nvm alias default node
-    fi 
-    
+     if [ $C9IO = "false" ]; then
+      git clone https://github.com/creationix/nvm.git ~/.nvm
+      cd ~/.nvm
+      git checkout `git describe --abbrev=0 --tags`
+      . ~/.nvm/nvm.sh
+      echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
+      echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
+      source ~/.bash_profile
+      nvm install node
+      if [ $C9IO = "true" ]; then
+          nvm alias default node
+      fi 
+    fi
   fi
     
   # PostgreSQL, preinstalled on c9.io
