@@ -58,11 +58,11 @@ Note: this is pre-installed on c9.io and port 8080 also maps to port 80.
   
     $ cd my_project && git webui -p 8081 
 
-### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql on 
+### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql 
     
     $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
 
-### deluge http://127.0.0.1:8083 a torrent server with web interface on
+### deluge http://127.0.0.1:8083 a torrent server with web interface
 Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/deluge-web --no-ssl -p 8083
@@ -70,3 +70,9 @@ Note: this does not get installed on c9.io
 ### Dropbox, first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
+    
+### Plex Media Server http://127.0.0.1:32400/web, first run you will need to add your music library and index it etc
+
+    $ /usr/sbin/start_pms 
+    
+Note:  they are quitey cunty about hiding skip registration buttons, but you don't actually need them to monitor your library and usage to run software on your computer, just search for the skip link.
