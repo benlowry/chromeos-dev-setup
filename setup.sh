@@ -55,15 +55,15 @@
     nvm install node
   fi
     
-  # PostgreSQL
-   if [[ $@ == *"postgres"* ]] || [ -z $@ ]; then
+  # PostgreSQL, preinstalled on c9.io
+   if [[[ $@ == *"postgres"* ]] || [ -z $@ ]] && [ -z $C9_SHARED ]; then
     sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
     wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
     sudo apt-get install -y postgresql postgresql-contrib
   fi
   
-  # Install Deluge (torrent)
-   if [[ $@ == *"deluge"* ]] || [ -z $@ ]; then
+  # Install Deluge (torrent), disabled on c9.io
+   if [ -z $C9_SHARED ] && [[[ $@ == *"deluge"* ]] || [ -z $@ ]]; then
     sudo add-apt-repository -y ppa:deluge-team/ppa
     sudo apt-get install -y deluge deluge-webui
     sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
@@ -77,8 +77,8 @@
     # start: /usr/bin/deluge-web
   fi
   
-  # Install C9 IDE
-   if [[ $@ == *"c9"* ]] || [ -z $@ ]; then
+  # Install C9 IDE, preinstalled on c9.io obviously 
+   if [ -z $C9_SHARED ] && [[[ $@ == *"c9"* ]] || [ -z $@ ]]; then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
@@ -119,7 +119,7 @@
   echo $SSHKEY
   
   # startup notes and setup completion notes
-  if [[ $@ == *"c9"* ]] || [ -z $@ ]; then
+  if [[[ $@ == *"c9"* ]] || [ -z $@ ]] && [ -z $C9_SHARED ]; then
     echo '----------------------------------------'
     echo 'C9 browser IDE can be started with:'
     echo '$ node server.js -w ~/yourproject --listen 0.0.0.0 --port=81'
