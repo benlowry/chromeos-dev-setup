@@ -41,7 +41,7 @@ will install everything.
     - dropbox
     - deluge
     - pgweb
-    - git-webui
+    - gitwebui
     - c9
     
 ## TODO:
