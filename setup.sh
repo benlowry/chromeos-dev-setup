@@ -1,17 +1,20 @@
 #!/bin/bash
 {
-  if [ -z $EMAIL ]; then
-    read -p "Enter your email for git commits: " EMAIL
+  # Git and general dependencies
+  if [ -z `command -v git` ]; then
+    if [ -z $EMAIL ]; then
+      read -p "Enter your email for git commits: " EMAIL
+    fi
+    
+    if [ -z $NAME ]; then
+      read -p "Enter your name for git commits: " NAME
+    fi
+    
+    sudo apt-get update && sudo apt-get upgrade
+    sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
+    git config --global user.name "$NAME"
+    git config --global user.email "$EMAIL"
   fi
-  
-  if [ -z $NAME ]; then
-    read -p "Enter your name for git commits: " NAME
-  fi
-  
-  sudo apt-get update && sudo apt-get upgrade
-  sudo apt-get install -y libssl-dev build-essential git software-properties-common openssh-client
-  git config --global user.name "$NAME"
-  git config --global user.email "$EMAIL"
   
   # Python
   if [ ! -z $python ] || [ -z $@ ]; then
