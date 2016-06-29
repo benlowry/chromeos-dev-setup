@@ -1,6 +1,6 @@
 #!/bin/bash
 {
-  C9IO=false
+  C9IO
   GITWEBUI=false
   POSTGRES=false
   DELUGE=false
@@ -8,7 +8,20 @@
   PGWEB=false
   DROPBOX=false
   
-  if [ -z $C9_SHARED ]; then
+  if [ -z $C9_PORT ]; then
+    C9_PORT=8080
+  fi
+  if [ -z $GITWEBUI_PORT ]; then
+    GITWEBUI_PORT=8081
+  fi
+  if [ -z $PGWEB_PORT ]; then
+    PGWEB_PORT=8082
+  fi
+  if [ -z $DELUGE_PORT ]; then
+    DELUGE_PORT=8083
+  fi
+  
+  if [ ! -z $C9_SHARED ]; then
     C9IO=true
   fi
     
@@ -69,6 +82,7 @@
     if [ $C9IO = "true" ]; then
         nvm alias default node
     fi 
+    
   fi
     
   # PostgreSQL, preinstalled on c9.io
@@ -142,11 +156,11 @@
   echo $SSHKEY
   
   # startup notes and setup completion notes
-  if [ $C9 = "true" ]; then
+  if [ $C9 = "true" ] && [ $C9IO = "false" ]; then
     echo '----------------------------------------'
     echo 'C9 browser IDE can be started with:'
-    echo '$ node server.js -w ~/yourproject --listen 0.0.0.0 --port=81'
-    echo 'Open in your browser at http://127.0.0.1:81/'
+    echo '$ node server.js -w ~/yourproject --listen 0.0.0.0 --port=${C9_PORT}'
+    echo 'Open in your browser at http://127.0.0.1:${C9_PORT}/'
   fi
   
   if [ $POSTGRES = "true" ]; then
@@ -157,22 +171,22 @@
   if [ $PGWEB = "true" ]; then
     echo '----------------------------------------'
     echo 'PGWeb interface for PostgreSQL can be started with:'
-    echo '$ $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82'
-    echo 'Open in your browser at http://127.0.0.1:82/'
+    echo '$ $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=${PGWEB_PORT}'
+    echo 'Open in your browser at http://127.0.0.1:${PGWEB_PORT}/'
   fi
   
   if [ $DELUGE = "true" ]; then
     echo '----------------------------------------'
     echo 'Deluge torrent server and web interface can be started with:'
-    echo '$ sudo user/bin/deluge-web --port 83'
-    echo 'Open in your browser at http://127.0.0.1:83/'
+    echo '$ sudo user/bin/deluge-web --port ${DELUGE_PORT}'
+    echo 'Open in your browser at http://127.0.0.1:${DELUGE_PORT}/'
   fi
    
   if [ $GITWEBUI = "true" ]; then
     echo '----------------------------------------'
     echo 'Git WebUI can be started from your project directory with:'
-    echo '$ git webui --port 84 --host 0.0.0.0 --no-browser'
-    echo 'Open in your browser at http://127.0.0.1:84/'
+    echo '$ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}'
+    echo 'Open in your browser at http://127.0.0.1:${GITWEBUI_PORT}/'
   fi
   
   if [ $DROPBOX = "true" ]; then
