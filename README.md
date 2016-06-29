@@ -35,13 +35,13 @@
 
 ### Cloud9 http://127.0.0.1:81 a browser based IDE 
     cd ~/c9
-    node server.js -w ~/projectfolder --listen 0.0.0.0 --port=81
+    sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=81
 
 ### pgweb http://127.0.0.1:82 a browser based RDBMS for Postgresql on 
-    $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
+    sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=82
     
 ### deluge http://127.0.0.1:83 a torrent server with web interface on
-    /usr/bin/deluge-web -p 83 --no-ssl
+    sudo /usr/bin/deluge-web -p 83 --no-ssl
     
 ### Dropbox, first run it will generate a URL to link your computer
     ~/.dropbox-dist/dropboxd
