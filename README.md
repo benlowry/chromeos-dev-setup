@@ -4,6 +4,7 @@
 - NodeJS with nvm: https://github.com/creationix/nvm
 - Golang
 - Python
+- Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Cloud9 IDE: https://github.com/c9/core
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Deluge torrent server+client
