@@ -1,6 +1,6 @@
 #!/bin/bash
 {
-  C9IO
+  C9IO=false
   GITWEBUI=false
   POSTGRES=false
   DELUGE=false
