@@ -114,13 +114,13 @@
   echo '----------------------------------------'
   echo 'Setup complete'
   echo '----------------------------------------'
-  echo 'SSH KEY:'
+  echo 'SSH KEY starts on the line below:'
   echo $SSHKEY
   
   # startup notes and setup completion notes
   if [[ $@ == *"git-webui"* ]] || [ -z $@ ]; then
     echo '----------------------------------------'
-    echo 'Git WebUI can be started from your project directory with `git webui`'
+    echo 'Git WebUI can be started from your project directory with `git webui --port 84`'
   fi
   
 }
