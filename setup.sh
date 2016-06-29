@@ -88,7 +88,7 @@
   # Install PGWeb
    if [[ $@ == *"pgweb"* ]] || [ -z $@ ]; then
     go get github.com/sosedoff/pgweb
-    # start:  $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
+    # start: $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
   fi
 
   # Dropbox
@@ -118,10 +118,37 @@
   echo $SSHKEY
   
   # startup notes and setup completion notes
+  if [[ $@ == *"c9"* ]] || [ -z $@ ]; then
+    echo '----------------------------------------'
+    echo 'C9 browser IDE can be started with:'
+    echo '$ node server.js -w ~/yourproject --listen 0.0.0.0 --port=81'
+    echo 'Open in your browser at http://127.0.0.1:81/'
+  fi
+  
+  if [[ $@ == *"pgweb"* ]] || [ -z $@ ]; then
+    echo '----------------------------------------'
+    echo 'PGWeb interface for PostgreSQL can be started with:'
+    echo '$ $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82'
+    echo 'Open in your browser at http://127.0.0.1:82/'
+  fi
+  
+  if [[ $@ == *"deluge"* ]] || [ -z $@ ]; then
+    echo '----------------------------------------'
+    echo 'Deluge torrent server and web interface can be started with:'
+    echo '$ sudo user/bin/deluge-web --port 83'
+    echo 'Open in your browser at http://127.0.0.1:83/'
+  fi
+   
   if [[ $@ == *"git-webui"* ]] || [ -z $@ ]; then
     echo '----------------------------------------'
     echo 'Git WebUI can be started from your project directory with:'
     echo '$ git webui --port 84 --host 0.0.0.0 --no-browser'
+    echo 'Open in your browser at http://127.0.0.1:84/'
   fi
   
+  if [[ $@ == *"dropbox"* ]] || [ -z $@ ]; then
+    echo '----------------------------------------'
+    echo 'Dropbox setup can be completed by:'
+    echo '$ ~/.dropbox-dist/dropboxd'
+  fi
 }
