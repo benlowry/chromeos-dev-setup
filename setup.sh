@@ -179,6 +179,7 @@
   fi
   
   if [ $POSTGRES = "true" ]; then
+    echo '----------------------------------------'
     echo 'PostgreSQL can be started with:'
     echo '$ sudo service postgresql start'
   fi
