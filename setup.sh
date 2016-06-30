@@ -101,7 +101,7 @@
    if [ ! $C9IO = "true" ] && ([[ $@ == *"deluge"* ]] || [ -z $@ ]); then
     sudo add-apt-repository -y ppa:deluge-team/ppa
     sudo apt-get install -y deluge deluge-webui
-    sudo adduser --disabled-password --system --home /var/lib/deluge --geeks "Deluge service" --group deluge
+    sudo adduser --disabled-password --system --home /var/lib/deluge --gecos "Deluge service" --group deluge
     sudo touch /var/log/deluged.log
     sudo touch /var/log/deluge-web.log
     sudo chown deluge:deluge /var/log/deluge*
