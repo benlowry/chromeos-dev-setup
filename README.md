@@ -9,8 +9,9 @@ for non-x86 Chrome OS devices or resource-constrained ones.
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Cloud9 IDE: https://github.com/c9/core
-- Deluge torrent server+client
-- Dropbox
+- Deluge torrent server and web client: http://deluge-torrent.org/
+- Plex Media Server: https://plex.tv
+- Dropbox: https://www.dropbox.com/
 - New SSH key generated with your email
 
 ## Running the setup
@@ -45,6 +46,7 @@ will install everything.
     - deluge
     - pgweb
     - git-webui
+    - plex
     - c9
     
 ## Starting servers
