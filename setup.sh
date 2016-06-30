@@ -1,4 +1,5 @@
 #!/bin/bash
+# This script is public domain.  
 {
   C9IO=false
   GITWEBUI=false
