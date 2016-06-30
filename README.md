@@ -3,7 +3,7 @@ This setup script for installing Ubuntu core on Crouton for web dev using an x86
 
 This script is public domain and may be used or modified in any way.
 
-It is intended to be compatible with C9.io so dev environments can be replicated locally on X86 and 
+It is intended to be compatible with C9.io so dev environments can be replicated locally on x86 and 
 remotely on ARM or resource-constrained Chrome OS devices.
     
 ## What can be installed
