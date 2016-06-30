@@ -4,7 +4,11 @@ This repo is a setup script for installing Ubuntu core on Crouton for web dev us
 It is intended to be compatible with C9.io so dev environments can be replicated locally and remotely
 for non-x86 Chrome OS devices or resource-constrained ones.
     
-## What is installed
+## What can be installed
+Any or all of the following software can be installed.  Some require additional steps after installation.
+When installation completes you'll be reminded of those steps, along with how to connect to each server
+and your new SSH key.
+
 - Golang, Python, NodeJS via nvm: https://github.com/creationix/nvm
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
