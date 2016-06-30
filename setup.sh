@@ -101,18 +101,9 @@
   
   # Install Deluge (torrent), disabled on c9.io
    if [ ! $C9IO = "true" ] && ([[ $@ == *"deluge"* ]] || [ -z $@ ]); then
-    sudo add-apt-repository -y ppa:deluge-team/ppa
-    sudo apt-get install -y deluge deluge-webui
-    sudo adduser --disabled-password --system --home /var/lib/deluge --gecos "Deluge service" --group deluge
-    sudo touch /var/log/deluged.log
-    sudo touch /var/log/deluge-web.log
-    sudo chown deluge:deluge /var/log/deluge*
-    sudo curl -o /etc/systemd/system/deluged.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluged.service
-    sudo curl -o /etc/systemd/system/deluge-web.service https://raw.githubusercontent.com/benlowry/chromeos-setup/master/deluge-web.service
-    sudo service deluged start
+    sudo apt-get install -y deluge
     DELUGE=true
-    # sudo service deluge-web start 
-    # start: /usr/bin/deluge-web
+    # start: deluge -u web
   fi
   
   # Install C9 IDE, preinstalled on c9.io obviously 
