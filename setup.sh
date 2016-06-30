@@ -101,7 +101,7 @@
   
   # Install Deluge (torrent), disabled on c9.io
    if [ ! $C9IO = "true" ] && ([[ $@ == *"deluge"* ]] || [ -z $@ ]); then
-    sudo apt-get install -y deluge
+    sudo apt-get install -y deluge deluge-web deluged
     DELUGE=true
     # start: deluge -u web
   fi
