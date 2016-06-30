@@ -187,7 +187,8 @@
   if [ $DELUGE = "true" ]; then
     echo '----------------------------------------'
     echo 'Deluge torrent server and web interface can be started with:'
-    echo '$ sudo user/bin/deluge-web --port ${DELUGE_PORT}'
+    echo '$ deluge-web -p ${DELUGE_PORT}'
+    echo '$ deluge -u web'
     echo 'Open in your browser at http://127.0.0.1:${DELUGE_PORT}/'
   fi
    
