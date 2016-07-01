@@ -54,7 +54,7 @@ will install everything.
     - deluge
     - pgweb
     - git-webui
-    - plex
+    - emby
     - c9
     
 ## After setup finishes
