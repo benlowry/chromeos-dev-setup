@@ -8,7 +8,6 @@ be able to solve very easily.
 
 *This script is public domain and may be used or modified in any way.*
 
-
 ## What can be installed
 Any or all of the following software can be installed.  Some require additional steps after installation.
 When installation completes you'll be reminded of those steps, along with how to connect to each server
@@ -57,6 +56,16 @@ will install everything.
     - git-webui
     - plex
     - c9
+    
+## After setup finishes
+If installed ...
+- Cloud9 will be running with ~/projects as the workspace folder.  
+- postgres will be running but has no databases etc
+- pgweb will be running with local server pre-configured
+- git-webui will not be running, you need to start this within your git reop
+- Dropbox will not be running, you need to run the dropbox setup 
+- Emby will be running but you will need to add your music library
+- Deluge will be running without any torrents downloading
     
 ## Starting servers
 ### Cloud9 http://127.0.0.1:8080 a browser based IDE 
