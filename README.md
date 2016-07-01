@@ -78,11 +78,14 @@ Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/deluge-web --no-ssl -p 8083
     
-### Emby Media Server http://127.0.0.1:8096/, first run you will need to add your music library and index it etc
+### Emby Media Server http://127.0.0.1:8096/
+Note: Port is fixed and can only be changed on the running server web site
+and this does not get installed on c9.io
 
     $ sudo /usr/bin/emby-server start
     
-### Dropbox, first run it will generate a URL to link your computer
+### Dropbox
+First run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
     
