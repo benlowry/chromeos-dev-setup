@@ -107,21 +107,33 @@
     # start: deluge -u web
   fi
   
+  # PM2 process manager
+  npm install -g pm2
+  
   # Install C9 IDE, preinstalled on c9.io obviously 
    if [ ! $C9IO = "true" ] && ([[ $@ == *"c9"* ]] || [ -z $@ ]); then
     git clone git://github.com/c9/core ~/c9
     cd ~/c9/scripts
     ./install-sdk.sh
     cd ~/
+    pm2 start server.js --name c9 --log /dev/null --error /dev/null --output /dev/null -- -w ~/projects --listen 0.0.0.0 --port=8080
+    pm2 save
+    pm2 startup
     C9=true
     # start: node server.js -w ~/projectfolder --listen 0.0.0.0 --port=81
   fi
   
   # Install PGWeb
    if [[ $@ == *"pgweb"* ]] || [ -z $@ ]; then
-    go get github.com/sosedoff/pgweb
+    curl -O -L https://github.com/sosedoff/pgweb/releases/download/v0.9.3/pgweb_linux_amd64.zip
+    unzip pgweb_linux_amd64.zip
+    mv pgweb_linux_amd64 /usr/bin/pgweb
+    rm -rf pgweb_linux_amd64.zip
+    echo pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > ~/pgweb.sh
+    pm2 start pgweb.sh -- # TODO: local connection parameters
+    pm2 save
+    pm2 startup
     PGWEB=true
-    # start: $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=82
   fi
 
   # Dropbox
@@ -178,7 +190,7 @@
   if [ $PGWEB = "true" ]; then
     echo '----------------------------------------'
     echo 'PGWeb interface for PostgreSQL can be started with:'
-    echo '$ $GOPATH/bin/pgweb —bind=0.0.0.0 —listen=${PGWEB_PORT}'
+    echo '$GOPATH/bin/pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT}'
     echo 'Open in your browser at http://127.0.0.1:${PGWEB_PORT}/'
   fi
   
