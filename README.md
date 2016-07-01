@@ -65,7 +65,7 @@ If installed ...
 - git-webui will not be running, you need to start this within your git reop
 - Dropbox will not be running, you need to run the dropbox setup 
 - Emby will be running but you will need to add your music library
-- Deluge will be running without any torrents downloading
+- Deluge can be started manually
     
 ## Starting servers
 ### Cloud9 http://127.0.0.1:8080 a browser based IDE 
@@ -97,5 +97,3 @@ and this does not get installed on c9.io
 First run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
-    
-Note:  Plex are the kind of company whose ethics permit them to go quite far to hide skip registration buttons but you don't actually need these untrustworthy people to monitor your library and usage to run software locally.  You will have to search for the 'skip registration' button during setup and opt out of the analytics etc if you don't have privacy / ad blocking extensions already.
