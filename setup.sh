@@ -112,11 +112,8 @@
     ./install-sdk.sh
     cd ~/
     npm install -g pm2
-    pm2 start server.js --name c9 --log /dev/null --error /dev/null --output /dev/null -- -w ~/projects --listen 0.0.0.0 --port=8080
-    pm2 save
-    pm2 startup
+    echo "pm2 start server.js --name c9 --log /dev/null --error /dev/null --output /dev/null -- -w ~/projects --listen 0.0.0.0 --port=$C9_PORT" >> ~/.bash_profile
     C9=true
-    # start: node server.js -w ~/projectfolder --listen 0.0.0.0 --port=81
   fi
   
   # Install PGWeb
@@ -125,11 +122,8 @@
     unzip pgweb_linux_amd64.zip
     mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > ~/pgweb.sh
     if [ -z `command -v pm2` ]; then
-      pm2 start pgweb.sh -- # TODO: local connection parameters
-      pm2 save
-      pm2 startup
+      echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> ~/.bash_profile
     fi
     PGWEB=true
   fi
