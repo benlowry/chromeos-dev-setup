@@ -111,8 +111,7 @@
     cd ~/c9/scripts
     ./install-sdk.sh
     cd ~/
-    npm install -g pm2
-    echo "pm2 start server.js --name c9 --log /dev/null --error /dev/null --output /dev/null -- -w ~/projects --listen 0.0.0.0 --port=$C9_PORT" >> ~/.bash_profile
+    echo "node c9/server.js -w ~/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null" >> ~/.bash_profile
     C9=true
   fi
   
