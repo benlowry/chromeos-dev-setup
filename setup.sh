@@ -111,7 +111,7 @@
     cd ~/c9/scripts
     ./install-sdk.sh
     cd ~/
-    echo "node c9/server.js -w ~/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null" >> ~/.bash_profile
+    echo "node c9/server.js -w ~/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &" >> ~/.bash_profile
     C9=true
   fi
   
@@ -139,6 +139,7 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
+    echo "sudo /usr/bin/emby-server start &" >> ~/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
@@ -157,57 +158,55 @@
   fi
   
   SSHKEY=`cat ~/.ssh/id_rsa.pub`
+  source ~/.bash_profile
   
-  echo '----------------------------------------'
+  echo '--------------------------------------------'
   echo 'Setup complete'
-  echo '----------------------------------------'
+  echo '--------------------------------------------'
   echo 'SSH KEY starts on the line below:'
   echo $SSHKEY
   
   # startup notes and setup completion notes
   if [ $C9 = "true" ] && [ $C9IO = "false" ]; then
-    echo '----------------------------------------'
-    echo 'C9 browser IDE can be started with:'
-    echo '$ node server.js -w ~/yourproject --listen 0.0.0.0 --port=${C9_PORT}'
-    echo 'Open in your browser at http://127.0.0.1:${C9_PORT}/'
+    echo '--------------------------------------------'
+    echo 'C9 browser IDE can be opened in your browser at:'
+    echo 'http://127.0.0.1:${C9_PORT}/'
   fi
   
   if [ $POSTGRES = "true" ]; then
-    echo '----------------------------------------'
-    echo 'PostgreSQL can be started with:'
-    echo '$ sudo service postgresql start'
+    echo '--------------------------------------------'
+    echo 'PostgreSQL is running on port 5432 and'
+    echo 'waiting for you to create a database.'
   fi
   
   if [ $PGWEB = "true" ]; then
-    echo '----------------------------------------'
-    echo 'PGWeb interface for PostgreSQL can be started with:'
-    echo '$ pgweb --bind 0.0.0.0 --listen=${PGWEB_PORT}'
-    echo 'Open in your browser at http://127.0.0.1:${PGWEB_PORT}/'
+    echo '--------------------------------------------'
+    echo 'PGWeb can be opened in your browser at:'
+    echo 'http://127.0.0.1:${PGWEB_PORT}/'
   fi
   
   if [ $DELUGE = "true" ]; then
-    echo '----------------------------------------'
-    echo 'Deluge torrent server and web interface can be started with:'
-    echo '$ deluge-web -p ${DELUGE_PORT}'
-    echo '$ deluge -u web'
-    echo 'Open in your browser at http://127.0.0.1:${DELUGE_PORT}/'
+    echo '--------------------------------------------'
+    echo 'Deluge can be opened in your browser at:'
+    echo 'http://127.0.0.1:${DELUGE_PORT}/'
   fi
    
   if [ $GITWEBUI = "true" ]; then
-    echo '----------------------------------------'
-    echo 'Git WebUI can be started from your project directory with:'
+    echo '--------------------------------------------'
+    echo 'Git WebUI can be started in a repo:'
     echo '$ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}'
-    echo 'Open in your browser at http://127.0.0.1:${GITWEBUI_PORT}/'
+    echo 'Git WebUI can be opened in your browser at:'
+    echo 'http://127.0.0.1:${GITWEBUI_PORT}/'
   fi
   
   if [ $DROPBOX = "true" ]; then
-    echo '----------------------------------------'
+    echo '--------------------------------------------'
     echo 'Dropbox setup can be completed by:'
     echo '$ ~/.dropbox-dist/dropboxd'
   fi
   
   if [ $EMBY = "true" ]; then
-    echo '----------------------------------------'
+    echo '--------------------------------------------'
     echo 'Emby can be started by:'
     echo '$ sudo /usr/bin/emby-server start'
     echo 'Open in your browser at http://127.0.0.1:8096/'
