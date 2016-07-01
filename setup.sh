@@ -23,6 +23,10 @@
     DELUGE_PORT=8083
   fi
   
+  if [ -z $EMBY_PORT ]; then 
+    EMBY_PORT=8084
+  fi
+  
   if [ ! -z $C9_SHARED ]; then
     C9IO=true
   fi
@@ -131,17 +135,13 @@
     # start: ~/.dropbox-dist/dropboxd
   fi
   
-  # Plex (TODO: replace this with something open source and not by assholes)
-  if [ ! $C9IO = "true" ] && ([[ $@ == *"plex"* ]] || [ -z $@ ]); then
-    git clone https://github.com/mrworf/plexupdate
-    cd plexupdate
-    sudo bash plexupdate.sh -p
-    dpkg-deb -x `ls -b plexmediaserver*.deb` ~/plextmp
-    sudo cp -r ~/plextmp/usr/lib/plexmediaserver /usr/lib/
-    sudo cp ~/plextmp/usr/sbin/start_pms /usr/sbin
-    rm -rf ~/plextmp
-    PLEX=true
-    # start: /usr/sbin/start_pms
+  # Emby
+  if [ ! $C9IO = "true" ]; && ([[ $@ == *"emby"* ]] || [ -z $@ ]); then
+    sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
+    sudo apt-get install -y --force-yes emby-server
+    EMBY=true
+    # TODO: is it weird this requires force-yes and installs a bunch of certificates?
+    # start: sudo /usr/bin/emby-server start
   fi
   
   # SSH key
@@ -206,10 +206,10 @@
     echo '$ ~/.dropbox-dist/dropboxd'
   fi
   
-  if [ $PLEX = "true" ]; then
+  if [ $EMBY = "true" ]; then
     echo '----------------------------------------'
-    echo 'Plex can be started by:'
-    echo '$ /usr/sbin/start_pms'
-    echo 'Open in your browser at http://127.0.0.1:32400/web'
+    echo 'Emby can be started by:'
+    echo '$ sudo /usr/bin/emby-server start'
+    echo 'Open in your browser at http://127.0.0.1:${EMBY_PORT}/'
   fi
 }
