@@ -132,7 +132,7 @@
   fi
   
   # Emby
-  if [ ! $C9IO = "true" ]; && ([[ $@ == *"emby"* ]] || [ -z $@ ]); then
+  if [ ! $C9IO = "true" ] && ([[ $@ == *"emby"* ]] || [ -z $@ ]); then
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get install -y --force-yes emby-server
     EMBY=true
