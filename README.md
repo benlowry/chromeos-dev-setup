@@ -62,7 +62,7 @@ If installed ...
 - Cloud9 will be running with ~/projects as the workspace folder.  
 - postgres will be running but has no databases etc
 - pgweb will be running with local server pre-configured
-- git-webui will not be running, you need to start this within your git reop
+- git-webui will not be running, you need to start this within your git repo
 - Dropbox will not be running, you need to run the dropbox setup 
 - Emby will be running but you will need to add your music library
 - Deluge can be started manually
