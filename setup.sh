@@ -81,11 +81,9 @@
       echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
       echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
       source ~/.bash_profile
-      nvm install node
-      if [ $C9IO = "true" ]; then
-          nvm alias default node
-      fi 
     fi
+    nvm install node
+    nvm alias default node
   fi
     
   # PostgreSQL, preinstalled on c9.io
