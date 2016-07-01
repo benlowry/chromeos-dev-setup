@@ -207,6 +207,6 @@
     echo '----------------------------------------'
     echo 'Emby can be started by:'
     echo '$ sudo /usr/bin/emby-server start'
-    echo 'Open in your browser at http://127.0.0.1:8096}/'
+    echo 'Open in your browser at http://127.0.0.1:8096/'
   fi
 }
