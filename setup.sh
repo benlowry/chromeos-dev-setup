@@ -119,7 +119,7 @@
    if [[ $@ == *"pgweb"* ]] || [ -z $@ ]; then
     curl -O -L https://github.com/sosedoff/pgweb/releases/download/v0.9.3/pgweb_linux_amd64.zip
     unzip pgweb_linux_amd64.zip
-    mv pgweb_linux_amd64 /usr/bin/pgweb
+    sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> ~/.bash_profile
     PGWEB=true
