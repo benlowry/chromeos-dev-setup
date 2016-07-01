@@ -121,9 +121,7 @@
     unzip pgweb_linux_amd64.zip
     mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    if [ -z `command -v pm2` ]; then
-      echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> ~/.bash_profile
-    fi
+    echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> ~/.bash_profile
     PGWEB=true
   fi
 
