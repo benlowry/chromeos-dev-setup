@@ -19,7 +19,7 @@ and your new SSH key.
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Cloud9 IDE: https://github.com/c9/core
 - Deluge torrent server and web client: http://deluge-torrent.org/
-- Plex Media Server: https://plex.tv
+- Emby Media Server: https://emby.media/
 - Dropbox: https://www.dropbox.com/
 - New SSH key generated with your email
 
