@@ -134,6 +134,7 @@
   # Emby
   if [ ! $C9IO = "true" ] && ([[ $@ == *"emby"* ]] || [ -z $@ ]); then
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
+    sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
