@@ -78,12 +78,12 @@ Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/deluge-web --no-ssl -p 8083
     
+### Emby Media Server http://127.0.0.1:8096/, first run you will need to add your music library and index it etc
+
+    $ sudo /usr/bin/emby-server start
+    
 ### Dropbox, first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
-    
-### Plex Media Server http://127.0.0.1:32400/web, first run you will need to add your music library and index it etc
-
-    $ /usr/sbin/start_pms 
     
 Note:  Plex are the kind of company whose ethics permit them to go quite far to hide skip registration buttons but you don't actually need these untrustworthy people to monitor your library and usage to run software locally.  You will have to search for the 'skip registration' button during setup and opt out of the analytics etc if you don't have privacy / ad blocking extensions already.
