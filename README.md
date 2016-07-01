@@ -73,7 +73,7 @@ Note: this is pre-installed on c9.io and port 8080 also maps to port 80.
     
     $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
 
-### deluge http://127.0.0.1:8083 a torrent server with web interface
+### Deluge http://127.0.0.1:8083 a torrent server with web interface
 Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/deluge-web --no-ssl -p 8083
