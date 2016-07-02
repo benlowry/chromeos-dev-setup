@@ -165,6 +165,14 @@
     S3CMD=true
   fi
   
+  # Digital Ocean CLI
+  if [[ $@ == *"doctl" ]] || [ -z $@ ]; then
+    curl -OL https://github.com/digitalocean/doctl/releases/download/v1.0.0/doctl-1.0.0-linux-amd64.tar.gz
+    tar xf doctl-1.0.0-linux-amd64.tar.gz
+    sudo mv ./doctl /usr/local/bin
+    DOCTL=true
+  fi
+  
   # SSH key
   if [ ! -f ~/.ssh/id_rsa ]; then
     mkdir -p ~/.ssh
@@ -247,5 +255,10 @@
   if [ $S3CMD = "true" ]; then
     echo --------------------------------------------
     echo S3CMD is installed
+  fi
+  
+  if [ $DOCTL = "true" ]; then
+    echo --------------------------------------------
+    echo DOCTL is installed
   fi
 }
