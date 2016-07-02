@@ -71,13 +71,13 @@ If installed ...
 - postgres will be running but has no databases etc
 - pgweb will be running with local server pre-configured
 - git-webui will not be running, you need to start this within your git repo
-- Dropbox will not be running, you need to run the dropbox setup 
-- Emby will be running but you will need to add your music library
-- Deluge can be started manually
+- Dropbox requires connecting your account
+- Emby requires adding your music library
+- Deluge is running and the password is `deluge`
     
 ## Starting servers
 ### Cloud9 http://127.0.0.1:8080 a browser based IDE 
-Note: this is pre-installed on c9.io and port 8080 also maps to port 80.
+Note: this is pre-installed on c9.io, where port 8080 also maps to port 80.
 
     $ cd ~/c9
     $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
