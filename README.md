@@ -75,7 +75,7 @@ If installed ...
     
 ## Starting servers
 ### Cloud9 http://127.0.0.1:8080 a browser based IDE 
-Note: this is pre-installed on c9.io, where port 8080 also maps to port 80.
+Note: this does not get installed on c9.io
 
     $ cd ~/c9
     $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
