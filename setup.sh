@@ -19,12 +19,9 @@
   fi
     
   # General dependencies
-  if [ -z `command -v add-apt-repository` ] || [ ! $C9IO = "true" ]; then 
-    sudo apt-get update && sudo apt-get upgrade -y
-    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip
-    # TODO: per-package checks/installs  
-  fi
-  
+  sudo apt-get update && sudo apt-get upgrade -y
+  sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip
+
   # Git 
   if [ -z `command -v git` ]; then
     if [ -z $EMAIL ]; then
@@ -81,7 +78,7 @@
     
   # PostgreSQL, preinstalled on c9.io
    if [[ "$@" == *"postgres"* ]] || [ -z "$@" ]; then
-     if [ ! $C9IO = "true" ]; then
+     if [ ! "$C9IO" = "true" ]; then
         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
         wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
         sudo apt-get update 
@@ -93,14 +90,14 @@
   fi
   
   # Install Deluge (torrent), disabled on c9.io
-   if [ ! $C9IO = "true" ] && ([[ "$@" == *"deluge"* ]] || [ -z "$@" ]); then
+   if [ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ -z "$@" ]); then
     sudo apt-get install -y deluge deluge-web deluged
     DELUGE=true
     # start: deluge -u web
   fi
   
   # Install C9 IDE, preinstalled on c9.io 
-   if [ ! $C9IO = "true" ] && ([[ "$@" == *"c9"* ]] || [ -z "$@" ]); then
+   if [ ! "$C9IO" = "true" ] && ([[ "$@" == *"c9"* ]] || [ -z "$@" ]); then
     git clone git://github.com/c9/core $HOME/c9
     cd $HOME/c9/scripts
     ./install-sdk.sh
@@ -127,7 +124,7 @@
   fi
   
   # Emby
-  if [ ! $C9IO = "true" ] && ([[ "$@" == *"emby"* ]] || [ -z "$@" ]); then
+  if [ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ -z "$@" ]); then
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
