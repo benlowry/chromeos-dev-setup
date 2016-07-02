@@ -40,6 +40,18 @@ and your new SSH key.
     
     $ bash setup.sh
     
+## Screenshots of the web interfaces
+
+![Cloud9 IDE](https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png)
+
+![PGWeb](https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png)
+
+![Git WebUI](https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png)
+
+![Deluge](https://raw.github.com/benlowry/chromeos-setup/master/deluge.png)
+
+![Emby Media Server](https://raw.github.com/benlowry/chromeos-setup/master/emby.png)
+    
 ### Options
 Pass any combination of these to tailor the installation to your needs.  If you specify what
 to install anything you do not include will not be installed.  If you don't pass anything it
