@@ -1,15 +1,6 @@
 #!/bin/bash
 # This script is public domain.  
 {
-  C9IO=false
-  GITWEBUI=false
-  POSTGRES=false
-  DELUGE=false
-  C9=false
-  PGWEB=false
-  DROPBOX=false
-  PLEX=false
-  
   if [ -z $C9_PORT ]; then
     C9_PORT=8080
   fi
