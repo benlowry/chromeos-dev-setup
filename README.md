@@ -101,7 +101,6 @@ You will need to create a user and database:
     $ createdb mydb --owner mydb
 
 ## Screenshots
-Note: these are just random screenshots from other people of the running software.
 
 ### Cloud9
 A full-featured, open source IDE.
