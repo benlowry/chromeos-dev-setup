@@ -59,12 +59,14 @@
   # Python
    if [[ $@ == *"python"* ]] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
+    sudo apt-get update 
     sudo apt-get install -y python2.7
   fi
   
   # Golang
    if [[ $@ == *"golang"* ]] || [ -z $@ ]; then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
+    sudo apt-get update 
     sudo apt-get install -y golang
     mkdir -p ~/gopath
     echo "export GOPATH=~/gopath" >> ~/.bash_profile
