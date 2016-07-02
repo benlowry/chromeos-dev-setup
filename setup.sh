@@ -206,7 +206,10 @@
   if [ "$POSTGRES" = "true" ]; then
     echo "-------------------------------------------"
     echo "PostgreSQL is running on port 5432 and"
-    echo "waiting for you to create a database."
+    echo "waiting for you to create a database:"
+    echo " $ sudo -i -u postgres"
+    echo " $ createuser -P -s -e mydb"
+    echo " $ createdb mydb --owner mydb"
   fi
   
   if [ "$PGWEB" = "true" ]; then
