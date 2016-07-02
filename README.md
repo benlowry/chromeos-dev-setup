@@ -79,6 +79,10 @@ Note: this does not get installed on c9.io
 Note: first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
+    
+You can exclude folders via selective sync:
+
+    $ ~/dropbox.py exclude add my_folder
 
 ### Deluge http://127.0.0.1:8112
 Note: this does not get installed on c9.io
