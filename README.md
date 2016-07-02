@@ -42,15 +42,15 @@ and your new SSH key.
     
 ## Screenshots of the web interfaces
 
-![Cloud9 IDE](https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png)
+![Cloud9 IDE](https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png  =250x)
 
-![PGWeb](https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png)
+![PGWeb](https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png  =250x)
 
-![Git WebUI](https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png)
+![Git WebUI](https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png  =250x)
 
-![Deluge](https://raw.github.com/benlowry/chromeos-setup/master/deluge.png)
+![Deluge](https://raw.github.com/benlowry/chromeos-setup/master/deluge.png  =250x)
 
-![Emby Media Server](https://raw.github.com/benlowry/chromeos-setup/master/emby.png)
+![Emby Media Server](https://raw.github.com/benlowry/chromeos-setup/master/emby.png  =250x)
     
 ### Options
 Pass any combination of these to tailor the installation to your needs.  If you specify what
