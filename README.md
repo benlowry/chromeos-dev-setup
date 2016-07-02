@@ -43,13 +43,13 @@ If installed ...
 - Deluge is running and the password is `deluge`
     
 ## Accessing servers
-### Cloud9 http://127.0.0.1:8080 a browser based IDE 
+### Cloud9 http://127.0.0.1:8080
 Note: this does not get installed on c9.io
 
     $ cd ~/c9
     $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
 
-### git-webui http://127.0.0.1:8081 a browser UI for git
+### git-webui http://127.0.0.1:8081
 
     $ cd my_project && git webui -p 8081 
 
@@ -58,11 +58,11 @@ Note: this does not get installed on c9.io
     $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
     
 ### Dropbox
-First run it will generate a URL to link your computer
+Note: first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
 
-### Deluge http://127.0.0.1:8112 a torrent server with web interface
+### Deluge http://127.0.0.1:8112
 Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/deluge-web --no-ssl -p 8112
