@@ -102,7 +102,9 @@
     cd $HOME/c9/scripts
     ./install-sdk.sh
     cd $HOME/
-    echo "node c9/server.js -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &" >> $HOME/.bash_profile
+    echo "if [ \"`pwd`\" = $HOME ]; then
+            node c9/server.js -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &
+          fi" >> $HOME/.bash_profile
     C9=true
   fi
   
@@ -112,7 +114,9 @@
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> $HOME/.bash_profile
+    echo "if [ \"`pwd`\" = $HOME ]; then
+            pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &
+          fi" >> $HOME/.bash_profile
     PGWEB=true
   fi
 
@@ -128,7 +132,9 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "sudo /usr/bin/emby-server start &" >> $HOME/.bash_profile
+    echo "if [ \"`pwd`\" = $HOME ]; then
+            sudo /usr/bin/emby-server start &
+          fi" >> $HOME/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
@@ -145,6 +151,7 @@
     curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
     unzip awscli-bundle.zip
     ./awscli-bundle/install -b $HOME/.awscli
+    rm -rf awscli-bundle.zip
     AWSCLI=true
   fi
   
@@ -161,6 +168,7 @@
     curl -OL https://github.com/digitalocean/doctl/releases/download/v1.0.0/doctl-1.0.0-linux-amd64.tar.gz
     tar xf doctl-1.0.0-linux-amd64.tar.gz
     sudo mv ./doctl /usr/local/bin
+    rm -rf doctl-1.0.0-linux-amd64.tar.gz
     DOCTL=true
   fi
   
