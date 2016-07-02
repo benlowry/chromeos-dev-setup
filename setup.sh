@@ -92,6 +92,9 @@
   # Install Deluge (torrent), disabled on c9.io
    if [ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ -z "$@" ]); then
     sudo apt-get install -y deluge deluge-web deluged
+    echo "if [ \"`pwd`\" = $HOME ]; then
+            sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
+          fi" >> $HOME/.bash_profile
     DELUGE=true
     # start: deluge -u web
   fi
