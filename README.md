@@ -81,29 +81,6 @@ Website: http://emby.media/
 
 <img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
     
-### Options
-Pass any combination of these to tailor the installation to your needs.  If you specify what
-to install anything you do not include will not be installed.  If you don't pass anything it
-will install everything.
-
-    # example 
-    $ bash setup.sh golang postgres pgweb
-
-    - golang
-    - python
-    - nodejs
-    - postgres
-    - dropbox
-    - deluge
-    - pgweb
-    - git-webui
-    - emby
-    - c9
-    - s3cmd
-    - awscli
-    - doctl
-    - heroku
-    
 ## After setup finishes
 If installed ...
 - Cloud9 will be running with ~/projects as the workspace folder.  
