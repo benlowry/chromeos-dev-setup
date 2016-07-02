@@ -11,9 +11,11 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
     $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
+    
     # install everything
     $ bash setup.sh
-    # install some things
+    
+    # install only these things
     $ bash setup.sh nodejs cloud9 awscli
 
 ## What can be installed
