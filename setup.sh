@@ -146,6 +146,7 @@
   # Heroku
   if [[ $@ == *"heroku"* ]] || [ -z $@ ]; then
     wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    HEROKU=true
   fi
   
   # SSH key
@@ -214,5 +215,11 @@
     echo Emby can be started by:
     echo $ sudo /usr/bin/emby-server start
     echo Open in your browser at http://127.0.0.1:8096/
+  fi
+  
+  if [ $HEROKU = "true" ]; then
+    echo --------------------------------------------
+    echo Heroku can be configured by:
+    echo $ heroku login
   fi
 }
