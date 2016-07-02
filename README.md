@@ -133,7 +133,7 @@ Github: https://github.com/deluge-torrent
 
 Website: http://deluge-torrent.org/
 
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/delugle.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 
 ### Emby
 A media server and interface for audio/video.
