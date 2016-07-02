@@ -20,7 +20,7 @@
     PGWEB_PORT=8082
   fi
   if [ -z $DELUGE_PORT ]; then
-    DELUGE_PORT=8083
+    DELUGE_PORT=8112
   fi
   
   if [ ! -z $C9_SHARED ]; then
