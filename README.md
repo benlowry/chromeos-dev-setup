@@ -40,17 +40,29 @@ and your new SSH key.
     
     $ bash setup.sh
     
-## Screenshots of the web interfaces
+## Screenshots
+Cloud9 is a full-featured, open source IDE.
+Github: https://github.com/
+Website: https://c9.io/
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="350"/>
+PGWeb is a web interface for managing PostgreSQL databases.
+Github: https://github.com/sosedoff/pgweb
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/>
 
-![PGWeb](https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png  =250x)
+Git WebUI is a web interface for git.
+Github: https://github.com/alberthier/git-webui
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/>
 
-![Git WebUI](https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png  =250x)
+Deluge is a web server and interface for torrents.
+Github: https://github.com/deluge-torrent
+Website: http://deluge-torrent.org/
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/>
 
-![Deluge](https://raw.github.com/benlowry/chromeos-setup/master/deluge.png  =250x)
-
-![Emby Media Server](https://raw.github.com/benlowry/chromeos-setup/master/emby.png  =250x)
+Emby is a media server and interface for audio/video.
+Github: https://github.com/MediaBrowser/Emby
+Website: http://emby.media/
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
     
 ### Options
 Pass any combination of these to tailor the installation to your needs.  If you specify what
