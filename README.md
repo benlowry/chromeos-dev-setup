@@ -117,14 +117,14 @@ A web interface for managing PostgreSQL databases.
 
 Github: https://github.com/sosedoff/pgweb
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
 
 ### Git WebUI
 A web interface for git.
 
 Github: https://github.com/alberthier/git-webui
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
 
 ### Deluge
 A web server and interface for torrents.
@@ -133,7 +133,7 @@ Github: https://github.com/deluge-torrent
 
 Website: http://deluge-torrent.org/
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/delugle.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 
 ### Emby
 A media server and interface for audio/video.
@@ -142,5 +142,5 @@ Github: https://github.com/MediaBrowser/Emby
 
 Website: http://emby.media/
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
     
