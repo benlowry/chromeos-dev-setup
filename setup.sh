@@ -157,6 +157,14 @@
     AWSCLI=true
   fi
   
+  # S3CMD
+  if [[ $@ == *"s3cmd"* ]] || [ -z $@ ]; then
+    wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
+    sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
+    sudo apt-get install -y s3cmd
+    S3CMD=true
+  fi
+  
   # SSH key
   if [ ! -f ~/.ssh/id_rsa ]; then
     mkdir -p ~/.ssh
@@ -227,12 +235,17 @@
   
   if [ $HEROKU = "true" ]; then
     echo --------------------------------------------
-    echo Heroku can be configured by:
+    echo Heroku is installed but requires:
     echo $ heroku login
   fi
   
   if [ $AWSCLI = "true" ]; then
     echo --------------------------------------------
-    echo AWS CLI is installed for $USER only
+    echo AWS CLI is installed
+  fi
+  
+  if [ $S3CMD = "true" ]; then
+    echo --------------------------------------------
+    echo S3CMD is installed
   fi
 }
