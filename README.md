@@ -7,7 +7,7 @@ resource constrained devices.
 
 To use this you'll need [crouton](https://github.com/dnschneid/crouton) and developer mode ready.
 
-    $ sudo sh ~/Downloads/crouton -r trusty -t core
+    $ sudo sh ~/Downloads/crouton -r trusty -t core -n my_chroot_name
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
     $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
@@ -43,6 +43,21 @@ If installed ...
 - Dropbox requires connecting your account
 - Emby requires adding your music library
 - Deluge is running and the password is `deluge`
+
+## Backing up and restoring
+You can backup your fully configured chroot with:
+
+    cd /usr/local/chroots/
+    sudo edit-chroot -b my_chroot_name
+    mv *.zip ~/Downloads
+    
+This will generate a zip file you can safeguard on any external storage because it will be
+deleted by ChromeOS if it does a powerwash.  To restore the zip:
+
+    cd /usr/local/chroots/
+    cp ~/Downloads/my_chroot*.zip .
+    sudo edit-chroot -r my_chroot_name
+    rm -rf *.zip
     
 ## Accessing servers
 ### Cloud9 http://127.0.0.1:8080
