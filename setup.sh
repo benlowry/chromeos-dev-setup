@@ -183,7 +183,7 @@
   echo "Setup complete"
   
   # startup notes and setup completion notes
-  if [ "$C9" == "true" ] && [ $C9IO = "false" ]; then
+  if [ "$C9" == "true" ] && [ ! "$C9IO" = "true" ]; then
     echo "--------------------------------------------"
     echo "C9 browser IDE can be opened in your browser at:"
     echo "http://127.0.0.1:${C9_PORT}/"
