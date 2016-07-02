@@ -94,6 +94,13 @@ Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/emby-server start
 
+### Postgres on port 5432
+You will need to create a user and database:
+
+    $ sudo -i -u postgres
+    $ createuser -P -s -e mydb
+    $ createdb mydb --owner mydb
+
 ## Screenshots
 Note: these are just random screenshots from other people of the running software.
 
