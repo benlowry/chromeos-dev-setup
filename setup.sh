@@ -60,18 +60,18 @@
     sudo apt-get update 
     sudo apt-get install -y golang
     mkdir -p $HOME/gopath
-    echo "export GOPATH=~/gopath" >> $HOME/.bash_profile
+    echo "export GOPATH=$HOME/gopath" >> $HOME/.bash_profile
     source $HOME/.bash_profile
   fi
     
   # NodeJS
    if [[ "$@" == *"nodejs"* ]] || [ -z "$@" ]; then
      if [ $C9IO = "false" ]; then
-      git clone https://github.com/creationix/nvm.git ~/.nvm
+      git clone https://github.com/creationix/nvm.git $HOME/.nvm
       cd $HOME/.nvm
       git checkout `git describe --abbrev=0 --tags`
       . $HOME/.nvm/nvm.sh
-      echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
+      echo "export NVM_DIR=$HOME/.nvm" >> $HOME/.bash_profile
       echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> $HOME/.bash_profile
       source $HOME/.bash_profile
     fi
@@ -222,7 +222,7 @@
   if [ $DROPBOX = "true" ]; then
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
-    echo "$ ~/.dropbox-dist/dropboxd"
+    echo "$ $HOME/.dropbox-dist/dropboxd"
   fi
   
   if [ $EMBY = "true" ]; then
