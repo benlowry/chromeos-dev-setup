@@ -1,10 +1,7 @@
 # Chrome OS for web dev
 This setup script for installing Ubuntu core on Crouton for web dev using an x86 Chrome OS device.  It is 
-compatible with C9.io so dev environments can be replicated locally on x86 and remotely on ARM or resource
-constrained Chrome OS devices.
-
-Pull requests are welcome to improve the bash script quality or fix issues that experienced linux users may
-be able to solve very easily.
+compatible with C9.io so dev environments can be created locally on x86 devices or remotely for ARM and
+resource constrained devices.
 
 *This script is public domain and may be used or modified in any way.*
 
@@ -48,6 +45,7 @@ Pass any combination of these to tailor the installation to your needs.  If you 
 to install anything you do not include will not be installed.  If you don't pass anything it
 will install everything.
 
+    # example 
     $ bash setup.sh golang postgres pgweb
 
     - golang
