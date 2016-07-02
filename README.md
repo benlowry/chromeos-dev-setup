@@ -11,12 +11,12 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
     $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
+    # install everything
     $ bash setup.sh
+    # install some things
+    $ bash setup.sh nodejs cloud9 awscli
 
 ## What can be installed
-Any or all of the following software can be installed by passing nothing, or a space-delimited
-list of any of these: 
-
 - `golang`, Golang
 - `python`, Python 2.7
 - `nodejs`, NodeJS via nvm: https://github.com/creationix/nvm
