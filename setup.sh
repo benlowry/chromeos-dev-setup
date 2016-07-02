@@ -40,47 +40,47 @@
   fi
   
   # Git-WebUI
-  if [[ $@ == *"git-webui"* ]] || [ -z $@ ]; then
-    cd ~/
+  if [[ "$@" == *"git-webui"* ]] || [ -z "$@" ]; then
+    cd $HOME
     git clone https://github.com/alberthier/git-webui.git
     git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
     GITWEBUI=true
   fi
 
   # Python
-   if [[ $@ == *"python"* ]] || [ -z $@ ]; then
+   if [[ "$@" == *"python"* ]] || [ -z "$@" ]; then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
     sudo apt-get update 
     sudo apt-get install -y python2.7
   fi
   
   # Golang
-   if [[ $@ == *"golang"* ]] || [ -z $@ ]; then
+   if [[ "$@" == *"golang"* ]] || [ -z "$@" ]; then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
     sudo apt-get update 
     sudo apt-get install -y golang
-    mkdir -p ~/gopath
-    echo "export GOPATH=~/gopath" >> ~/.bash_profile
-    source ~/.bash_profile
+    mkdir -p $HOME/gopath
+    echo "export GOPATH=~/gopath" >> $HOME/.bash_profile
+    source $HOME/.bash_profile
   fi
     
   # NodeJS
-   if [[ $@ == *"nodejs"* ]] || [ -z $@ ]; then
+   if [[ "$@" == *"nodejs"* ]] || [ -z "$@" ]; then
      if [ $C9IO = "false" ]; then
       git clone https://github.com/creationix/nvm.git ~/.nvm
-      cd ~/.nvm
+      cd $HOME/.nvm
       git checkout `git describe --abbrev=0 --tags`
-      . ~/.nvm/nvm.sh
+      . $HOME/.nvm/nvm.sh
       echo "export NVM_DIR=$HOME/.nvm" >> ~/.bash_profile
-      echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> ~/.bash_profile
-      source ~/.bash_profile
+      echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> $HOME/.bash_profile
+      source $HOME/.bash_profile
     fi
     nvm install node
     nvm alias default node
   fi
     
   # PostgreSQL, preinstalled on c9.io
-   if [[ $@ == *"postgres"* ]] || [ -z $@ ]; then
+   if [[ "$@" == *"postgres"* ]] || [ -z "$@" ]; then
      if [ ! $C9IO = "true" ]; then
         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
         wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
@@ -93,66 +93,66 @@
   fi
   
   # Install Deluge (torrent), disabled on c9.io
-   if [ ! $C9IO = "true" ] && ([[ $@ == *"deluge"* ]] || [ -z $@ ]); then
+   if [ ! $C9IO = "true" ] && ([[ "$@" == *"deluge"* ]] || [ -z "$@" ]); then
     sudo apt-get install -y deluge deluge-web deluged
     DELUGE=true
     # start: deluge -u web
   fi
   
   # Install C9 IDE, preinstalled on c9.io 
-   if [ ! $C9IO = "true" ] && ([[ $@ == *"c9"* ]] || [ -z $@ ]); then
-    git clone git://github.com/c9/core ~/c9
-    cd ~/c9/scripts
+   if [ ! $C9IO = "true" ] && ([[ "$@" == *"c9"* ]] || [ -z "$@" ]); then
+    git clone git://github.com/c9/core $HOME/c9
+    cd $HOME/c9/scripts
     ./install-sdk.sh
-    cd ~/
-    echo "node c9/server.js -w ~/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &" >> ~/.bash_profile
+    cd $HOME/
+    echo "node c9/server.js -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &" >> $HOME/.bash_profile
     C9=true
   fi
   
   # Install PGWeb
-   if [[ $@ == *"pgweb"* ]] || [ -z $@ ]; then
+   if [[ "$@" == *"pgweb"* ]] || [ -z "$@" ]; then
     curl -O -L https://github.com/sosedoff/pgweb/releases/download/v0.9.3/pgweb_linux_amd64.zip
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> ~/.bash_profile
+    echo "pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &" >> $HOME/.bash_profile
     PGWEB=true
   fi
 
   # Dropbox
-   if [[ $@ == *"dropbox"* ]] || [ -z $@ ]; then
-    cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+   if [[ "$@" == *"dropbox"* ]] || [ -z "$@" ]; then
+    cd $HOME && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     DROPBOX=true
-    # start: ~/.dropbox-dist/dropboxd
+    # start: $HOME/.dropbox-dist/dropboxd
   fi
   
   # Emby
-  if [ ! $C9IO = "true" ] && ([[ $@ == *"emby"* ]] || [ -z $@ ]); then
+  if [ ! $C9IO = "true" ] && ([[ "$@" == *"emby"* ]] || [ -z "$@" ]); then
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "sudo /usr/bin/emby-server start &" >> ~/.bash_profile
+    echo "sudo /usr/bin/emby-server start &" >> $HOME/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
   fi
   
   # Heroku
-  if [[ $@ == *"heroku"* ]] || [ -z $@ ]; then
+  if [[ "$@" == *"heroku"* ]] || [ -z "$@" ]; then
     wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
     HEROKU=true
   fi
   
   # AWS CLI
-  if [[ $@ == *"awscli"* ]] || [ -z $@ ]; then
+  if [[ "$@" == *"awscli"* ]] || [ -z "$@" ]; then
     curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
     unzip awscli-bundle.zip
-    ./awscli-bundle/install -b ~/.awscli
+    ./awscli-bundle/install -b $HOME/.awscli
     AWSCLI=true
   fi
   
   # S3CMD
-  if [[ $@ == *"s3cmd"* ]] || [ -z $@ ]; then
+  if [[ "$@" == *"s3cmd"* ]] || [ -z "$@" ]; then
     wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
     sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
     sudo apt-get install -y s3cmd
@@ -160,7 +160,7 @@
   fi
   
   # Digital Ocean CLI
-  if [[ $@ == *"doctl" ]] || [ -z $@ ]; then
+  if [[ "$@" == *"doctl" ]] || [ -z "$@" ]; then
     curl -OL https://github.com/digitalocean/doctl/releases/download/v1.0.0/doctl-1.0.0-linux-amd64.tar.gz
     tar xf doctl-1.0.0-linux-amd64.tar.gz
     sudo mv ./doctl /usr/local/bin
@@ -168,25 +168,22 @@
   fi
   
   # SSH key
-  if [ ! -f ~/.ssh/id_rsa ]; then
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    touch ~/.ssh/authorized_keys
-    chmod 644 ~/.ssh/authorized_keys
-    chown $USER:$USER ~/.ssh/authorized_keys
-    chown $USER:$USER ~/.ssh
-    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ""
-    chmod 600 ~/.ssh/id_rsa*
+  if [ ! -f $HOME/.ssh/id_rsa ]; then
+    mkdir -p $HOME/.ssh
+    chmod 700 $HOME/.ssh
+    touch $HOME/.ssh/authorized_keys
+    chmod 644 $HOME/.ssh/authorized_keys
+    chown $USER:$USER $HOME/.ssh/authorized_keys
+    chown $USER:$USER $HOME/.ssh
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f $HOME/.ssh/id_rsa -N ""
+    chmod 600 $HOME/.ssh/id_rsa*
   fi
   
-  SSHKEY=`cat ~/.ssh/id_rsa.pub`
-  source ~/.bash_profile
+  SSHKEY=`cat $HOME/.ssh/id_rsa.pub`
+  source $HOME/.bash_profile
   
   echo "--------------------------------------------"
   echo "Setup complete"
-  echo "--------------------------------------------"
-  echo "SSH KEY starts on the line below:"
-  echo $SSHKEY
   
   # startup notes and setup completion notes
   if [ $C9 = "true" ] && [ $C9IO = "false" ]; then
@@ -255,4 +252,8 @@
     echo "--------------------------------------------"
     echo "DOCTL is installed"
   fi
+  
+  echo "--------------------------------------------"
+  echo "SSH KEY starts on the line below:"
+  echo "$SSHKEY"
 }
