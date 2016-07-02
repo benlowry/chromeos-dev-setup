@@ -242,6 +242,8 @@
     echo " $ $HOME/.dropbox-dist/dropboxd"
     echo "Exclude folders with selective sync:"
     echo "~/dropbox.py exclude add a_folder"
+    echo "Exclude all folders except 'chromedev':"
+    echo "cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
   fi
   
   if [ "$EMBY" = "true" ]; then
