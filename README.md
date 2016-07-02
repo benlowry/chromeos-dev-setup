@@ -41,6 +41,8 @@ and your new SSH key.
     $ bash setup.sh
     
 ## Screenshots
+Note: these are just random screenshots from other people of the running software.
+
 *Cloud9*
 
 A full-featured, open source IDE.
