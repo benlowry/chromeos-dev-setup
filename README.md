@@ -42,7 +42,7 @@ and your new SSH key.
     
 ## Screenshots of the web interfaces
 
-![Cloud9 IDE](https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png  =250x)
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="350"/>
 
 ![PGWeb](https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png  =250x)
 
