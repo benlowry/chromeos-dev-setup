@@ -5,12 +5,19 @@ resource constrained devices.
 
 *This script is public domain and may be used or modified in any way.*
 
-## What can be installed
-Any or all of the following software can be installed.  Some require additional steps after installation.
-When installation completes you'll be reminded of those steps, along with how to connect to each server
-and your new SSH key.
+To use this you'll need [crouton](https://github.com/dnschneid/crouton) and developer mode ready.
 
-- Golang, Python, NodeJS via nvm: https://github.com/creationix/nvm
+    $ sudo sh ~/Downloads/crouton -r trusty -t core
+    $ sudo enter-chroot
+    $ sudo apt-get install -y curl
+    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
+    $ bash setup.sh
+
+## What can be installed
+Any or all of the following software can be installed:
+- Golang
+- Python 2.7
+- NodeJS via nvm: https://github.com/creationix/nvm
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Cloud9 IDE: https://github.com/c9/core
@@ -24,21 +31,7 @@ and your new SSH key.
 - New SSH key generated with your email
 
 ## Running the setup
-1) Download crouton to ~/Downloads and open a terminal ctrl+alt+t
-
-    $ shell
-    
-    $ sudo sh ~/Downloads/crouton -r trusty -t core
-    
-2) Once it’s finished setting up
-
-    $ sudo enter-chroot
-    
-    $ sudo apt-get install -y curl
-    
-    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
-    
-    $ bash setup.sh
+1) 
     
 ## Screenshots
 Note: these are just random screenshots from other people of the running software.
