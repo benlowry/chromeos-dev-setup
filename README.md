@@ -14,25 +14,24 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ bash setup.sh
 
 ## What can be installed
-Any or all of the following software can be installed:
-- Golang
-- Python 2.7
-- NodeJS via nvm: https://github.com/creationix/nvm
-- Git + Git-WebUI: https://github.com/alberthier/git-webui
-- Postgresql + pgweb: https://github.com/sosedoff/pgweb
-- Cloud9 IDE: https://github.com/c9/core
-- Amazon's  AWS CLI: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
-- S3Tools' S3CMD: http://s3tools.org/s3cmd
-- DigitalOcean's doctl: https://github.com/digitalocean/doctl/
-- Heroku Toolbelt: https://toolbelt.heroku.com/debian
-- Deluge torrent server and web client: http://deluge-torrent.org/
-- Emby Media Server: https://emby.media/
-- Dropbox: https://www.dropbox.com/
+Any or all of the following software can be installed by passing nothing, or a space-delimited
+list of any of these: 
+
+- `golang`, Golang
+- `python`, Python 2.7
+- `nodejs`, NodeJS via nvm: https://github.com/creationix/nvm
+- `gitwebui`, Git + Git-WebUI: https://github.com/alberthier/git-webui
+- `postgresql`, Postgresql + pgweb: https://github.com/sosedoff/pgweb
+- `cloud9`, Cloud9 IDE: https://github.com/c9/core
+- `awscli`, Amazon's  AWS CLI: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
+- `s3tools`, S3Tools' S3CMD: http://s3tools.org/s3cmd
+- `doctl`, DigitalOcean's doctl: https://github.com/digitalocean/doctl/
+- `heroku`, Heroku Toolbelt: https://toolbelt.heroku.com/debian
+- `deluge`, Deluge torrent server and web client: http://deluge-torrent.org/
+- `emby`, Emby Media Server: https://emby.media/
+- `dropbox`, Dropbox: https://www.dropbox.com/
 - New SSH key generated with your email
 
-## Running the setup
-1) 
-    
 ## Screenshots
 Note: these are just random screenshots from other people of the running software.
 
