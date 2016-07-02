@@ -228,6 +228,13 @@
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
     echo " $ $HOME/.dropbox-dist/dropboxd"
+    # cli tool
+    wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
+    chmod 755 dropbox.py 
+    # start on load
+    sudo wget -O /etc/init.d/dropbox "https://raw.github.com/gist/2347727/108fc8af551cb4fdf7cdd08b891a45f405d283dc/dropbox"
+    sudo chmod +x /etc/init.d/dropbox
+    sudo update-rc.d dropbox defaults
   fi
   
   if [ "$EMBY" = "true" ]; then
