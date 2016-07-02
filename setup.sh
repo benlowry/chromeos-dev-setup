@@ -219,7 +219,7 @@
   if [ "$DROPBOX" = "true" ]; then
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
-    echo "$ $HOME/.dropbox-dist/dropboxd"
+    echo " $ $HOME/.dropbox-dist/dropboxd"
   fi
   
   if [ "$EMBY" = "true" ]; then
@@ -231,7 +231,7 @@
   if [ "$HEROKU" = "true" ]; then
     echo "--------------------------------------------"
     echo "Heroku is installed but requires:"
-    echo "$ heroku login"
+    echo " $ heroku login"
   fi
   
   if [ "$AWSCLI" = "true" ]; then
