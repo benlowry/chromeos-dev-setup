@@ -42,7 +42,7 @@ If installed ...
 - Emby requires adding your music library
 - Deluge is running and the password is `deluge`
     
-## Starting servers
+## Accessing servers
 ### Cloud9 http://127.0.0.1:8080 a browser based IDE 
 Note: this does not get installed on c9.io
 
@@ -50,7 +50,7 @@ Note: this does not get installed on c9.io
     $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
 
 ### git-webui http://127.0.0.1:8081 a browser UI for git
-  
+
     $ cd my_project && git webui -p 8081 
 
 ### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql 
