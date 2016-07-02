@@ -30,7 +30,7 @@
   # General dependencies
   if [ -z `command -v add-apt-repository` ] || [ ! $C9IO = "true" ]; then 
     sudo apt-get update && sudo apt-get upgrade -y
-    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man
+    sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip
     # TODO: per-package checks/installs  
   fi
   
