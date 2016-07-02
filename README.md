@@ -41,25 +41,30 @@ and your new SSH key.
     $ bash setup.sh
     
 ## Screenshots
-Cloud9 is a full-featured, open source IDE.
+*Cloud9*
+A full-featured, open source IDE.
 Github: https://github.com/
 Website: https://c9.io/
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
 
-PGWeb is a web interface for managing PostgreSQL databases.
+*PGWeb*
+A web interface for managing PostgreSQL databases.
 Github: https://github.com/sosedoff/pgweb
 <img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/>
 
-Git WebUI is a web interface for git.
+*Git WebUI*
+A web interface for git.
 Github: https://github.com/alberthier/git-webui
 <img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/>
 
-Deluge is a web server and interface for torrents.
+*Deluge*
+A web server and interface for torrents.
 Github: https://github.com/deluge-torrent
 Website: http://deluge-torrent.org/
 <img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/>
 
-Emby is a media server and interface for audio/video.
+*Emby*
+A media server and interface for audio/video.
 Github: https://github.com/MediaBrowser/Emby
 Website: http://emby.media/
 <img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
