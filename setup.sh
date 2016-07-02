@@ -235,6 +235,8 @@
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
     echo " $ $HOME/.dropbox-dist/dropboxd"
+    echo "Exclude folders with selective sync:"
+    echo "~/dropbox.py exclude add a_folder"
   fi
   
   if [ "$EMBY" = "true" ]; then
