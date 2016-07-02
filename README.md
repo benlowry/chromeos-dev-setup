@@ -32,55 +32,6 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `dropbox`, Dropbox: https://www.dropbox.com/
 - New SSH key generated with your email
 
-## Screenshots
-Note: these are just random screenshots from other people of the running software.
-
-*Cloud9*
-
-A full-featured, open source IDE.
-
-Github: https://github.com/
-
-Website: https://c9.io/
-
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-
-*PGWeb*
-
-A web interface for managing PostgreSQL databases.
-
-Github: https://github.com/sosedoff/pgweb
-
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/>
-
-*Git WebUI*
-
-A web interface for git.
-
-Github: https://github.com/alberthier/git-webui
-
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/>
-
-*Deluge*
-
-A web server and interface for torrents.
-
-Github: https://github.com/deluge-torrent
-
-Website: http://deluge-torrent.org/
-
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/>
-
-*Emby*
-
-A media server and interface for audio/video.
-
-Github: https://github.com/MediaBrowser/Emby
-
-Website: http://emby.media/
-
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
-    
 ## After setup finishes
 If installed ...
 - Cloud9 will be running with ~/projects as the workspace folder.  
@@ -120,3 +71,48 @@ Note: this does not get installed on c9.io
 Note: this does not get installed on c9.io
 
     $ sudo /usr/bin/emby-server start
+
+## Screenshots
+Note: these are just random screenshots from other people of the running software.
+
+### Cloud9
+A full-featured, open source IDE.
+
+Github: https://github.com/
+
+Website: https://c9.io/
+
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
+
+### PGWeb
+A web interface for managing PostgreSQL databases.
+
+Github: https://github.com/sosedoff/pgweb
+
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/>
+
+### Git WebUI
+A web interface for git.
+
+Github: https://github.com/alberthier/git-webui
+
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/>
+
+### Deluge
+A web server and interface for torrents.
+
+Github: https://github.com/deluge-torrent
+
+Website: http://deluge-torrent.org/
+
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/>
+
+### Emby
+A media server and interface for audio/video.
+
+Github: https://github.com/MediaBrowser/Emby
+
+Website: http://emby.media/
+
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
+    
