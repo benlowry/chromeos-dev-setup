@@ -1,8 +1,7 @@
 # Setup for web dev on Chrome OS
 
 This setup script for installing Ubuntu core on Crouton for web dev using an x86 Chrome OS device.  It is 
-compatible with C9.io so dev environments can be created locally on x86 devices or remotely for ARM and
-resource constrained devices.
+compatible with C9.io so dev environments can be created locally where possible and replicated remotely.
 
 *This script is public domain and may be used or modified in any way.*
 
