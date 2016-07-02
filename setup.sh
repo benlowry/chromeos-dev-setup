@@ -143,6 +143,11 @@
     # start: sudo /usr/bin/emby-server start
   fi
   
+  # Heroku
+  if [[ $@ == *"heroku"* ]] || [ -z $@ ]; then
+    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  fi
+  
   # SSH key
   if [ ! -f ~/.ssh/id_rsa ]; then
     mkdir -p ~/.ssh
