@@ -244,6 +244,8 @@
     echo "~/dropbox.py exclude add a_folder"
     echo "Exclude all folders except 'chromedev':"
     echo "cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
+    echo "Replace ~/projects with ~/Dropbox/chromedev:"
+    echo "rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
   fi
   
   if [ "$EMBY" = "true" ]; then
