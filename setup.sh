@@ -187,6 +187,7 @@
     echo --------------------------------------------
     echo Deluge can be opened in your browser at:
     echo http://127.0.0.1:${DELUGE_PORT}/
+    echo The default password is "deluge"
   fi
    
   if [ $GITWEBUI = "true" ]; then
