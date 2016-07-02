@@ -151,62 +151,62 @@
     chmod 644 ~/.ssh/authorized_keys
     chown $USER:$USER ~/.ssh/authorized_keys
     chown $USER:$USER ~/.ssh
-    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ''
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f ~/.ssh/id_rsa -N ""
     chmod 600 ~/.ssh/id_rsa*
   fi
   
   SSHKEY=`cat ~/.ssh/id_rsa.pub`
   source ~/.bash_profile
   
-  echo '--------------------------------------------'
-  echo 'Setup complete'
-  echo '--------------------------------------------'
-  echo 'SSH KEY starts on the line below:'
+  echo --------------------------------------------
+  echo Setup complete
+  echo --------------------------------------------
+  echo SSH KEY starts on the line below:
   echo $SSHKEY
   
   # startup notes and setup completion notes
   if [ $C9 = "true" ] && [ $C9IO = "false" ]; then
-    echo '--------------------------------------------'
-    echo 'C9 browser IDE can be opened in your browser at:'
-    echo 'http://127.0.0.1:${C9_PORT}/'
+    echo --------------------------------------------
+    echo C9 browser IDE can be opened in your browser at:
+    echo http://127.0.0.1:${C9_PORT}/
   fi
   
   if [ $POSTGRES = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'PostgreSQL is running on port 5432 and'
-    echo 'waiting for you to create a database.'
+    echo -------------------------------------------
+    echo PostgreSQL is running on port 5432 and
+    echo waiting for you to create a database.
   fi
   
   if [ $PGWEB = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'PGWeb can be opened in your browser at:'
-    echo 'http://127.0.0.1:${PGWEB_PORT}/'
+    echo --------------------------------------------
+    echo PGWeb can be opened in your browser at:
+    echo http://127.0.0.1:${PGWEB_PORT}/
   fi
   
   if [ $DELUGE = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'Deluge can be opened in your browser at:'
-    echo 'http://127.0.0.1:${DELUGE_PORT}/'
+    echo --------------------------------------------
+    echo Deluge can be opened in your browser at:
+    echo http://127.0.0.1:${DELUGE_PORT}/
   fi
    
   if [ $GITWEBUI = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'Git WebUI can be started in a repo:'
-    echo '$ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}'
-    echo 'Git WebUI can be opened in your browser at:'
-    echo 'http://127.0.0.1:${GITWEBUI_PORT}/'
+    echo --------------------------------------------
+    echo Git WebUI can be started in a repo:
+    echo $ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}
+    echo Git WebUI can be opened in your browser at:
+    echo http://127.0.0.1:${GITWEBUI_PORT}/
   fi
   
   if [ $DROPBOX = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'Dropbox setup can be completed by:'
-    echo '$ ~/.dropbox-dist/dropboxd'
+    echo --------------------------------------------
+    echo Dropbox setup can be completed by:
+    echo $ ~/.dropbox-dist/dropboxd
   fi
   
   if [ $EMBY = "true" ]; then
-    echo '--------------------------------------------'
-    echo 'Emby can be started by:'
-    echo '$ sudo /usr/bin/emby-server start'
-    echo 'Open in your browser at http://127.0.0.1:8096/'
+    echo --------------------------------------------
+    echo Emby can be started by:
+    echo $ sudo /usr/bin/emby-server start
+    echo Open in your browser at http://127.0.0.1:8096/
   fi
 }
