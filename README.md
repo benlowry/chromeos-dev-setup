@@ -64,7 +64,7 @@ deleted by ChromeOS if it does a powerwash.  To restore the zip:
 Note: this does not get installed on c9.io
 
     $ cd ~/c9
-    $ sudo node server.js -w ~/projectfolder --listen 0.0.0.0 --port=8080
+    $ sudo node server.js -w ~/projects --listen 0.0.0.0 --port=8080
 
 ### git-webui http://127.0.0.1:8081
 
@@ -79,9 +79,17 @@ Note: first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
     
-You can exclude folders via selective sync:
+Exclude folders via selective sync:
 
     $ ~/dropbox.py exclude add my_folder
+    
+Exclude all folders but 'chromedev':
+    
+    $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
+    
+Replace ~/projects with ~/Dropbox/chromedev:
+
+    $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
 
 ### Deluge http://127.0.0.1:8112
 Note: this does not get installed on c9.io
