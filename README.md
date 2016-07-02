@@ -17,6 +17,10 @@ and your new SSH key.
 - Git + Git-WebUI: https://github.com/alberthier/git-webui
 - Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - Cloud9 IDE: https://github.com/c9/core
+- Amazon's  AWS CLI: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
+- S3Tools' S3CMD: http://s3tools.org/s3cmd
+- DigitalOcean's doctl: https://github.com/digitalocean/doctl/
+- Heroku Toolbelt: https://toolbelt.heroku.com/debian
 - Deluge torrent server and web client: http://deluge-torrent.org/
 - Emby Media Server: https://emby.media/
 - Dropbox: https://www.dropbox.com/
@@ -56,6 +60,10 @@ will install everything.
     - git-webui
     - emby
     - c9
+    - s3cmd
+    - awscli
+    - doctl
+    - heroku
     
 ## After setup finishes
 If installed ...
@@ -81,19 +89,18 @@ Note: this is pre-installed on c9.io and port 8080 also maps to port 80.
 ### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql 
     
     $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
-
-### Deluge http://127.0.0.1:8083 a torrent server with web interface
-Note: this does not get installed on c9.io
-
-    $ sudo /usr/bin/deluge-web --no-ssl -p 8083
-    
-### Emby Media Server http://127.0.0.1:8096/
-Note: Port is fixed and can only be changed on the running server web site
-and this does not get installed on c9.io
-
-    $ sudo /usr/bin/emby-server start
     
 ### Dropbox
 First run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
+
+### Deluge http://127.0.0.1:8112 a torrent server with web interface
+Note: this does not get installed on c9.io
+
+    $ sudo /usr/bin/deluge-web --no-ssl -p 8112
+    
+### Emby Media Server http://127.0.0.1:8096/
+Note: this does not get installed on c9.io
+
+    $ sudo /usr/bin/emby-server start
