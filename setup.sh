@@ -149,6 +149,14 @@
     HEROKU=true
   fi
   
+  # AWS CLI
+  if [[ $@ == *"awscli"* ]] || [ -z $@ ]; then
+    curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+    unzip awscli-bundle.zip
+    ./awscli-bundle/install -b ~/.awscli
+    AWSCLI=true
+  fi
+  
   # SSH key
   if [ ! -f ~/.ssh/id_rsa ]; then
     mkdir -p ~/.ssh
@@ -221,5 +229,10 @@
     echo --------------------------------------------
     echo Heroku can be configured by:
     echo $ heroku login
+  fi
+  
+  if [ $AWSCLI = "true" ]; then
+    echo --------------------------------------------
+    echo AWS CLI is installed for $USER only
   fi
 }
