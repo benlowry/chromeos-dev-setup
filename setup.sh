@@ -63,7 +63,7 @@
     
   # NodeJS
    if [[ "$@" == *"nodejs"* ]] || [ -z "$@" ]; then
-     if [ $C9IO = "false" ]; then
+     if [ ! "$C9IO" = "true" ]; then
       git clone https://github.com/creationix/nvm.git $HOME/.nvm
       cd $HOME/.nvm
       git checkout `git describe --abbrev=0 --tags`
