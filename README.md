@@ -142,5 +142,5 @@ Github: https://github.com/MediaBrowser/Emby
 
 Website: http://emby.media/
 
-<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.jpg" width="250"/>
+<img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/>
     
