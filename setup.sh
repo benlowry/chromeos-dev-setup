@@ -140,8 +140,8 @@
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     echo "if [ \"`pwd`\" = \"$HOME\" ]; then
-            RUNNING=`ps cax | grep pgweb`
-            if [ ! z $RUNNING ]; then 
+            RUNNING=\`ps cax | grep pgweb\`
+            if [ ! z \"\$RUNNING\" ]; then 
               pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
             fi
           fi" >> $HOME/.bash_profile
@@ -167,7 +167,7 @@
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
     echo "RUNNING=`ps cax | grep emby`
-          if [ -z $RUNNING ]; then
+          if [ -z \"\$RUNNING\" ]; then
             sudo /etc/init.d/emby-server restart
           fi" >> $HOME/.bash_profile
     EMBY=true
