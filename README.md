@@ -1,12 +1,16 @@
 # Automated setup for programming on Chrome OS
 
-This setup script for installing Ubuntu core on Crouton for web dev using an x86 Chrome OS device.  It is 
-compatible with C9.io so the same environment can be created on or off your hardware.  It can use Dropbox
-to sync your IDE settings and work in progress, and includes a media player and for no particular reason
-a torrent client.
+This setup script for installing Ubuntu core on Crouton for working on more powerful x86 Chrome OS 
+devices.  It is compatible with C9.io so the same environment can be created on or off your 
+hardware.  It can use Dropbox to sync your IDE settings and work in progress, and includes browser
+based media and torrent clients.
 
 All of the software installed uses web or CLI interfaces so the 'chroot' doesn't install a GUI, if you
 want to also install an interface and desktop software change `core` to `xfce` when running `crouton`.
+
+If you would like to add something please submit a pull request with your addition, it must include
+an updated README and a screenshot and links if it has a web interface.  Improvements to the setup
+script are also welcome.
 
 *This script is public domain and may be used or modified in any way.*
 
