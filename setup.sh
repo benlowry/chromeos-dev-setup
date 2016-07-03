@@ -46,7 +46,7 @@
   
   echo "Installing $PKG"
   sudo apt-get update && sudo apt-get upgrade -y
-  sudo apt-get install -y $PKG
+  sudo apt-get install -y "$PKG"
   
   if [ ! -z "$NAME" ]; then
     git config --global user.name "$NAME"
