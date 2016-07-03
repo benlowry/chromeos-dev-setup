@@ -72,7 +72,7 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
 an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
 
-### Finishing Postgres setup
+### Finishing PostgreSQL setup
 You will need to create a user and database:
 
     $ sudo -i -u postgres
