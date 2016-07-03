@@ -7,13 +7,15 @@
   # ------------------------------------------------
   # note: emby port can't be changed during install
   if [ -z $C9_PORT ]; then
-    C9_PORT=8080
+    C9_PORT=8080 # default 
   fi
-  if [ -z $GITWEBUI_PORT ]; then
-    GITWEBUI_PORT=8081
-  fi
+  
   if [ -z $PGWEB_PORT ]; then
-    PGWEB_PORT=8082
+    PGWEB_PORT=8081 # default
+  fi
+  
+  if [ -z $GITWEBUI_PORT ]; then
+    GITWEBUI_PORT=8082 # default 8000
   fi
   
   if [ -z $DELUGE_PORT ]; then
