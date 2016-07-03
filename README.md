@@ -82,18 +82,14 @@ You will need to create a user and database:
 ### Finishing Dropbox setup
 Note: first run it will generate a URL to link your computer
   
+    # follow the link it generates
     $ ~/.dropbox-dist/dropboxd
     
-Exclude folders via selective sync:
-
+    # exclude folders via selective sync:
     $ ~/dropbox.py exclude add my_folder
     
-Exclude all folders but 'chromedev', this needs to be run
-several times and Dropbox will manage deleting any files
-that become deselected:
-    
+    # exclude all folders but 'chromedev' (run multiple times)
     $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
     
-Replace ~/projects with ~/Dropbox/chromedev:
-
+    # replace ~/projects with ~/Dropbox/chromedev:
     $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
