@@ -62,7 +62,8 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
 
 ## After setup finishes
-If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
+If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost:
+
 - Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace 
 - Git WebUI must be started in a git repo, runs at [localhost:8081](http://localhost:8081)
 - PGWeb will be running at [localhost:8082](http://localhost:8082)
