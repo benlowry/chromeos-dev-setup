@@ -65,7 +65,7 @@ If installed ...
 - Deluge is running and the password is `deluge`
 
 ## Accessing servers
-On C9 you use your workspace URL instead of localhost.
+On [C9.io](https://c9.io) you use your workspace URL instead of localhost.
 ### Cloud9 http://localhost:8080 (also port 80 on c9.io)
 ### git-webui http://localhost:8081
 ### pgweb http://localhost:8082
