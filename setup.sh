@@ -17,6 +17,14 @@
   if [ ! -z $C9_SHARED ]; then
     C9IO=true
   fi
+  
+  ALL=true
+  for f in "git-webui" python golang nodejs postgres deluge c9 pgweb dropbox emby heroku awscli s3cmd doctld; do
+    if [[ ! "$@" == *"-$f"* ]] &&  [[ "$@" == *"$f"* ]]; then
+      ALL=false
+      break
+    fi
+  done
     
   # General dependencies
   sudo apt-get update && sudo apt-get upgrade -y
@@ -37,7 +45,7 @@
   fi
   
   # Git-WebUI
-  if [[ ! "$@" == *"-git-webui"* ]] && ([[ "$@" == *"git-webui"* ]] || [ -z "$@" ]); then
+  if [[ ! "$@" == *"-git-webui"* ]] && ([[ "$@" == *"git-webui"* ]] || [ $ALL = "true" ]); then
     cd $HOME
     git clone https://github.com/alberthier/git-webui.git
     git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
@@ -45,14 +53,14 @@
   fi
 
   # Python
-   if [[ ! "$@" == *"-python"* ]] && ([[ "$@" == *"python"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-python"* ]] && ([[ "$@" == *"python"* ]] || [ $ALL = "true" ]); then
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
     sudo apt-get update 
     sudo apt-get install -y python2.7
   fi
   
   # Golang
-   if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ $ALL = "true" ]); then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
     sudo apt-get update 
     sudo apt-get install -y golang
@@ -62,7 +70,7 @@
   fi
     
   # NodeJS
-   if [[ ! "$@" == *"-nodejs"* ]] && ([[ "$@" == *"nodejs"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-nodejs"* ]] && ([[ "$@" == *"nodejs"* ]] || [ $ALL = "true" ]); then
      if [ ! "$C9IO" = "true" ]; then
       git clone https://github.com/creationix/nvm.git $HOME/.nvm
       cd $HOME/.nvm
@@ -77,7 +85,7 @@
   fi
     
   # PostgreSQL, preinstalled on c9.io
-   if [[ ! "$@" == *"-postgres"* ]] && ([[ "$@" == *"postgres"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-postgres"* ]] && ([[ "$@" == *"postgres"* ]] || [ $ALL = "true" ]); then
      if [ ! "$C9IO" = "true" ]; then
         sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
         wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
@@ -90,7 +98,7 @@
   fi
   
   # Install Deluge (torrent), disabled on c9.io
-   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ -z "$@" ])); then
+   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
     echo "if [ \"`pwd`\" = $HOME ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
@@ -100,7 +108,7 @@
   fi
   
   # Install Cloud9 IDE, preinstalled on c9.io 
-   if [[ ! "$@" == *"-c9"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"c9"* ]] || [ -z "$@" ])); then
+   if [[ ! "$@" == *"-c9"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"c9"* ]] || [ $ALL = "true" ])); then
     git clone git://github.com/c9/core $HOME/c9
     cd $HOME/c9/scripts
     ./install-sdk.sh
@@ -112,7 +120,7 @@
   fi
   
   # Install PGWeb
-   if [[ ! "$@" == *"-pgweb"* ]] && ([[ "$@" == *"pgweb"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-pgweb"* ]] && ([[ "$@" == *"pgweb"* ]] || [ $ALL = "true" ]); then
     curl -O -L https://github.com/sosedoff/pgweb/releases/download/v0.9.3/pgweb_linux_amd64.zip
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
@@ -124,7 +132,7 @@
   fi
 
   # Dropbox
-   if [[ ! "$@" == *"-dropbox"* ]] && ([[ "$@" == *"dropbox"* ]] || [ -z "$@" ]); then
+   if [[ ! "$@" == *"-dropbox"* ]] && ([[ "$@" == *"dropbox"* ]] || [ $ALL = "true" ]); then
     cd $HOME && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
@@ -137,7 +145,7 @@
   fi
   
   # Emby
-  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ -z "$@" ])); then
+  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ $ALL = "true" ])); then
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
@@ -150,13 +158,13 @@
   fi
   
   # Heroku
-  if [[ ! "$@" == *"-heroku"* ]] && ([[ "$@" == *"heroku"* ]] || [ -z "$@" ]); then
+  if [[ ! "$@" == *"-heroku"* ]] && ([[ "$@" == *"heroku"* ]] || [ $ALL = "true" ]); then
     wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
     HEROKU=true
   fi
   
   # AWS CLI
-  if [[ ! "$@" == *"-awscli"* ]] && ([[ "$@" == *"awscli"* ]] || [ -z "$@" ]); then
+  if [[ ! "$@" == *"-awscli"* ]] && ([[ "$@" == *"awscli"* ]] || [ $ALL = "true" ]); then
     curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
     unzip awscli-bundle.zip
     ./awscli-bundle/install -b $HOME/.awscli
@@ -165,7 +173,7 @@
   fi
   
   # S3CMD
-  if [[ ! "$@" == *"-s3cmd"* ]] && ([[ "$@" == *"s3cmd"* ]] || [ -z "$@" ]); then
+  if [[ ! "$@" == *"-s3cmd"* ]] && ([[ "$@" == *"s3cmd"* ]] || [ $ALL = "true" ]); then
     wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
     sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
     sudo apt-get install -y s3cmd
@@ -173,7 +181,7 @@
   fi
   
   # Digital Ocean CLI
-  if [[ ! "$@" == *"-doctl"* ]] && ([[ "$@" == *"doctl" ]] || [ -z "$@" ]); then
+  if [[ ! "$@" == *"-doctl"* ]] && ([[ "$@" == *"doctl" ]] || [ $ALL = "true" ]); then
     curl -OL https://github.com/digitalocean/doctl/releases/download/v1.0.0/doctl-1.0.0-linux-amd64.tar.gz
     tar xf doctl-1.0.0-linux-amd64.tar.gz
     sudo mv ./doctl /usr/local/bin
