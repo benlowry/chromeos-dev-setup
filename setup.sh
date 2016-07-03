@@ -42,9 +42,12 @@
     if [ -z `dpkg-query -l $f | grep Version` ]; then
       PKG="$PKG $f"
     fi
-  fi
+  done
+  
+  echo "Installing $PKG"
   sudo apt-get update && sudo apt-get upgrade -y
   sudo apt-get install -y $PKG
+  
   if [ ! -z "$NAME" ]; then
     git config --global user.name "$NAME"
   fi
