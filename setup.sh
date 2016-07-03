@@ -273,6 +273,12 @@
     echo "http://127.0.0.1:${C9_PORT}/"
   fi
   
+  if [ "$PGWEB" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "PGWeb can be opened in your browser at:"
+    echo " http://127.0.0.1:${PGWEB_PORT}/"
+  fi
+  
   if [ "$GITWEBUI" = "true" ]; then
     echo "--------------------------------------------"
     echo "Git WebUI can be started in a repo:"
@@ -281,12 +287,6 @@
     echo ""
     echo "Git WebUI can be opened in your browser at:"
     echo " http://127.0.0.1:${GITWEBUI_PORT}/"
-  fi
-  
-  if [ "$PGWEB" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "PGWeb can be opened in your browser at:"
-    echo " http://127.0.0.1:${PGWEB_PORT}/"
   fi
   
   if [ "$EMBY" = "true" ]; then
