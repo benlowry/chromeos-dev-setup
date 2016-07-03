@@ -39,19 +39,26 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+### Browser-based software
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
 - `deluge` [Deluge torrent server](http://deluge-torrent.org/)
-- `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
-- `dropbox` [Dropbox](https://www.dropbox.com/)
 - `emby` [Emby Media Server](http://emby.media)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
-- `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
-- `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
-- `nodejs` via [NVM](https://github.com/creationix/nvm)
-- `postgresql` [Postgresql](https://postgresql.org/)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
+
+### Languages
+- `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
+- `nodejs` via [NVM](https://github.com/creationix/nvm)
 - `python` version 2.7 via [deadsnakes](https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7)
+
+### Tools
+- `dropbox` [Dropbox](https://www.dropbox.com/)
+- `postgresql` [Postgresql](https://postgresql.org/)
+
+### Hosting services
+- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
+- `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
 - `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
 
 ## After setup finishes
