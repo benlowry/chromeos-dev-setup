@@ -206,7 +206,7 @@
     chmod 600 $HOME/.ssh/id_rsa*
   fi
   
-  SSHKEY=`cat $HOME/.ssh/id_rsa.pub`
+  cd ~/
   source $HOME/.bash_profile
   
   echo "--------------------------------------------"
@@ -237,16 +237,16 @@
   if [ "$DELUGE" = "true" ]; then
     echo "--------------------------------------------"
     echo "Deluge can be opened in your browser at:"
-    echo "http://127.0.0.1:${DELUGE_PORT}/"
-    echo "The default password is 'deluge'"
+    echo " http://127.0.0.1:${DELUGE_PORT}/ pwd 'deluge'"
   fi
    
   if [ "$GITWEBUI" = "true" ]; then
     echo "--------------------------------------------"
     echo "Git WebUI can be started in a repo:"
-    echo "$ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}"
+    echo " $ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}"
+    echo ""
     echo "Git WebUI can be opened in your browser at:"
-    echo "http://127.0.0.1:${GITWEBUI_PORT}/"
+    echo " http://127.0.0.1:${GITWEBUI_PORT}/"
   fi
   
   if [ "$DROPBOX" = "true" ]; then
@@ -268,7 +268,7 @@
   if [ "$EMBY" = "true" ]; then
     echo "--------------------------------------------"
     echo "Emby can be opened in your browser at:"
-    echo "http://127.0.0.1:8096/"
+    echo " http://127.0.0.1:8096/"
   fi
   
   if [ "$HEROKU" = "true" ]; then
@@ -293,6 +293,7 @@
   fi
   
   echo "--------------------------------------------"
-  echo "SSH KEY starts on the line below:"
-  echo "$SSHKEY"
+  echo "This is your new SSH key:"
+  echo ""
+  echo "`cat $HOME/.ssh/id_rsa.pub`"
 }
