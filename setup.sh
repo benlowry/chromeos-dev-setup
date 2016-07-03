@@ -1,6 +1,11 @@
 #!/bin/bash
 # This script is public domain.  
 {
+  # ------------------------------------------------
+  # override the default ports, selected to align 
+  # with c9.io exposed public ports
+  # ------------------------------------------------
+  # note: emby port can't be changed during install
   if [ -z $C9_PORT ]; then
     C9_PORT=8080
   fi
@@ -10,16 +15,18 @@
   if [ -z $PGWEB_PORT ]; then
     PGWEB_PORT=8082
   fi
+  
   if [ -z $DELUGE_PORT ]; then
-    DELUGE_PORT=8112
+    DELUGE_PORT=8112 # default
   fi
   
   if [ ! -z $C9_SHARED ]; then
     C9IO=true
   fi
   
+  # get git signatures now because nothing else needs input
+  # unless sudo times out
   if [ -z `command -v git` ]; then
-    # Get this now because nothing else requires input
     if [ -z $EMAIL ]; then
       read -p "Enter your email for git commits: " EMAIL
     fi
@@ -28,6 +35,7 @@
     fi
   fi
   
+  # check if we're installing all packages
   ALL=true
   for f in git-webui python golang nodejs postgres deluge c9 pgweb dropbox emby heroku awscli s3cmd doctld; do
     if [[ ! "$@" == *"-$f"* ]] &&  [[ "$@" == *"$f"* ]]; then
@@ -52,42 +60,27 @@
     fi
   done
   
+  # install missing packages
   if [ ! -z "$PKG" ]; then
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install -y $PKG
   fi
   
-  if [ ! -z "$PKG" ]; then
-    echo "Installing $PKG"
-    sudo apt-get update && sudo apt-get upgrade -y
-    sudo apt-get install -y "$PKG"
-  fi
-  
+  # configure git
   if [ ! -z "$NAME" ]; then
     git config --global user.name "$NAME"
   fi
   if [ ! -z "$EMAIL" ]; then
     git config --global user.email "$EMAIL"
   fi
-  
-  # Git-WebUI
-  if [[ ! "$@" == *"-git-webui"* ]] && ([[ "$@" == *"git-webui"* ]] || [ $ALL = "true" ]); then
-    cd $HOME
-    git clone https://github.com/alberthier/git-webui.git
-    git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
-    GITWEBUI=true
-  fi
 
-  # Python
-   if [[ ! "$@" == *"-python"* ]] && ([[ "$@" == *"python"* ]] || [ $ALL = "true" ]); then
-    sudo add-apt-repository -y ppa:fkrull/deadsnakes
-    sudo apt-get update 
-    sudo apt-get install -y python2.7
-    PYTHON=true
-  fi
+  # ------------------------------------------------
+  # LANGUAGES alphabetically
+  # ------------------------------------------------
+  # Pull requests welcome
   
   # Golang
-   if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ $ALL = "true" ]); then
+  if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ $ALL = "true" ]); then
     sudo add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
     sudo apt-get update 
     sudo apt-get install -y golang
@@ -95,9 +88,9 @@
     echo "export GOPATH=$HOME/gopath" >> $HOME/.bash_profile
     GOLANG=true
   fi
-    
+
   # NodeJS
-   if [[ ! "$@" == *"-nodejs"* ]] && ([[ "$@" == *"nodejs"* ]] || [ $ALL = "true" ]); then
+  if [[ ! "$@" == *"-nodejs"* ]] && ([[ "$@" == *"nodejs"* ]] || [ $ALL = "true" ]); then
      if [ ! "$C9IO" = "true" ]; then
       git clone https://github.com/creationix/nvm.git $HOME/.nvm
       cd $HOME/.nvm
@@ -111,30 +104,23 @@
     nvm alias default node
     NODEJS=true
   fi
+  
+  # Python
+  if [[ ! "$@" == *"-python"* ]] && ([[ "$@" == *"python"* ]] || [ $ALL = "true" ]); then
+    sudo add-apt-repository -y ppa:fkrull/deadsnakes
+    sudo apt-get update 
+    sudo apt-get install -y python2.7
+    PYTHON=true
+  fi
     
-  # PostgreSQL, preinstalled on c9.io
-   if [[ ! "$@" == *"-postgres"* ]] && ([[ "$@" == *"postgres"* ]] || [ $ALL = "true" ]); then
-     if [ ! "$C9IO" = "true" ]; then
-        sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-        wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
-        sudo apt-get update 
-        sudo apt-get install -y postgresql postgresql-contrib libpq-dev
-    fi
-    sudo service postgresql start
-    POSTGRESQL=true
-  fi
+  # ------------------------------------------------  
+  # WEB SERVERS alphabetically
+  # ------------------------------------------------
+  # Pull requests welcome please check 
+  # c9.io's policies and keep the script
+  # compliant by default
   
-  # Install Deluge (torrent), disabled on c9.io
-   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
-    sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \`pwd\` = \"\$HOME\" ]; then
-            sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
-          fi" >> $HOME/.bash_profile
-    DELUGE=true
-    # start: deluge -u web
-  fi
-  
-  # Install Cloud9 IDE, preinstalled on c9.io 
+  # Cloud9 IDE, skipped on c9.io
    if [[ ! "$@" == *"-c9"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"c9"* ]] || [ $ALL = "true" ])); then
     git clone git://github.com/c9/core $HOME/c9
     cd $HOME/c9/scripts
@@ -147,7 +133,15 @@
     CLOUD9=true
   fi
   
-  # Install PGWeb
+  # Git-WebUI
+  if [[ ! "$@" == *"-git-webui"* ]] && ([[ "$@" == *"git-webui"* ]] || [ $ALL = "true" ]); then
+    cd $HOME
+    git clone https://github.com/alberthier/git-webui.git
+    git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
+    GITWEBUI=true
+  fi
+  
+  # PGWeb
    if [[ ! "$@" == *"-pgweb"* ]] && ([[ "$@" == *"pgweb"* ]] || [ $ALL = "true" ]); then
     curl -O -L https://github.com/sosedoff/pgweb/releases/download/v0.9.3/pgweb_linux_amd64.zip
     unzip pgweb_linux_amd64.zip
@@ -161,9 +155,37 @@
           fi" >> $HOME/.bash_profile
     PGWEB=true
   fi
+  
+  # Emby, skipped on c9.io
+  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ $ALL = "true" ])); then
+    sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
+    sudo apt-get update
+    sudo apt-get install -y --force-yes emby-server
+    echo "RUNNING=\`ps -ax | grep -i emby\`
+          if [ -z \"\$RUNNING\" ]; then
+            sudo /etc/init.d/emby-server start
+          fi" >> $HOME/.bash_profile
+    EMBY=true
+    # start: sudo /usr/bin/emby-server start
+  fi
+  
+  # Deluge, skipped on c9.io
+   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
+    sudo apt-get install -y deluge deluge-web deluged
+    echo "if [ \`pwd\` = \"\$HOME\" ]; then
+            sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
+          fi" >> $HOME/.bash_profile
+    DELUGE=true
+    # start: deluge -u web
+  fi
 
+  # ------------------------------------------------
+  # TOOLS alphabetically
+  # ------------------------------------------------
+  # Pull requests welcome with your prefered db etc
+  
   # Dropbox
-   if [[ ! "$@" == *"-dropbox"* ]] && ([[ "$@" == *"dropbox"* ]] || [ $ALL = "true" ]); then
+  if [[ ! "$@" == *"-dropbox"* ]] && ([[ "$@" == *"dropbox"* ]] || [ $ALL = "true" ]); then
     cd $HOME && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
@@ -178,24 +200,22 @@
     # start: $HOME/.dropbox-dist/dropboxd
   fi
   
-  # Emby
-  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ $ALL = "true" ])); then
-    sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
-    sudo apt-get update
-    sudo apt-get install -y --force-yes emby-server
-    echo "RUNNING=\`ps -ax | grep -i emby\`
-          if [ -z \"\$RUNNING\" ]; then
-            sudo /etc/init.d/emby-server start
-          fi" >> $HOME/.bash_profile
-    EMBY=true
-    # start: sudo /usr/bin/emby-server start
+  # PostgreSQL, preinstalled on c9.io
+  if [[ ! "$@" == *"-postgres"* ]] && ([[ "$@" == *"postgres"* ]] || [ $ALL = "true" ]); then
+    if [ ! "$C9IO" = "true" ]; then
+        sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+        wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+        sudo apt-get update 
+        sudo apt-get install -y postgresql postgresql-contrib libpq-dev
+    fi
+    sudo service postgresql start
+    POSTGRESQL=true
   fi
   
-  # Heroku
-  if [[ ! "$@" == *"-heroku"* ]] && ([[ "$@" == *"heroku"* ]] || [ $ALL = "true" ]); then
-    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-    HEROKU=true
-  fi
+  # ------------------------------------------------
+  # HOSTING services alphabetically
+  # ------------------------------------------------
+  # Pull requests welcome
   
   # AWS CLI
   if [[ ! "$@" == *"-awscli"* ]] && ([[ "$@" == *"awscli"* ]] || [ $ALL = "true" ]); then
@@ -204,14 +224,6 @@
     ./awscli-bundle/install -b $HOME/.awscli
     rm -rf awscli-bundle.zip
     AWSCLI=true
-  fi
-  
-  # S3CMD
-  if [[ ! "$@" == *"-s3cmd"* ]] && ([[ "$@" == *"s3cmd"* ]] || [ $ALL = "true" ]); then
-    wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
-    sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
-    sudo apt-get install -y s3cmd
-    S3CMD=true
   fi
   
   # Digital Ocean CLI
@@ -223,25 +235,29 @@
     DOCTL=true
   fi
   
-  # SSH key
-  if [ ! -f $HOME/.ssh/id_rsa ]; then
-    mkdir -p $HOME/.ssh
-    chmod 700 $HOME/.ssh
-    touch $HOME/.ssh/authorized_keys
-    chmod 644 $HOME/.ssh/authorized_keys
-    chown $USER:$USER $HOME/.ssh/authorized_keys
-    chown $USER:$USER $HOME/.ssh
-    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f $HOME/.ssh/id_rsa -N ""
-    chmod 600 $HOME/.ssh/id_rsa*
+  # Heroku
+  if [[ ! "$@" == *"-heroku"* ]] && ([[ "$@" == *"heroku"* ]] || [ $ALL = "true" ]); then
+    wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+    HEROKU=true
   fi
   
-  # start installed servers
+  # S3CMD
+  if [[ ! "$@" == *"-s3cmd"* ]] && ([[ "$@" == *"s3cmd"* ]] || [ $ALL = "true" ]); then
+    wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -
+    sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list
+    sudo apt-get install -y s3cmd
+    S3CMD=true
+  fi
+  
+  # ------------------------------------------------
+  # start installed servers and end with usage notes 
+  # ------------------------------------------------
   cd ~/ && source $HOME/.bash_profile
   
   echo "--------------------------------------------"
   echo "Setup complete"
   
-  # web servers by port
+  # Access notes for web servers by port
   if [ "$CLOUD9" == "true" ] && [ ! "$C9IO" = "true" ]; then
     echo "--------------------------------------------"
     echo "C9 browser IDE can be opened in your browser at:"
@@ -275,7 +291,7 @@
     echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
   fi
   
-  # Tools in alphabetical order
+  # Usage notes for tools in alphabetical order
   # TODO: redis
   # TODO: mysql
   # TODO: mongodb
@@ -335,7 +351,20 @@
     echo "S3CMD is installed"
   fi
   
-  # SSH key ready for pasting
+  # ------------------------------------------------
+  # SSH key
+  # ------------------------------------------------
+  if [ ! -f $HOME/.ssh/id_rsa ]; then
+    mkdir -p $HOME/.ssh
+    chmod 700 $HOME/.ssh
+    touch $HOME/.ssh/authorized_keys
+    chmod 644 $HOME/.ssh/authorized_keys
+    chown $USER:$USER $HOME/.ssh/authorized_keys
+    chown $USER:$USER $HOME/.ssh
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL"  -f $HOME/.ssh/id_rsa -N ""
+    chmod 600 $HOME/.ssh/id_rsa*
+  fi
+  
   echo "--------------------------------------------"
   echo "This is your new SSH key:"
   echo ""
