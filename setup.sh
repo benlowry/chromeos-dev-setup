@@ -39,7 +39,7 @@
   # package dependencies
   PKG=""
   for f in libssl-dev build-essential software-properties-common openssh-client man unzip git; do
-    INSTALLED=`dpkg-query -l $f | grep Version` || `command -v $f`
+    INSTALLED=`command -v $f` || `which $f` || `dpkg-query -l $f | grep Version` || ""
     if [ -z "$INSTALLED" ]; then
       PKG="$PKG $f"
     fi
