@@ -99,9 +99,9 @@
   # Install Deluge (torrent), disabled on c9.io
    if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
+    echo 'if [ "`pwd`" = "$HOME" ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
-          fi" >> $HOME/.bash_profile
+          fi' >> $HOME/.bash_profile
     DELUGE=true
     # start: deluge -u web
   fi
@@ -113,7 +113,9 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo 'if [ "`pwd`" = "$HOME" ]; then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null fi' >> $HOME/.bash_profile
+    echo 'if [ "`pwd`" = "$HOME" ]; 
+            then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null 
+          fi' >> $HOME/.bash_profile
     C9=true
   fi
   
@@ -123,9 +125,11 @@
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo "if [ \"`pwd`\" = $HOME ]; then
-            pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null &
-          fi" >> $HOME/.bash_profile
+    ps cax | grep pgweb
+    echo 'ps cax | grep pgweb
+          if [ ! $? -eq 0 ]; then 
+            pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
+          fi' >> $HOME/.bash_profile
     PGWEB=true
   fi
 
@@ -135,9 +139,9 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo "if [ \"`pwd`\" = $HOME ]; then
-            .dropbox-dist/dropboxd > /dev/null &
-          fi" >> $HOME/.bash_profile
+    echo 'if [ "`pwd`" = "$HOME" ]; then
+            ~/dropbox.py autostart 
+          fi' >> $HOME/.bash_profile
     DROPBOX=true
     # start: $HOME/.dropbox-dist/dropboxd
   fi
