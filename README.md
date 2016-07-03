@@ -65,11 +65,12 @@ If installed ...
 - Deluge is running and the password is `deluge`
 
 ## Accessing servers
-### Cloud9 http://127.0.0.1:8080 (also port 80 on c9.io)
-### git-webui http://127.0.0.1:8081
-### pgweb http://127.0.0.1:8082
-### Deluge http://127.0.0.1:8112 (not on c9.io)
-### Emby Media Server http://127.0.0.1:8096/  (not on c9.io)
+On C9 you use your workspace URL instead of localhost.
+### Cloud9 http://localhost:8080 (also port 80 on c9.io)
+### git-webui http://localhost:8081
+### pgweb http://localhost:8082
+### Deluge http://localhost:8112 (not on c9.io)
+### Emby Media Server http://localhost:8096/  (not on c9.io)
 
 ### Dropbox
 Note: first run it will generate a URL to link your computer
