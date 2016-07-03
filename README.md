@@ -17,16 +17,19 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     
     # install only these things
     $ bash setup.sh nodejs cloud9 awscli
+    
+    # install everything except
+    $ bash setup.sh -deluge -s3cmd -awscli -doctl -dropbox
 
 ## What can be installed
 - `golang` Golang
 - `python` Python 2.7
 - `nodejs` NodeJS via nvm: https://github.com/creationix/nvm
-- `gitwebui` Git + Git-WebUI: https://github.com/alberthier/git-webui
+- `git-webui` Git + Git-WebUI: https://github.com/alberthier/git-webui
 - `postgresql` Postgresql + pgweb: https://github.com/sosedoff/pgweb
 - `cloud9` Cloud9 IDE: https://github.com/c9/core
 - `awscli` Amazon's  AWS CLI: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
-- `s3tools` S3Tools' S3CMD: http://s3tools.org/s3cmd
+- `s3cmd` S3Tools' S3CMD: http://s3tools.org/s3cmd
 - `doctl` DigitalOcean's doctl: https://github.com/digitalocean/doctl/
 - `heroku` Heroku Toolbelt: https://toolbelt.heroku.com/debian
 - `deluge` Deluge torrent server and web client: http://deluge-torrent.org/
