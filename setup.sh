@@ -41,7 +41,7 @@
   for f in libssl-dev build-essential software-properties-common openssh-client man unzip git; do
     echo 'Checking package $f'
     INSTALLED=`dpkg-query -l $f | grep Version`
-    if [ -z $INSTALLED ]; then
+    if [ -z "$INSTALLED" ]; then
       PKG="$PKG $f"
     fi
   done
