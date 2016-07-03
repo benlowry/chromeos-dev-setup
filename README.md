@@ -39,8 +39,8 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-- `golang` Golang
-- `python` Python 2.7
+- `golang` Golang via https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable
+- `python` Python 2.7 via https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
 - `nodejs` NodeJS via nvm: https://github.com/creationix/nvm
 - `git-webui` Git + Git-WebUI: https://github.com/alberthier/git-webui
 - `postgresql` Postgresql + pgweb: https://github.com/sosedoff/pgweb
