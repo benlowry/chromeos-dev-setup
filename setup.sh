@@ -55,7 +55,7 @@
   
   if [ ! -z "$PKG" ]; then
     sudo apt-get update && sudo apt-get upgrade -y
-    sudo apt-get install -y "$PKG"
+    sudo apt-get install -y $PKG
   fi
   
   if [ ! -z "$PKG" ]; then
