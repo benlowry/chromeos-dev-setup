@@ -99,7 +99,7 @@
   # Install Deluge (torrent), disabled on c9.io
    if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \"`pwd`\" = $HOME ]; then
+    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
           fi" >> $HOME/.bash_profile
     DELUGE=true
@@ -113,7 +113,7 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo "if [ \"`pwd`\" = $HOME ]; then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null fi" >> $HOME/.bash_profile
+    echo 'if [ "`pwd`" = "$HOME" ]; then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null fi' >> $HOME/.bash_profile
     C9=true
   fi
   
