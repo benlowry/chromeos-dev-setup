@@ -152,7 +152,7 @@
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
-            RUNNING=\`ps cax | grep pgweb\`
+            RUNNING=\`ps -ax | grep -i pgweb\`
             if [ -z \"\$RUNNING\" ]; then 
               pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
             fi
@@ -167,7 +167,7 @@
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
-            RUNNING=`ps cax | grep dropbox`
+            RUNNING=`ps -ax | grep -i dropbox`
             if [ -z \"\$RUNNING\" ]; then 
               ~/dropbox.py start
             fi
@@ -181,7 +181,7 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "RUNNING=\`ps cax | grep emby\`
+    echo "RUNNING=\`ps -ax | grep -i emby\`
           if [ -z \"\$RUNNING\" ]; then
             sudo /etc/init.d/emby-server start
           fi" >> $HOME/.bash_profile
