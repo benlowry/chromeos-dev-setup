@@ -313,10 +313,8 @@
     echo "Exclude folders with selective sync:"
     echo " $ ~/dropbox.py exclude add a_folder"
     echo ""
-    echo "Exclude all folders except 'chromedev':"
+    echo "Exclude all folders except 'chromedev' (run a few times)":
     echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
-    echo "This needs to be done multiple times and"
-    echo "Dropbox will manage removing synced files."
     echo ""
     echo "Replace ~/projects with ~/Dropbox/chromedev:"
     echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
