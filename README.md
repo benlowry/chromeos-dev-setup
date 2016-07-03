@@ -98,24 +98,10 @@ You will need to create a user and database:
     $ createdb mydb --owner mydb
 
 ## Screenshots
-
-### Cloud9
-An open source IDE.
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-
-### PGWeb
-An open source web interface for PostgreSQL databases.
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
-
-### Git WebUI
-An open source web interface for git repistories.
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
-
-### Deluge
-An open source web server and interface for torrents.
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
-
-### Emby
-An open source media server and interface for audio/video.
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='Git WebUI - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
+an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
     
