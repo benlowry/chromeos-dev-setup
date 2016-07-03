@@ -78,6 +78,7 @@
   # LANGUAGES alphabetically
   # ------------------------------------------------
   # Pull requests welcome
+  echo 'PWD=\`pwd\`' >> $HOME/.bash_profile
   
   # Golang
   if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ $ALL = "true" ]); then
@@ -127,7 +128,7 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo "if [ \`pwd\` = \"\$HOME\" ]; then
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
           fi" >> $HOME/.bash_profile
     CLOUD9=true
@@ -147,7 +148,7 @@
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo "if [ \`pwd\` = \"\$HOME\" ]; then
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             RUNNING=\`ps -ax | grep -i pgweb\`
             if [ -z \"\$RUNNING\" ]; then 
               pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
@@ -161,9 +162,11 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "RUNNING=\`ps -ax | grep -i emby\`
-          if [ -z \"\$RUNNING\" ]; then
-            sudo /etc/init.d/emby-server start
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
+            RUNNING=\`ps -ax | grep -i emby\`
+            if [ -z \"\$RUNNING\" ]; then
+              sudo /etc/init.d/emby-server start
+            fi
           fi" >> $HOME/.bash_profile
     EMBY=true
     # start: sudo /usr/bin/emby-server start
@@ -172,7 +175,7 @@
   # Deluge, skipped on c9.io
    if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \`pwd\` = \"\$HOME\" ]; then
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
           fi" >> $HOME/.bash_profile
     DELUGE=true
@@ -190,7 +193,7 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo "if [ \`pwd\` = \"\$HOME\" ]; then
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             RUNNING=\`ps -ax | grep -i dropbox\`
             if [ -z \"\$RUNNING\" ]; then 
               ~/dropbox.py start
