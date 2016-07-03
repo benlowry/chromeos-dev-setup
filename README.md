@@ -86,7 +86,7 @@ Note: this does not get installed on c9.io
 
     $ cd my_project && git webui -p 8081 
 
-### pgweb http://127.0.0.1:8082 a browser based RDBMS for Postgresql 
+### pgweb http://127.0.0.1:8082
     
     $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
     
