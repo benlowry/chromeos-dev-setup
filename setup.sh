@@ -113,8 +113,8 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo 'if [ "`pwd`" = "$HOME" ]; 
-            then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null 
+    echo 'if [ "`pwd`" = "$HOME" ]; then
+            pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT 
           fi' >> $HOME/.bash_profile
     C9=true
   fi
