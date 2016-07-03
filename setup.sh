@@ -250,14 +250,15 @@
   fi
   
   # ------------------------------------------------
-  # start installed servers and end with usage notes 
+  # Start installed servers
   # ------------------------------------------------
   cd ~/ && source $HOME/.bash_profile
   
+  # ------------------------------------------------
+  # Access notes for web servers by port
+  # ------------------------------------------------
   echo "--------------------------------------------"
   echo "Setup complete"
-  
-  # Access notes for web servers by port
   if [ "$CLOUD9" == "true" ] && [ ! "$C9IO" = "true" ]; then
     echo "--------------------------------------------"
     echo "C9 browser IDE can be opened in your browser at:"
@@ -291,7 +292,9 @@
     echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
   fi
   
-  # Usage notes for tools in alphabetical order
+  # ------------------------------------------------
+  # Setup notes for tools in alphabetical order
+  # ------------------------------------------------
   # TODO: redis
   # TODO: mysql
   # TODO: mongodb
@@ -328,7 +331,9 @@
     echo " $ createdb mydb --owner mydb"
   fi
   
-  # Hosting services in alphabetical order
+  # ------------------------------------------------
+  # Hosting services installed in alphabetical order
+  # ------------------------------------------------
   # TODO: what would you like to add...
   if [ "$AWSCLI" = "true" ]; then
     echo "--------------------------------------------"
@@ -352,7 +357,7 @@
   fi
   
   # ------------------------------------------------
-  # SSH key
+  # New SSH key
   # ------------------------------------------------
   if [ ! -f $HOME/.ssh/id_rsa ]; then
     mkdir -p $HOME/.ssh
