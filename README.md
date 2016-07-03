@@ -64,9 +64,9 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost:
 
-- Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace 
-- Git WebUI must be started in a git repo, runs at [localhost:8081](http://localhost:8081)
-- PGWeb will be running at [localhost:8082](http://localhost:8082)
+- Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace
+- PGWeb will be running at [localhost:8081](http://localhost:8082)
+- Git WebUI runs at [localhost:8082](http://localhost:8081) after `git webui` in a repo
 - Emby will be running at [localhost:8096](http://localhost:8096)
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 - Dropbox requires connecting your account
