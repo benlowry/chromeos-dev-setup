@@ -126,7 +126,7 @@
   # Install Deluge (torrent), disabled on c9.io
    if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \"\`pwd\`\" = \"$HOME\" ]; then
+    echo "if [ \`pwd\` = \"\$HOME\" ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
           fi" >> $HOME/.bash_profile
     DELUGE=true
@@ -140,7 +140,7 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
+    echo "if [ \`pwd\` = \"\$HOME\" ]; then
             pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
           fi" >> $HOME/.bash_profile
     C9=true
@@ -152,7 +152,7 @@
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
+    echo "if [ \`pwd\` = \"\$HOME\" ]; then
             RUNNING=\`ps cax | grep pgweb\`
             if [ ! z \"\$RUNNING\" ]; then 
               pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
@@ -167,7 +167,7 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
+    echo "if [ \`pwd\` = \"\$HOME\" ]; then
             ~/dropbox.py start
           fi" >> $HOME/.bash_profile
     DROPBOX=true
@@ -263,7 +263,7 @@
   if [ "$DELUGE" = "true" ]; then
     echo "--------------------------------------------"
     echo "Deluge can be opened in your browser at:"
-    echo " http://127.0.0.1:${DELUGE_PORT}/ pwd 'deluge'"
+    echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
   fi
    
   if [ "$GITWEBUI" = "true" ]; then
