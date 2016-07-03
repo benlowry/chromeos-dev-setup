@@ -112,9 +112,8 @@
     cd $HOME/c9/scripts
     ./install-sdk.sh
     cd $HOME/
-    echo "if [ \"`pwd`\" = $HOME ]; then
-            node c9/server.js -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null &
-          fi" >> $HOME/.bash_profile
+    npm install -g pm2
+    echo "if [ \"`pwd`\" = $HOME ]; then pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT > /dev/null fi" >> $HOME/.bash_profile
     C9=true
   fi
   
@@ -247,12 +246,16 @@
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
     echo " $ $HOME/.dropbox-dist/dropboxd"
+    echo " $ ~/dropbox.py autostart"
+    echo ""
     echo "Exclude folders with selective sync:"
-    echo "~/dropbox.py exclude add a_folder"
+    echo " $ ~/dropbox.py exclude add a_folder"
+    echo ""
     echo "Exclude all folders except 'chromedev':"
-    echo "cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
+    echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
+    echo ""
     echo "Replace ~/projects with ~/Dropbox/chromedev:"
-    echo "rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
+    echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
   fi
   
   if [ "$EMBY" = "true" ]; then
