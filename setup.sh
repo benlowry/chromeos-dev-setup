@@ -101,9 +101,9 @@
   # Install Deluge (torrent), disabled on c9.io
    if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
     sudo apt-get install -y deluge deluge-web deluged
-    echo 'if [ "`pwd`" = "$HOME" ]; then
+    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
             sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
-          fi' >> $HOME/.bash_profile
+          fi" >> $HOME/.bash_profile
     DELUGE=true
     # start: deluge -u web
   fi
@@ -115,9 +115,9 @@
     ./install-sdk.sh
     cd $HOME/
     npm install -g pm2
-    echo 'if [ "`pwd`" = "$HOME" ]; then
-            pm2 start ${HOME}/c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w ${HOME}/projects --listen 0.0.0.0 --port=${C9_PORT} 
-          fi' >> $HOME/.bash_profile
+    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
+            pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
+          fi" >> $HOME/.bash_profile
     C9=true
   fi
   
@@ -128,12 +128,12 @@
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     ps cax | grep pgweb
-    echo 'if [ "`pwd`" = "$HOME" ]; then
+    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
             RUNNING=`ps cax | grep pgweb`
             if [ ! z $RUNNING ]; then 
               pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
             fi
-          fi' >> $HOME/.bash_profile
+          fi" >> $HOME/.bash_profile
     PGWEB=true
   fi
 
@@ -143,9 +143,9 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo 'if [ "`pwd`" = "$HOME" ]; then
+    echo "if [ \"`pwd`\" = \"$HOME\" ]; then
             ~/dropbox.py start
-          fi' >> $HOME/.bash_profile
+          fi" >> $HOME/.bash_profile
     DROPBOX=true
     # start: $HOME/.dropbox-dist/dropboxd
   fi
@@ -155,10 +155,10 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo 'RUNNING=`ps cax | grep emby`
+    echo "RUNNING=`ps cax | grep emby`
           if [ -z $RUNNING ]; then
             sudo /etc/init.d/emby-server restart
-          fi' >> $HOME/.bash_profile
+          fi" >> $HOME/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
