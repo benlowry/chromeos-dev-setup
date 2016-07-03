@@ -39,19 +39,20 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-- `golang` Golang via https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable
-- `python` Python 2.7 via https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7
-- `nodejs` NodeJS via nvm: [creationix/nvm](https://github.com/creationix/nvm)
-- `git-webui` Git + Git-WebUI: [alberthier/git-webui](https://github.com/alberthier/git-webgui)
-- `postgresql` Postgresql + pgweb: [sosedoff/pgweb](https://github.com/sosedoff/pgweb)
-- `cloud9` Cloud9 IDE: [c9/core](https://github.com/c9/core)
-- `awscli` Amazon's  AWS CLI: http://docs.aws.amazon.com/cli/latest/userguide/installing.html
-- `s3cmd` S3Tools' S3CMD: http://s3tools.org/s3cmd
-- `doctl` DigitalOcean's doctl: [digitalocean/doctl](https://github.com/digitaloceal/doctl)
-- `heroku` Heroku Toolbelt: [toolbelt.heroku.com/debian](https://toolbelt.heroku.com/debian)
-- `deluge` Deluge torrent server and web client: [deluge-torrent.org](http://deluge-torrent.org/)
-- `emby` Emby Media Server: [emby.media](http://emby.media)
-- `dropbox` Dropbox: [dropbox.com](https://www.dropbox.com/)
+- `golang` Golang via [lxd-stab]e(https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
+- `python` version 2.7 via [fkrull/deadsnakes](https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7)
+- `nodejs` via [NVM](https://github.com/creationix/nvm)
+- `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
+- `postgresql` [Postgresql](https://postgresql.org/)
+- `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
+- `cloud9` [Cloud9 IDE](https://github.com/c9/core)
+- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
+- `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
+- `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
+- `deluge` [Deluge torrent server](http://deluge-torrent.org/)
+- `emby` [Emby Media Server](http://emby.media)
+- `dropbox` [Dropbox](https://www.dropbox.com/)
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
