@@ -37,7 +37,6 @@
   done
     
   # package dependencies
-  # package dependencies
   PKG=""
   for f in libssl-dev build-essential software-properties-common openssh-client man unzip git; do
     if [ "$f" = "unzip" ] || [ "$f" = "man" ] || [ "$f" = "git" ]; then
