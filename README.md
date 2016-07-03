@@ -52,7 +52,6 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `deluge` Deluge torrent server and web client: [deluge-torrent.org](http://deluge-torrent.org/)
 - `emby` Emby Media Server: [emby.media](http://emby.media)
 - `dropbox` Dropbox: [dropbox.com](https://www.dropbox.com/)
-- New SSH key generated with your email
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
