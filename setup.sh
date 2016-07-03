@@ -155,7 +155,7 @@
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
             RUNNING=\`ps cax | grep pgweb\`
             if [ -z \"\$RUNNING\" ]; then 
-              pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
+              pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
             fi
           fi" >> $HOME/.bash_profile
     PGWEB=true
@@ -168,7 +168,10 @@
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
-            ~/dropbox.py start
+            RUNNING=`ps cax | grep dropbox`
+            if [ -z \"\$RUNNING\" ]; then 
+              ~/dropbox.py start
+            fi
           fi" >> $HOME/.bash_profile
     DROPBOX=true
     # start: $HOME/.dropbox-dist/dropboxd
