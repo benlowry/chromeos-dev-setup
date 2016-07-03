@@ -268,6 +268,7 @@
   if [ "$GITWEBUI" = "true" ]; then
     echo "--------------------------------------------"
     echo "Git WebUI can be started in a repo:"
+    echo ""
     echo " $ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}"
     echo ""
     echo "Git WebUI can be opened in your browser at:"
@@ -277,7 +278,7 @@
   if [ "$PGWEB" = "true" ]; then
     echo "--------------------------------------------"
     echo "PGWeb can be opened in your browser at:"
-    echo "http://127.0.0.1:${PGWEB_PORT}/"
+    echo " http://127.0.0.1:${PGWEB_PORT}/"
   fi
   
   if [ "$EMBY" = "true" ]; then
@@ -295,28 +296,20 @@
   # ------------------------------------------------
   # Setup notes for tools in alphabetical order
   # ------------------------------------------------
-  # TODO: redis
-  # TODO: mysql
-  # TODO: mongodb
-  # TODO: liquibase (probably java)
-  # TODO: react
-  # TODO: typescript
-  # TODO: standardjs
-  # TODO: bower
   # TODO: what would you like to add...
   if [ "$DROPBOX" = "true" ]; then
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
-    echo " $ $HOME/.dropbox-dist/dropboxd"
-    echo " $ ~/dropbox.py autostart"
     echo ""
-    echo "Exclude folders with selective sync:"
+    echo " $ $HOME/.dropbox-dist/dropboxd"
+    echo ""
+    echo " # exclude folders with selective sync:"
     echo " $ ~/dropbox.py exclude add a_folder"
     echo ""
-    echo "Exclude all folders except 'chromedev' (run a few times)":
-    echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done;\""
+    echo " # exclude all folders except 'chromedev' (run a few times)":
+    echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done"
     echo ""
-    echo "Replace ~/projects with ~/Dropbox/chromedev:"
+    echo " # replace ~/projects with ~/Dropbox/chromedev:"
     echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
   fi
   
@@ -324,6 +317,7 @@
     echo "-------------------------------------------"
     echo "PostgreSQL is running on port 5432 and"
     echo "waiting for you to create a database:"
+    echo ""
     echo " $ sudo -i -u postgres"
     echo " $ createuser -P -s -e mydb"
     echo " $ createdb mydb --owner mydb"
@@ -345,7 +339,7 @@
   
   if [ "$HEROKU" = "true" ]; then
     echo "--------------------------------------------"
-    echo "Heroku is installed but requires:"
+    echo "Heroku is installed and waiting for:"
     echo " $ heroku login"
   fi
   
