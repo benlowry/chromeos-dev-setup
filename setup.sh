@@ -154,7 +154,7 @@
     rm -rf pgweb_linux_amd64.zip
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
             RUNNING=\`ps cax | grep pgweb\`
-            if [ ! z \"\$RUNNING\" ]; then 
+            if [ -z \"\$RUNNING\" ]; then 
               pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
             fi
           fi" >> $HOME/.bash_profile
