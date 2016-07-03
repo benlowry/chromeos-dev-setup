@@ -91,7 +91,6 @@
         wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
         sudo apt-get update 
         sudo apt-get install -y postgresql postgresql-contrib libpq-dev
-        sudo echo "service postgresql start" >> /etc/rc.local
     fi
     sudo service postgresql start
     POSTGRES=true
