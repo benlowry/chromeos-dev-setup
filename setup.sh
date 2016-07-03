@@ -37,7 +37,7 @@
   fi
   
   # Git-WebUI
-  if [[ "$@" == *"git-webui"* ]] || [ -z "$@" ]; then
+  if [ ! -z ${!"-GITWEBUI"} ] && ([[ "$@" == *"git-webui"* ]] || [ -z "$@" ]); then
     cd $HOME
     git clone https://github.com/alberthier/git-webui.git
     git config --global alias.webui \!$PWD/git-webui/release/libexec/git-core/git-webui
