@@ -92,7 +92,6 @@
     sudo apt-get install -y golang
     mkdir -p $HOME/gopath
     echo "export GOPATH=$HOME/gopath" >> $HOME/.bash_profile
-    source $HOME/.bash_profile
   fi
     
   # NodeJS
@@ -104,8 +103,8 @@
       . $HOME/.nvm/nvm.sh
       echo "export NVM_DIR=$HOME/.nvm" >> $HOME/.bash_profile
       echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" >> $HOME/.bash_profile
-      source $HOME/.bash_profile
     fi
+    . $HOME/.nvm/nvm.sh
     nvm install node
     nvm alias default node
   fi
