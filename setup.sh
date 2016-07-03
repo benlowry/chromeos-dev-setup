@@ -45,7 +45,7 @@
     fi
   done
   
-  if [ ! -z $PKG ]; then
+  if [ ! -z "$PKG" ]; then
     echo "Installing $PKG"
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install -y "$PKG"
