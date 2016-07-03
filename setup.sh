@@ -129,7 +129,10 @@
     cd $HOME/
     npm install -g pm2
     echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
-            pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
+            RUNNING=\`pm2 list | grep -i cloud9\`
+            if [ -z $RUNNING ]; then
+              pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
+            fi
           fi" >> $HOME/.bash_profile
     CLOUD9=true
   fi
