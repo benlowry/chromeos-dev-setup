@@ -18,7 +18,7 @@
     C9IO=true
   fi
   
-  if [ ! -z `command -v git` ]; then
+  if [ -z `command -v git` ]; then
     # Get this now because nothing else requires input
     if [ -z $EMAIL ]; then
       read -p "Enter your email for git commits: " EMAIL
@@ -36,9 +36,15 @@
     fi
   done
     
-  # General dependencies
+  # package dependencies
+  PKG=""
+  for f in libssl-dev build-essential software-properties-common openssh-client man unzip git; do
+    if [ -z `dpkg-query -l $f | grep Version` ]; then
+      PKG="$PKG $f"
+    fi
+  fi
   sudo apt-get update && sudo apt-get upgrade -y
-  sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip git
+  sudo apt-get install -y $PKG
   if [ ! -z "$NAME" ]; then
     git config --global user.name "$NAME"
   fi
