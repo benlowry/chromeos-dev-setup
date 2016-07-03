@@ -83,6 +83,7 @@
     sudo add-apt-repository -y ppa:fkrull/deadsnakes
     sudo apt-get update 
     sudo apt-get install -y python2.7
+    PYTHON=true
   fi
   
   # Golang
@@ -92,6 +93,7 @@
     sudo apt-get install -y golang
     mkdir -p $HOME/gopath
     echo "export GOPATH=$HOME/gopath" >> $HOME/.bash_profile
+    GOLANG=true
   fi
     
   # NodeJS
@@ -107,6 +109,7 @@
     . $HOME/.nvm/nvm.sh
     nvm install node
     nvm alias default node
+    NODEJS=true
   fi
     
   # PostgreSQL, preinstalled on c9.io
@@ -118,7 +121,7 @@
         sudo apt-get install -y postgresql postgresql-contrib libpq-dev
     fi
     sudo service postgresql start
-    POSTGRES=true
+    POSTGRESQL=true
   fi
   
   # Install Deluge (torrent), disabled on c9.io
@@ -141,7 +144,7 @@
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
             pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
           fi" >> $HOME/.bash_profile
-    C9=true
+    CLOUD9=true
   fi
   
   # Install PGWeb
@@ -185,7 +188,6 @@
             sudo /etc/init.d/emby-server start
           fi" >> $HOME/.bash_profile
     EMBY=true
-    # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
   fi
   
@@ -233,40 +235,19 @@
     chmod 600 $HOME/.ssh/id_rsa*
   fi
   
-  cd ~/
-  source $HOME/.bash_profile
+  # start installed servers
+  cd ~/ && source $HOME/.bash_profile
   
   echo "--------------------------------------------"
   echo "Setup complete"
   
-  # startup notes and setup completion notes
-  if [ "$C9" == "true" ] && [ ! "$C9IO" = "true" ]; then
+  # web servers by port
+  if [ "$CLOUD9" == "true" ] && [ ! "$C9IO" = "true" ]; then
     echo "--------------------------------------------"
     echo "C9 browser IDE can be opened in your browser at:"
     echo "http://127.0.0.1:${C9_PORT}/"
   fi
   
-  if [ "$POSTGRES" = "true" ]; then
-    echo "-------------------------------------------"
-    echo "PostgreSQL is running on port 5432 and"
-    echo "waiting for you to create a database:"
-    echo " $ sudo -i -u postgres"
-    echo " $ createuser -P -s -e mydb"
-    echo " $ createdb mydb --owner mydb"
-  fi
-  
-  if [ "$PGWEB" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "PGWeb can be opened in your browser at:"
-    echo "http://127.0.0.1:${PGWEB_PORT}/"
-  fi
-  
-  if [ "$DELUGE" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "Deluge can be opened in your browser at:"
-    echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
-  fi
-   
   if [ "$GITWEBUI" = "true" ]; then
     echo "--------------------------------------------"
     echo "Git WebUI can be started in a repo:"
@@ -276,6 +257,34 @@
     echo " http://127.0.0.1:${GITWEBUI_PORT}/"
   fi
   
+  if [ "$PGWEB" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "PGWeb can be opened in your browser at:"
+    echo "http://127.0.0.1:${PGWEB_PORT}/"
+  fi
+  
+  if [ "$EMBY" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "Emby can be opened in your browser at:"
+    echo " http://127.0.0.1:8096/"
+  fi
+  
+  if [ "$DELUGE" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "Deluge can be opened in your browser at:"
+    echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
+  fi
+  
+  # Tools in alphabetical order
+  # TODO: redis
+  # TODO: mysql
+  # TODO: mongodb
+  # TODO: liquibase (probably java)
+  # TODO: react
+  # TODO: typescript
+  # TODO: standardjs
+  # TODO: bower
+  # TODO: what would you like to add...
   if [ "$DROPBOX" = "true" ]; then
     echo "--------------------------------------------"
     echo "Dropbox setup can be completed by:"
@@ -294,11 +303,26 @@
     echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
   fi
   
-  if [ "$EMBY" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "Emby can be opened in your browser at:"
-    echo " http://127.0.0.1:8096/"
+  if [ "$POSTGRESQL" = "true" ]; then
+    echo "-------------------------------------------"
+    echo "PostgreSQL is running on port 5432 and"
+    echo "waiting for you to create a database:"
+    echo " $ sudo -i -u postgres"
+    echo " $ createuser -P -s -e mydb"
+    echo " $ createdb mydb --owner mydb"
   fi
+  
+  # Hosting services in alphabetical order
+  # TODO: what would you like to add...
+  if [ "$AWSCLI" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "AWS CLI is installed"
+  fi
+  
+  if [ "$DOCTL" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "DOCTL is installed"
+  ff
   
   if [ "$HEROKU" = "true" ]; then
     echo "--------------------------------------------"
@@ -306,21 +330,12 @@
     echo " $ heroku login"
   fi
   
-  if [ "$AWSCLI" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "AWS CLI is installed"
-  fi
-  
   if [ "$S3CMD" = "true" ]; then
     echo "--------------------------------------------"
     echo "S3CMD is installed"
   fi
   
-  if [ "$DOCTL" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "DOCTL is installed"
-  fi
-  
+  # SSH key ready for pasting
   echo "--------------------------------------------"
   echo "This is your new SSH key:"
   echo ""
