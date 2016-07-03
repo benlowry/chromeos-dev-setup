@@ -183,7 +183,7 @@
     sudo apt-get install -y --force-yes emby-server
     echo "RUNNING=\`ps cax | grep emby\`
           if [ -z \"\$RUNNING\" ]; then
-            sudo /etc/init.d/emby-server restart
+            sudo /etc/init.d/emby-server start
           fi" >> $HOME/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
