@@ -18,6 +18,16 @@
     C9IO=true
   fi
   
+  if [ ! -z `command -v git` ]; then
+    # Get this now because nothing else requires input
+    if [ -z $EMAIL ]; then
+      read -p "Enter your email for git commits: " EMAIL
+    fi
+    if [ -z $NAME ]; then
+      read -p "Enter your name for git commits: " NAME
+    fi
+  fi
+  
   ALL=true
   for f in "git-webui" python golang nodejs postgres deluge c9 pgweb dropbox emby heroku awscli s3cmd doctld; do
     if [[ ! "$@" == *"-$f"* ]] &&  [[ "$@" == *"$f"* ]]; then
@@ -28,19 +38,11 @@
     
   # General dependencies
   sudo apt-get update && sudo apt-get upgrade -y
-  sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip
-
-  # Git 
-  if [ -z `command -v git` ]; then
-    if [ -z $EMAIL ]; then
-      read -p "Enter your email for git commits: " EMAIL
-    fi
-    
-    if [ -z $NAME ]; then
-      read -p "Enter your name for git commits: " NAME
-    fi
-    sudo apt-get install -y git
+  sudo apt-get install -y libssl-dev build-essential software-properties-common openssh-client man unzip git
+  if [ ! -z "$NAME" ]; then
     git config --global user.name "$NAME"
+  fi
+  if [ ! -z "$EMAIL" ]; then
     git config --global user.email "$EMAIL"
   fi
   
