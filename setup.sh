@@ -179,7 +179,7 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "RUNNING=`ps cax | grep emby`
+    echo "RUNNING=\`ps cax | grep emby\`
           if [ -z \"\$RUNNING\" ]; then
             sudo /etc/init.d/emby-server restart
           fi" >> $HOME/.bash_profile
