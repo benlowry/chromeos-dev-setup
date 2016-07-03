@@ -20,6 +20,14 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     
     # install everything except
     $ bash setup.sh -deluge -s3cmd -awscli -doctl -dropbox
+    
+    # backup a configured machine
+    $ sudo edit-chroot -b my_chroot_name
+    $ mv my_chroot_name*.zip /media/removable/SD\ Card/
+    
+    # restore a backup
+    $ cp /media/removable/SD\ Card/my_chroot_name*.zip .
+    $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
 - `golang` Golang
@@ -86,7 +94,9 @@ Exclude folders via selective sync:
 
     $ ~/dropbox.py exclude add my_folder
     
-Exclude all folders but 'chromedev':
+Exclude all folders but 'chromedev', this needs to be run
+several times and Dropbox will manage deleting any files
+that become deselected:
     
     $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
     
