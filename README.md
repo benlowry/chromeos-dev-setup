@@ -39,7 +39,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-- `golang` via [lxd-stab]e(https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
+- `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
 - `nodejs` via [NVM](https://github.com/creationix/nvm)
 - `python` version 2.7 via [fkrull/deadsnakes](https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
