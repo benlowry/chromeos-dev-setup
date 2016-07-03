@@ -32,10 +32,10 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     
     # backup a configured machine
     $ sudo edit-chroot -b my_chroot_name
-    $ mv my_chroot_name*.zip /media/removable/SD\ Card/
+    $ mv /etc/local/chroots/my_chroot_name*.zip /media/removable/SD\ Card/
     
     # restore a backup
-    $ cp /media/removable/SD\ Card/my_chroot_name*.zip .
+    $ cp /media/removable/SD\ Card/my_chroot_name*.zip /etc/local/chroots/
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
@@ -64,36 +64,13 @@ If installed ...
 - Emby requires adding your music library
 - Deluge is running and the password is `deluge`
 
-## Backing up and restoring
-You can backup your fully configured chroot with:
-
-    cd /usr/local/chroots/
-    sudo edit-chroot -b my_chroot_name
-    mv *.zip ~/Downloads
-    
-This will generate a zip file you can safeguard on any external storage because it will be
-deleted by ChromeOS if it does a powerwash.  To restore the zip:
-
-    cd /usr/local/chroots/
-    cp ~/Downloads/my_chroot*.zip .
-    sudo edit-chroot -r my_chroot_name
-    rm -rf *.zip
-    
 ## Accessing servers
-### Cloud9 http://127.0.0.1:8080
-Note: this does not get installed on c9.io
-
-    $ cd ~/c9
-    $ sudo node server.js -w ~/projects --listen 0.0.0.0 --port=8080
-
+### Cloud9 http://127.0.0.1:8080 (also port 80 on c9.io)
 ### git-webui http://127.0.0.1:8081
-
-    $ cd my_project && git webui -p 8081 
-
 ### pgweb http://127.0.0.1:8082
-    
-    $ sudo $GOPATH/bin/pgweb --bind=0.0.0.0 --listen=8082
-    
+### Deluge http://127.0.0.1:8112 (not on c9.io)
+### Emby Media Server http://127.0.0.1:8096/  (not on c9.io)
+
 ### Dropbox
 Note: first run it will generate a URL to link your computer
   
@@ -113,16 +90,6 @@ Replace ~/projects with ~/Dropbox/chromedev:
 
     $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
 
-### Deluge http://127.0.0.1:8112
-Note: this does not get installed on c9.io
-
-    $ sudo /usr/bin/deluge-web --no-ssl -p 8112
-    
-### Emby Media Server http://127.0.0.1:8096/
-Note: this does not get installed on c9.io
-
-    $ sudo /usr/bin/emby-server start
-
 ### Postgres on port 5432
 You will need to create a user and database:
 
@@ -133,43 +100,22 @@ You will need to create a user and database:
 ## Screenshots
 
 ### Cloud9
-A full-featured, open source IDE.
-
-Github: https://github.com/
-
-Website: https://c9.io/
-
+An open source IDE.
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
 
 ### PGWeb
-A web interface for managing PostgreSQL databases.
-
-Github: https://github.com/sosedoff/pgweb
-
+An open source web interface for PostgreSQL databases.
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
 
 ### Git WebUI
-A web interface for git.
-
-Github: https://github.com/alberthier/git-webui
-
+An open source web interface for git repistories.
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
 
 ### Deluge
-A web server and interface for torrents.
-
-Github: https://github.com/deluge-torrent
-
-Website: http://deluge-torrent.org/
-
+An open source web server and interface for torrents.
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 
 ### Emby
-A media server and interface for audio/video.
-
-Github: https://github.com/MediaBrowser/Emby
-
-Website: http://emby.media/
-
+An open source media server and interface for audio/video.
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
     
