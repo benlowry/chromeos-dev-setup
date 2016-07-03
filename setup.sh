@@ -191,7 +191,7 @@
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
     echo "if [ \`pwd\` = \"\$HOME\" ]; then
-            RUNNING=`ps -ax | grep -i dropbox`
+            RUNNING=\`ps -ax | grep -i dropbox\`
             if [ -z \"\$RUNNING\" ]; then 
               ~/dropbox.py start
             fi
