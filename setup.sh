@@ -127,7 +127,6 @@
     unzip pgweb_linux_amd64.zip
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
-    ps cax | grep pgweb
     echo "if [ \"`pwd`\" = \"$HOME\" ]; then
             RUNNING=`ps cax | grep pgweb`
             if [ ! z $RUNNING ]; then 
