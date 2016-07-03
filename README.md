@@ -55,24 +55,24 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - New SSH key generated with your email
 
 ## After setup finishes
-If installed ...
-- Cloud9 will be running with ~/projects as the workspace folder.  
-- postgres will be running but has no databases etc
-- pgweb will be running with local server pre-configured
-- git-webui will not be running, you need to start this within your git repo
+If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
+- Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as the workspace folder.  
+- postgres will be running at localhost:5432 but has no databases etc
+- git-webui must be started in a git reop, then running at [localhost:8081](http://localhost:8081)
+- pgweb will be running at [localhost:8082](http://localhost:8082)
 - Dropbox requires connecting your account
-- Emby requires adding your music library
-- Deluge is running and the password is `deluge`
+- Emby will be running at [localhost:8096](http://localhost:8096)
+- Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 
-## Accessing servers
-On [C9.io](https://c9.io) you use your workspace URL instead of localhost.
-### Cloud9 http://localhost:8080 (also port 80 on c9.io)
-### git-webui http://localhost:8081
-### pgweb http://localhost:8082
-### Deluge http://localhost:8112 (not on c9.io)
-### Emby Media Server http://localhost:8096/  (not on c9.io)
-
-### Dropbox
+## Screenshots
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='Git WebUI - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
+an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
+    
+### Finishing Dropbox setup
 Note: first run it will generate a URL to link your computer
   
     $ ~/.dropbox-dist/dropboxd
@@ -91,18 +91,9 @@ Replace ~/projects with ~/Dropbox/chromedev:
 
     $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
 
-### Postgres on port 5432
+### Finishing Postgres setup
 You will need to create a user and database:
 
     $ sudo -i -u postgres
     $ createuser -P -s -e mydb
     $ createdb mydb --owner mydb
-
-## Screenshots
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='Git WebUI - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
-an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
-    
