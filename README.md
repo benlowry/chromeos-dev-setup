@@ -39,20 +39,20 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-- `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
-- `nodejs` via [NVM](https://github.com/creationix/nvm)
-- `python` version 2.7 via [deadsnakes](https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7)
+- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `cloud9` [Cloud9 IDE](https://github.com/c9/core)
+- `deluge` [Deluge torrent server](http://deluge-torrent.org/)
+- `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
+- `dropbox` [Dropbox](https://www.dropbox.com/)
+- `emby` [Emby Media Server](http://emby.media)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
+- `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
+- `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
+- `nodejs` via [NVM](https://github.com/creationix/nvm)
 - `postgresql` [Postgresql](https://postgresql.org/)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
-- `cloud9` [Cloud9 IDE](https://github.com/c9/core)
-- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `python` version 2.7 via [deadsnakes](https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes-python2.7)
 - `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
-- `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
-- `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
-- `deluge` [Deluge torrent server](http://deluge-torrent.org/)
-- `emby` [Emby Media Server](http://emby.media)
-- `dropbox` [Dropbox](https://www.dropbox.com/)
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
