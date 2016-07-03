@@ -114,7 +114,7 @@
     cd $HOME/
     npm install -g pm2
     echo 'if [ "`pwd`" = "$HOME" ]; then
-            pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w $HOME/projects --listen 0.0.0.0 --port=$C9_PORT 
+            pm2 start ${HOME}/c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w ${HOME}/projects --listen 0.0.0.0 --port=${C9_PORT} 
           fi' >> $HOME/.bash_profile
     C9=true
   fi
@@ -126,9 +126,11 @@
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     ps cax | grep pgweb
-    echo 'RUNNING=`ps cax | grep pgweb`
-          if [ ! z $RUNNING ]; then 
-            pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
+    echo 'if [ "`pwd`" = "$HOME" ]; then
+            RUNNING=`ps cax | grep pgweb`
+            if [ ! z $RUNNING ]; then 
+              pgweb --bind=0.0.0.0 --listen=${PGWEB_PORT} > /dev/null & 
+            fi
           fi' >> $HOME/.bash_profile
     PGWEB=true
   fi
@@ -139,8 +141,7 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo 'RUNNING=`ps cax | grep emby`
-          if [ -z $RUNNING ]; then
+    echo 'if [ "`pwd`" = "$HOME" ]; then
             ~/dropbox.py start
           fi' >> $HOME/.bash_profile
     DROPBOX=true
