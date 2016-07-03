@@ -56,13 +56,13 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost.
-- Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as the workspace folder.  
-- postgres will be running at localhost:5432 but has no databases etc
-- git-webui must be started in a git reop, then running at [localhost:8081](http://localhost:8081)
-- pgweb will be running at [localhost:8082](http://localhost:8082)
-- Dropbox requires connecting your account
+- Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace 
+- Git WebUI must be started in a git repo, runs at [localhost:8081](http://localhost:8081)
+- PGWeb will be running at [localhost:8082](http://localhost:8082)
 - Emby will be running at [localhost:8096](http://localhost:8096)
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
+- PostgreSQL will be running at localhost:5432 but has no databases etc
+- Dropbox requires connecting your account
 
 ## Screenshots
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
