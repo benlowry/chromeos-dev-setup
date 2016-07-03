@@ -29,7 +29,7 @@
   fi
   
   ALL=true
-  for f in "git-webui" python golang nodejs postgres deluge c9 pgweb dropbox emby heroku awscli s3cmd doctld; do
+  for f in git-webui python golang nodejs postgres deluge c9 pgweb dropbox emby heroku awscli s3cmd doctld; do
     if [[ ! "$@" == *"-$f"* ]] &&  [[ "$@" == *"$f"* ]]; then
       ALL=false
       break
