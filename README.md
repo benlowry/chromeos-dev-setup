@@ -51,7 +51,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `heroku` Heroku Toolbelt: [toolbelt.heroku.com/debian](https://toolbelt.heroku.com/debian)
 - `deluge` Deluge torrent server and web client: [deluge-torrent.org](http://deluge-torrent.org/)
 - `emby` Emby Media Server: [emby.media](http://emby.media)
-- `dropbox` Dropbox: [dropbox.com](https://www.dropbox.com/
+- `dropbox` Dropbox: [dropbox.com](https://www.dropbox.com/)
 - New SSH key generated with your email
 
 ## After setup finishes
