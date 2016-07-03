@@ -71,6 +71,13 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
 an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
+
+### Finishing Postgres setup
+You will need to create a user and database:
+
+    $ sudo -i -u postgres
+    $ createuser -P -s -e mydb
+    $ createdb mydb --owner mydb
     
 ### Finishing Dropbox setup
 Note: first run it will generate a URL to link your computer
@@ -90,10 +97,3 @@ that become deselected:
 Replace ~/projects with ~/Dropbox/chromedev:
 
     $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
-
-### Finishing Postgres setup
-You will need to create a user and database:
-
-    $ sudo -i -u postgres
-    $ createuser -P -s -e mydb
-    $ createdb mydb --owner mydb
