@@ -37,13 +37,26 @@
   done
     
   # package dependencies
+  # package dependencies
   PKG=""
   for f in libssl-dev build-essential software-properties-common openssh-client man unzip git; do
-    INSTALLED=`command -v $f` || `which $f` || `dpkg-query -l $f | grep Version` || ""
+    if [ "$f" = "unzip" ] || [ "$f" = "man" ] || [ "$f" = "git" ]; then
+        if hash gdate 2>/dev/null; then
+           continue
+        fi
+        PKG="$PKG $f"
+        continue
+    fi  
+    INSTALLED=`dpkg-query -l $f | grep Version`
     if [ -z "$INSTALLED" ]; then
       PKG="$PKG $f"
     fi
   done
+  
+  if [ ! -z "$PKG" ]; then
+    sudo apt-get update && sudo apt-get upgrade -y
+    sudo apt-get install -y "$PKG"
+  fi
   
   if [ ! -z "$PKG" ]; then
     echo "Installing $PKG"
