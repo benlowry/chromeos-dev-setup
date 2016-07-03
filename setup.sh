@@ -126,8 +126,8 @@
     sudo mv pgweb_linux_amd64 /usr/bin/pgweb
     rm -rf pgweb_linux_amd64.zip
     ps cax | grep pgweb
-    echo 'ps cax | grep pgweb
-          if [ ! $? -eq 0 ]; then 
+    echo 'RUNNING=`ps cax | grep pgweb`
+          if [ ! z $RUNNING ]; then 
             pgweb --bind=0.0.0.0 --listen=$PGWEB_PORT > /dev/null & 
           fi' >> $HOME/.bash_profile
     PGWEB=true
@@ -139,8 +139,9 @@
     # cli tool
     wget -O $HOME/dropbox.py "http://www.dropbox.com/download?dl=packages/dropbox.py"
     chmod 755 dropbox.py 
-    echo 'if [ "`pwd`" = "$HOME" ]; then
-            ~/dropbox.py autostart 
+    echo 'RUNNING=`ps cax | grep emby`
+          if [ -z $RUNNING ]; then
+            ~/dropbox.py start
           fi' >> $HOME/.bash_profile
     DROPBOX=true
     # start: $HOME/.dropbox-dist/dropboxd
@@ -151,9 +152,10 @@
     sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
     sudo apt-get update
     sudo apt-get install -y --force-yes emby-server
-    echo "if [ \"`pwd`\" = $HOME ]; then
-            sudo /usr/bin/emby-server start &
-          fi" >> $HOME/.bash_profile
+    echo 'RUNNING=`ps cax | grep emby`
+          if [ -z $RUNNING ]; then
+            sudo /etc/init.d/emby-server restart
+          fi' >> $HOME/.bash_profile
     EMBY=true
     # TODO: is it weird this requires force-yes and installs a bunch of certificates?
     # start: sudo /usr/bin/emby-server start
