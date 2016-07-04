@@ -39,6 +39,10 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
+Additions to this are welcome, your pull request will need to be fully functional
+with similar documentation (inc. embedded in `setup.sh`) and screenshot if there's
+a browser interface.
+
 ### Browser-based software
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
 - `deluge` [Deluge torrent server](http://deluge-torrent.org/)
