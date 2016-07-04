@@ -8,12 +8,13 @@ based media and torrent clients.
 All of the software installed uses web or CLI interfaces so the 'chroot' doesn't install a GUI, if you
 want to also install an interface and desktop software change `core` to `xfce` when running `crouton`.
 
-If you would like to add something please submit a pull request with your addition, it must include
-an updated README and a screenshot and links if it has a web interface.  Improvements to the setup
-script are also welcome.
-
 *This script is public domain and may be used or modified in any way.*
 
+## Pull requests
+If you would like to add something please submit a pull request with your addition, it must include
+an updated README and a screenshot etc where applicable.  Improvements to the setup script are welcome.
+
+## Running the setup
 To use this you'll need [crouton](https://github.com/dnschneid/crouton) and developer mode ready.
 
     $ sudo sh ~/Downloads/crouton -r trusty -t core -n my_chroot_name
@@ -39,10 +40,6 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo edit-chroot -r my_chroot_name
 
 ## What can be installed
-Additions to this are welcome, your pull request will need to be fully functional
-with similar documentation (inc. embedded in `setup.sh`) and screenshot if there's
-a browser interface.
-
 ### Browser-based software
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
 - `deluge` [Deluge torrent server](http://deluge-torrent.org/)
