@@ -32,12 +32,10 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ bash setup.sh -deluge -s3cmd -awscli -doctl -dropbox
     
     # backup a configured machine
-    $ sudo edit-chroot -b my_chroot_name
-    $ mv /etc/local/chroots/my_chroot_name*.zip /media/removable/SD\ Card/
+    $ sudo edit-chroot -b my_chroot_name -f /media/removable/SD\ Card/
     
     # restore a backup
-    $ cp /media/removable/SD\ Card/my_chroot_name*.zip /etc/local/chroots/
-    $ sudo edit-chroot -r my_chroot_name
+    $ sudo edit-chroot -r my_chroot_name -f /media/removable/SD\ Card/
 
 ## What can be installed
 ### Browser-based software
