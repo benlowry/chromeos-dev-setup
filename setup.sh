@@ -315,7 +315,7 @@
     echo " $ ~/dropbox.py exclude add a_folder"
     echo ""
     echo " # exclude all folders except 'chromedev' (run a few times)":
-    echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"$x\"; fi done"
+    echo " $ cd ~/Dropbox && for x in *; do if [ ! \"$x\" = \"chromedev\" ]; then ~/dropbox.py exclude add \"\$x\"; fi done"
     echo ""
     echo " # replace ~/projects with ~/Dropbox/chromedev:"
     echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
