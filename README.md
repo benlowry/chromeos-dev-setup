@@ -40,8 +40,8 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 ## What can be installed
 ### Browser-based software
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
-- `deluge` [Deluge torrent server](http://deluge-torrent.org/)
-- `emby` [Emby Media Server](http://emby.media)
+- `deluge` [Deluge torrent server](http://deluge-torrent.org/) (insecure link)
+- `emby` [Emby Media Server](http://emby.media)  (insecure link)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
 
@@ -52,32 +52,36 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 
 ### Tools
 - `dropbox` [Dropbox](https://www.dropbox.com/)
+- `redis` [Redis](http://redis.io/)  (insecure link)
 - `postgresql` [Postgresql](https://postgresql.org/)
 
 ### Hosting services
-- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)  (insecure link)
 - `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
 - `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
-- `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
+- `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)  (insecure link)
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost:
 
 - Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace
-- PGWeb will be running at [localhost:8081](http://localhost:8082)
-- Git WebUI runs at [localhost:8082](http://localhost:8081) after `git webui` in a repo
+- PGWeb will be running at [localhost:8081](http://localhost:8081)
+- Git WebUI runs at [localhost:8082](http://localhost:8082) after `git webui` in a repo
+- redis-commander runs at [localhost:8083](http://localhost:8083)
 - Emby will be running at [localhost:8096](http://localhost:8096)
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 - Dropbox requires connecting your account
-- PostgreSQL will be waiting to create databases and users
+- PostgreSQL on port 5432 will be waiting to create databases and users
+- Redis on port 6379 will be waiting for final setup `cd ~/redis-stable/utils && sudo bash install_server.sh`
 
 ## Screenshots
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='Git WebUI - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
 an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='git-webui - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png' title='redis-commander - an open source web interface for Redis'><img src="https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png" width="250"/></a>
 
 ### Finishing PostgreSQL setup
 You will need to create a user and database:
@@ -86,10 +90,15 @@ You will need to create a user and database:
     $ createuser -P -s -e mydb
     $ createdb mydb --owner mydb
     
+### Finishing Redis setup
+Redis requires running an installation script to configure the port and folders:
+
+    $ cd ~/redis-stable/utils && sudo bash install_server.sh
+    
 ### Finishing Dropbox setup
-Note: first run it will generate a URL to link your computer
+Note: first run it will generate a URL to link your computer:
   
-    # follow the link it generates
+    # follow the link it generates, eventually press ctrl+c to quit
     $ ~/.dropbox-dist/dropboxd
     
     # exclude folders via selective sync:
