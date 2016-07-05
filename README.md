@@ -43,6 +43,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `deluge` [Deluge torrent server](http://deluge-torrent.org/) (insecure link)
 - `emby` [Emby Media Server](http://emby.media)  (insecure link)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
+- `redis-commander` [redis-commander](https://github.com/joeferner/redis-commander)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
 
 ### Languages
