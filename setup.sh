@@ -333,7 +333,12 @@
     echo " # replace ~/projects with ~/Dropbox/chromedev:"
     echo " $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects"
   fi
-  
+   
+  if [ "$REDIS" = "true" ]; then
+    echo "-------------------------------------------"
+    echo "Redis is running on port 6379"
+  fi
+   
   if [ "$POSTGRESQL" = "true" ]; then
     echo "-------------------------------------------"
     echo "PostgreSQL is running on port 5432 and"
