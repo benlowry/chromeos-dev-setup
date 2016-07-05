@@ -201,7 +201,7 @@
               RUNNING=`pm2 list | grep redis-commander`
             fi
             if [ -z \"\$RUNNING\" ]; then
-              pm2 start redis-commander --interpreter=~/.nvm/versions/node/v4.0.0/bin/node --error /dev/null --output /dev/null --name redis-commander -- --port=$REDIS_COMMANDER_PORT
+              pm2 start redis-commander --error /dev/null --output /dev/null --name redis-commander -- --port=$REDIS_COMMANDER_PORT
             fi
           fi" >> $HOME/.bash_profile
     REDIS_COMMANDER=true
