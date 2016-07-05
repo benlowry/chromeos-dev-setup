@@ -18,6 +18,10 @@
     GITWEBUI_PORT=8082 # default 8000
   fi
   
+  if [ -z $REDIS_COMMANDER_PORT ]; then
+    $REDIS_COMMANDER_PORT=8083 # default 8081
+  fi
+  
   if [ -z $DELUGE_PORT ]; then
     DELUGE_PORT=8112 # default
   fi
@@ -119,9 +123,8 @@
   # ------------------------------------------------  
   # WEB SERVERS alphabetically
   # ------------------------------------------------
-  # Pull requests welcome please check 
-  # c9.io's policies and keep the script
-  # compliant by default
+  # Pull requests welcome please check c9.io's 
+  # policies and keep the script compliant by default
   
   # Cloud9 IDE, skipped on c9.io
    if [[ ! "$@" == *"-c9"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"c9"* ]] || [ $ALL = "true" ])); then
@@ -137,6 +140,31 @@
             fi
           fi" >> $HOME/.bash_profile
     CLOUD9=true
+  fi
+  
+  # Deluge, skipped on c9.io
+   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
+    sudo apt-get install -y deluge deluge-web deluged
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
+            sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
+          fi" >> $HOME/.bash_profile
+    DELUGE=true
+    # start: deluge -u web
+  fi
+  
+  # Emby, skipped on c9.io
+  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ $ALL = "true" ])); then
+    sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
+    sudo apt-get update
+    sudo apt-get install -y --force-yes emby-server
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
+            RUNNING=\`ps -ax | grep -i emby\`
+            if [ -z \"\$RUNNING\" ]; then
+              sudo /etc/init.d/emby-server start
+            fi
+          fi" >> $HOME/.bash_profile
+    EMBY=true
+    # start: sudo /usr/bin/emby-server start
   fi
   
   # Git-WebUI
@@ -162,31 +190,6 @@
     PGWEB=true
   fi
   
-  # Emby, skipped on c9.io
-  if [[ ! "$@" == *"-emby"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"emby"* ]] || [ $ALL = "true" ])); then
-    sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
-    sudo apt-get update
-    sudo apt-get install -y --force-yes emby-server
-    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
-            RUNNING=\`ps -ax | grep -i emby\`
-            if [ -z \"\$RUNNING\" ]; then
-              sudo /etc/init.d/emby-server start
-            fi
-          fi" >> $HOME/.bash_profile
-    EMBY=true
-    # start: sudo /usr/bin/emby-server start
-  fi
-  
-  # Deluge, skipped on c9.io
-   if [[ ! "$@" == *"-deluge"* ]] && ([ ! "$C9IO" = "true" ] && ([[ "$@" == *"deluge"* ]] || [ $ALL = "true" ])); then
-    sudo apt-get install -y deluge deluge-web deluged
-    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
-            sudo /usr/bin/deluge-web --no-ssl -p $DELUGE_PORT > /dev/null &
-          fi" >> $HOME/.bash_profile
-    DELUGE=true
-    # start: deluge -u web
-  fi
-
   # ------------------------------------------------
   # TOOLS alphabetically
   # ------------------------------------------------
