@@ -76,11 +76,12 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 
 ## Screenshots
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='Git WebUI - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
 an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='git-webui - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png' title='redis-commander - an open source web interface for Redis'><img src="https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png" width="250"/></a>
 
 ### Finishing PostgreSQL setup
 You will need to create a user and database:
