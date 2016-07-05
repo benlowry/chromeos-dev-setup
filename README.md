@@ -1,7 +1,7 @@
 # Automated setup for programming on Chrome OS
 
-This setup script for installing Ubuntu core on Crouton for working on more powerful x86 Chrome OS 
-devices.  It is compatible with C9.io so the same environment can be created on or off your 
+This setup script for installing Ubuntu core on Crouton for working on more powerful x86 Chrome OS
+devices.  It is compatible with C9.io so the same environment can be created on or off your
 hardware.  It can use Dropbox to sync your IDE settings and work in progress, and includes browser
 based media and torrent clients.
 
@@ -20,20 +20,20 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo sh ~/Downloads/crouton -r trusty -t core -n my_chroot_name
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
-    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh 
-    
+    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/master/setup.sh > setup.sh
+
     # install everything
     $ bash setup.sh
-    
+
     # install only these things
     $ bash setup.sh nodejs cloud9 awscli
-    
+
     # install everything except
     $ bash setup.sh -deluge -s3cmd -awscli -doctl -dropbox
-    
+
     # backup a configured machine
     $ sudo edit-chroot -b my_chroot_name -f /media/removable/SD\ Card/
-    
+
     # restore a backup
     $ sudo edit-chroot -r my_chroot_name -f /media/removable/SD\ Card/
 
@@ -75,13 +75,13 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 - Redis on port 6379 will be waiting for final setup `cd ~/redis-stable/utils && sudo bash install_server.sh`
 
 ## Screenshots
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/deluge.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/emby.png' title='Emby - 
-an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/emby.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png' title='git-webui - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/gitwebui.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/pgweb.png" width="250"/></a>
-<a href='https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png' title='redis-commander - an open source web interface for Redis'><img src="https://raw.github.com/benlowry/chromeos-setup/master/redis-commander.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/cloud9.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/deluge.png' title='Deluge - an open source web server and interface for torrents'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/deluge.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/emby.png' title='Emby -
+an open source media server and interface for audio/video'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/emby.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/gitwebui.png' title='git-webui - an open source web interface for git repistories.'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/gitwebui.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/pgweb.png' title='PGWeb - an open source web interface for PostgreSQL databases'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/pgweb.png" width="250"/></a>
+<a href='https://raw.github.com/benlowry/chromeos-setup/master/screenshots/redis-commander.png' title='redis-commander - an open source web interface for Redis'><img src="https://raw.github.com/benlowry/chromeos-setup/master/screenshots/redis-commander.png" width="250"/></a>
 
 ### Finishing PostgreSQL setup
 You will need to create a user and database:
@@ -89,23 +89,23 @@ You will need to create a user and database:
     $ sudo -i -u postgres
     $ createuser -P -s -e mydb
     $ createdb mydb --owner mydb
-    
+
 ### Finishing Redis setup
 Redis requires running an installation script to configure the port and folders:
 
     $ cd ~/redis-stable/utils && sudo bash install_server.sh
-    
+
 ### Finishing Dropbox setup
 Note: first run it will generate a URL to link your computer:
-  
+
     # follow the link it generates, eventually press ctrl+c to quit
     $ ~/.dropbox-dist/dropboxd
-    
+
     # exclude folders via selective sync:
     $ ~/dropbox.py exclude add my_folder
-    
+
     # exclude all folders but 'chromedev' (run multiple times)
     $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
-    
+
     # replace ~/projects with ~/Dropbox/chromedev:
     $ rm -rf ~/projects && ln -s ~/Dropbox/chromedev ~/projects
