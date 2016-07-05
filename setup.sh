@@ -335,7 +335,9 @@
    
   if [ "$REDIS" = "true" ]; then
     echo "-------------------------------------------"
-    echo "Redis is running on port 6379"
+    echo "Redis setup can be completed with:"
+    echo ""
+    echo " $ cd ~/redis-stable/utils && sudo bash install_server.sh"
   fi
    
   if [ "$POSTGRESQL" = "true" ]; then
