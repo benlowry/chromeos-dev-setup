@@ -70,8 +70,8 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 - Emby will be running at [localhost:8096](http://localhost:8096)
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 - Dropbox requires connecting your account
-- PostgreSQL will be waiting to create databases and users
-- Redis will be waiting for final setup `cd ~/redis-stable/utils && sudo bash install_server.sh`
+- PostgreSQL on port 5432 will be waiting to create databases and users
+- Redis on port 6379 will be waiting for final setup `cd ~/redis-stable/utils && sudo bash install_server.sh`
 
 ## Screenshots
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
