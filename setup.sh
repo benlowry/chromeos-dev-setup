@@ -210,7 +210,7 @@
   
   # Redis, only available internally on c9.io
   if [[ ! "$@" == "*-redis"* ]] && ([[ "$@" == *"redis"* ]] || [ $ALL = "true" ]); then 
-    sudo apt-get install tcl8.5
+    sudo apt-get install -y tcl8.5
     wget http://download.redis.io/releases/redis-stable.tar.gz
     tar xzf redis-stable.tar.gz
     cd redis-stable
