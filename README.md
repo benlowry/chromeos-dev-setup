@@ -53,7 +53,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 ### Tools
 - `dropbox` [Dropbox](https://www.dropbox.com/)
 - `redis` [Redis](http://redis.io/)  (insecure link)
-- `postgresql` [Postgresql](https://postgresql.org/)
+- `postgresql` [PostgreSQL](https://postgresql.org/)
 
 ### Hosting services
 - `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)  (insecure link)
