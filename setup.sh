@@ -219,6 +219,7 @@
     cd utils
     sudo ./install_server.sh
     cd ~/
+    REDIS=true
   fi
   
   # PostgreSQL, preinstalled on c9.io
