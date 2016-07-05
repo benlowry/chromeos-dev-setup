@@ -208,6 +208,19 @@
     # start: $HOME/.dropbox-dist/dropboxd
   fi
   
+  # Redis, only available internally on c9.io
+  if [[ ! "$@" == "*-redis"* ]] && ([[ "$@" == *"redis"* ]] || [ $ALL = "true" ]); then 
+    sudo apt-get install tcl8.5
+    wget http://download.redis.io/releases/redis-stable.tar.gz
+    tar xzf redis-stable.tar.gz
+    cd redis-stable
+    make
+    sudo make install
+    cd utils
+    sudo ./install_server.sh
+    cd ~/
+  fi
+  
   # PostgreSQL, preinstalled on c9.io
   if [[ ! "$@" == *"-postgres"* ]] && ([[ "$@" == *"postgres"* ]] || [ $ALL = "true" ]); then
     if [ ! "$C9IO" = "true" ]; then
