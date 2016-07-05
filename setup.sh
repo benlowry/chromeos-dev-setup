@@ -216,8 +216,6 @@
     cd redis-stable
     make
     sudo make install
-    cd utils
-    sudo ./install_server.sh
     cd ~/
     REDIS=true
   fi
