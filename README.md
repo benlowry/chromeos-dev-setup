@@ -40,8 +40,8 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 ## What can be installed
 ### Browser-based software
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
-- `deluge` [Deluge torrent server](http://deluge-torrent.org/)
-- `emby` [Emby Media Server](http://emby.media)
+- `deluge` [Deluge torrent server](http://deluge-torrent.org/) (insecure link)
+- `emby` [Emby Media Server](http://emby.media)  (insecure link)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
 
@@ -52,13 +52,14 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 
 ### Tools
 - `dropbox` [Dropbox](https://www.dropbox.com/)
+- `redis` [Redis](http://redis.io/)  (insecure link)
 - `postgresql` [Postgresql](https://postgresql.org/)
 
 ### Hosting services
-- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
+- `awscli` [Amazon's  AWS CLI](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)  (insecure link)
 - `doctl` [DigitalOcean's doctl](https://github.com/digitaloceal/doctl)
 - `heroku` [Heroku Toolbelt](https://toolbelt.heroku.com/debian)
-- `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)
+- `s3cmd` [S3Tools' S3CMD](http://s3tools.org/s3cmd)  (insecure link)
 
 ## After setup finishes
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost:
