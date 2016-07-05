@@ -135,7 +135,7 @@
     npm install -g pm2
     echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             RUNNING=\`pm2 list | grep -i cloud9\`
-            if [ -z $RUNNING ]; then
+            if [ -z "$RUNNING" ]; then
               pm2 start c9/server.js --error /dev/null --output /dev/null --name cloud9 -- -w projects --port=$C9_PORT 
             fi
           fi" >> $HOME/.bash_profile
@@ -188,6 +188,23 @@
             fi
           fi" >> $HOME/.bash_profile
     PGWEB=true
+  fi
+  
+  # redis-commander
+  if [[ ! "$@" == *"-redis-commander"* ]] && ([[ "$@" == *"redis-commander"* ]] || [ $ALL = "true" ]); then
+   # TODO: there is a bug preventing redis-commander using current node
+    nvm install v4.0.0 && nvm use default
+    npm install -g pm2 
+    echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
+            RUNNING=`ps -ax | grep -i pm2`
+            if [ ! -z \"\$RUNNING\" ]; then
+              RUNNING=`pm2 list | grep redis-commander`
+            fi
+            if [ -z \"\$RUNNING\" ]; then
+              pm2 start redis-commander --interpreter=~/.nvm/versions/node/v4.0.0/bin/node --error /dev/null --output /dev/null --name redis-commander -- --port=$REDIS_COMMANDER_PORT
+            fi
+          fi" >> $HOME/.bash_profile
+    REDIS_COMMANDER=true
   fi
   
   # ------------------------------------------------
@@ -288,22 +305,6 @@
     echo "http://127.0.0.1:${C9_PORT}/"
   fi
   
-  if [ "$PGWEB" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "PGWeb can be opened in your browser at:"
-    echo " http://127.0.0.1:${PGWEB_PORT}/"
-  fi
-  
-  if [ "$GITWEBUI" = "true" ]; then
-    echo "--------------------------------------------"
-    echo "Git WebUI can be started in a repo:"
-    echo ""
-    echo " $ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}"
-    echo ""
-    echo "Git WebUI can be opened in your browser at:"
-    echo " http://127.0.0.1:${GITWEBUI_PORT}/"
-  fi
-  
   if [ "$EMBY" = "true" ]; then
     echo "--------------------------------------------"
     echo "Emby can be opened in your browser at:"
@@ -315,7 +316,28 @@
     echo "Deluge can be opened in your browser at:"
     echo " http://127.0.0.1:${DELUGE_PORT}/ password 'deluge'"
   fi
+
+  if [ "$GITWEBUI" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "Git WebUI can be started in a repo:"
+    echo ""
+    echo " $ git webui --host 0.0.0.0 --no-browser --port ${GITWEBUI_PORT}"
+    echo ""
+    echo "Git WebUI can be opened in your browser at:"
+    echo " http://127.0.0.1:${GITWEBUI_PORT}/"
+  fi
   
+  if [ "$PGWEB" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "pgweb can be opened in your browser at:"
+    echo " http://127.0.0.1:${PGWEB_PORT}/"
+  fi
+  
+  if [ "$REDIS_COMMANDER" = "true" ]; then
+    echo "--------------------------------------------"
+    echo "redis-commander can be opened in your browser at:"
+    echo " http://127.0.0.1:${REDIS_COMMANDER_PORT}/"
+  fi  
   # ------------------------------------------------
   # Setup notes for tools in alphabetical order
   # ------------------------------------------------
