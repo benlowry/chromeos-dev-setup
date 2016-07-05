@@ -44,6 +44,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `emby` [Emby Media Server](http://emby.media)  (insecure link)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
+- `redis-commander` [redis-commander](https://github.com/joeferner/redis-commander)
 
 ### Languages
 - `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
@@ -65,8 +66,9 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 If installed, note that On [C9.io](https://c9.io) you use your workspace URL not localhost:
 
 - Cloud9 will be running at [localhost:8080](http://localhost:8080) ~/projects as workspace
-- PGWeb will be running at [localhost:8081](http://localhost:8082)
-- Git WebUI runs at [localhost:8082](http://localhost:8081) after `git webui` in a repo
+- PGWeb will be running at [localhost:8081](http://localhost:8081)
+- Git WebUI runs at [localhost:8082](http://localhost:8082) after `git webui` in a repo
+- redis-commander runs at [localhost:8083](http://localhost:8083)
 - Emby will be running at [localhost:8096](http://localhost:8096)
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 - Dropbox requires connecting your account
