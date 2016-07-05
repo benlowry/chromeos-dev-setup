@@ -71,7 +71,7 @@ If installed, note that On [C9.io](https://c9.io) you use your workspace URL not
 - Deluge will be running at [localhost:8112](http://localhost:8112), password 'deluge'
 - Dropbox requires connecting your account
 - PostgreSQL will be waiting to create databases and users
-- Redis will be waiting 
+- Redis will be waiting for final setup `cd ~/redis-stable/utils && sudo bash install_server.sh`
 
 ## Screenshots
 <a href='https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png' title='Cloud9 - an open source IDE'><img src="https://raw.github.com/benlowry/chromeos-setup/master/cloud9.png" width="250"/></a>
@@ -88,10 +88,15 @@ You will need to create a user and database:
     $ createuser -P -s -e mydb
     $ createdb mydb --owner mydb
     
+### Finishing Redis setup
+Redis requires running an installation script to configure the port and folders:
+
+    $ cd ~/redis-stable/utils && sudo bash install_server.sh
+    
 ### Finishing Dropbox setup
-Note: first run it will generate a URL to link your computer
+Note: first run it will generate a URL to link your computer:
   
-    # follow the link it generates
+    # follow the link it generates, eventually press ctrl+c to quit
     $ ~/.dropbox-dist/dropboxd
     
     # exclude folders via selective sync:
