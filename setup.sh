@@ -193,7 +193,7 @@
   # redis-commander
   if [[ ! "$@" == *"-redis-commander"* ]] && ([[ "$@" == *"redis-commander"* ]] || [ $ALL = "true" ]); then
    # TODO: there is a bug preventing redis-commander using current node
-    nvm install v4.0.0 && nvm use default
+    nvm install v4.0.0 && nvm use v4.0.0
     npm install -g pm2 
     echo "if [ \"\$PWD\" = \"\$HOME\" ]; then
             RUNNING=`ps -ax | grep -i pm2`
@@ -205,6 +205,7 @@
             fi
           fi" >> $HOME/.bash_profile
     REDIS_COMMANDER=true
+    nvm use default
   fi
   
   # ------------------------------------------------
