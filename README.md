@@ -44,7 +44,6 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `emby` [Emby Media Server](http://emby.media)  (insecure link)
 - `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
-- `redis-commander` [redis-commander](https://github.com/joeferner/redis-commander)
 
 ### Languages
 - `golang` via [lxd-stable](https://launchpad.net/~ubuntu-lxc/+archive/ubuntu/lxd-stable)
