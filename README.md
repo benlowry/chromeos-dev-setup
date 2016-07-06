@@ -1,4 +1,4 @@
-# Automated dev setup for programming on Chrome OS
+# Developer setup for programming on Chrome OS
 
 This setup script for installing Ubuntu core on Crouton for working on more powerful x86 Chrome OS
 devices.  It is compatible with C9.io so the same environment can be created on or off your
