@@ -97,15 +97,18 @@ Redis requires running an installation script to configure the port and folders:
     $ cd ~/redis-stable/utils && sudo bash install_server.sh
 
 ### Finishing Dropbox setup
-Note: first run it will generate a URL to link your computer:
+First run it will generate a URL to link your computer:
 
-    # follow the link it generates, eventually press ctrl+c to quit
     $ ~/.dropbox-dist/dropboxd
+Once you have followed the URL press `ctrl+c` to quit; and:
 
-    # exclude folders via selective sync:
+    $ ~/dropbox.py start 
+
+    # exclude folders via selective sync, dropbox will erase any
+    # files that become excluded  
     $ ~/dropbox.py exclude add my_folder
 
-    # exclude all folders but 'chromedev' (run multiple times)
+    # exclude all folders but 'chromedev' (only affects folders already syncing)
     $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
 
     # replace ~/projects with ~/Dropbox/chromedev:
