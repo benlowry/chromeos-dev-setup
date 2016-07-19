@@ -1,4 +1,4 @@
-# Automated setup for programming on Chrome OS
+# Developer setup for programming on Chrome OS
 
 This setup script for installing Ubuntu core on Crouton for working on more powerful x86 Chrome OS
 devices.  It is compatible with C9.io so the same environment can be created on or off your
@@ -20,7 +20,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo sh ~/Downloads/crouton -r trusty -t core -n my_chroot_name
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
-    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/releases/setup.sh > setup.sh
+    $ curl https://raw.githubusercontent.com/benlowry/chromeos-dev-setup/releases/setup.sh > setup.sh
 
     # install everything
     $ bash setup.sh
@@ -97,15 +97,18 @@ Redis requires running an installation script to configure the port and folders:
     $ cd ~/redis-stable/utils && sudo bash install_server.sh
 
 ### Finishing Dropbox setup
-Note: first run it will generate a URL to link your computer:
+First run it will generate a URL to link your computer:
 
-    # follow the link it generates, eventually press ctrl+c to quit
     $ ~/.dropbox-dist/dropboxd
+Once you have followed the URL press `ctrl+c` to quit; and:
 
-    # exclude folders via selective sync:
+    $ ~/dropbox.py start 
+
+    # exclude folders via selective sync, dropbox will erase any
+    # files that become excluded  
     $ ~/dropbox.py exclude add my_folder
 
-    # exclude all folders but 'chromedev' (run multiple times)
+    # exclude all folders but 'chromedev' (only affects folders already syncing)
     $ cd ~/Dropbox && for x in *; do if [ ! "$x" = "chromedev" ]; then ~/dropbox.py exclude add "$x"; fi done;
 
     # replace ~/projects with ~/Dropbox/chromedev:
