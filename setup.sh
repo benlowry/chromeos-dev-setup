@@ -390,7 +390,7 @@
   if [ "$DOCTL" = "true" ]; then
     echo "--------------------------------------------"
     echo "DOCTL is installed"
-  ff
+  fi
   
   if [ "$HEROKU" = "true" ]; then
     echo "--------------------------------------------"
