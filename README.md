@@ -20,7 +20,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
     $ sudo sh ~/Downloads/crouton -r trusty -t core -n my_chroot_name
     $ sudo enter-chroot
     $ sudo apt-get install -y curl
-    $ curl https://raw.githubusercontent.com/benlowry/chromeos-setup/releases/setup.sh > setup.sh
+    $ curl https://raw.githubusercontent.com/benlowry/chromeos-dev-setup/releases/setup.sh > setup.sh
 
     # install everything
     $ bash setup.sh
