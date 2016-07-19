@@ -19,7 +19,7 @@
   fi
   
   if [ -z $REDIS_COMMANDER_PORT ]; then
-    $REDIS_COMMANDER_PORT=8083 # default 8081
+    REDIS_COMMANDER_PORT=8083 # default 8081
   fi
   
   if [ -z $DELUGE_PORT ]; then
