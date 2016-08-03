@@ -42,7 +42,7 @@ To use this you'll need [crouton](https://github.com/dnschneid/crouton) and deve
 - `cloud9` [Cloud9 IDE](https://github.com/c9/core)
 - `deluge` [Deluge torrent server](http://deluge-torrent.org/) (insecure link)
 - `emby` [Emby Media Server](http://emby.media)  (insecure link)
-- `git-webui` [Git-WebUI](https://github.com/alberthier/git-webgui)
+- `git-webui` [Git-WebUI](https://github.com/alberthier/git-webui)
 - `redis-commander` [redis-commander](https://github.com/joeferner/redis-commander)
 - `pgweb` [pgweb ](https://github.com/sosedoff/pgweb)
 
