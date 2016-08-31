@@ -84,7 +84,7 @@
   # LANGUAGES alphabetically
   # ------------------------------------------------
   # Pull requests welcome
-  echo 'PWD=\`pwd\`' >> $HOME/.bash_profile
+  echo 'PWD=`pwd`' >> $HOME/.bash_profile
   
   # Golang
   if [[ ! "$@" == *"-golang"* ]] && ([[ "$@" == *"golang"* ]] || [ $ALL = "true" ]); then
